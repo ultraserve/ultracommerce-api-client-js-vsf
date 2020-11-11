@@ -1,6 +1,6 @@
 /**
- * Broadleaf Commerce API
- * The default Broadleaf Commerce APIs
+ * UltraCommerce API
+ * The UltraCommerce API
  *
  * The version of the OpenAPI document: v1
  *
@@ -147,6 +147,12 @@ export interface AdjustmentWrapper {
     adjustmentValue?: Money;
     /**
      *
+     * @type {ApplicationContext}
+     * @memberof AdjustmentWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
      * @type {number}
      * @memberof AdjustmentWrapper
      */
@@ -185,6 +191,79 @@ export interface AdjustmentWrapper {
 /**
  *
  * @export
+ * @interface ApplicationContext
+ */
+export interface ApplicationContext {
+    /**
+     *
+     * @type {string}
+     * @memberof ApplicationContext
+     */
+    applicationName?: string;
+    /**
+     *
+     * @type {object}
+     * @memberof ApplicationContext
+     */
+    autowireCapableBeanFactory?: object;
+    /**
+     *
+     * @type {number}
+     * @memberof ApplicationContext
+     */
+    beanDefinitionCount?: number;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ApplicationContext
+     */
+    beanDefinitionNames?: Array<string>;
+    /**
+     *
+     * @type {ClassLoader}
+     * @memberof ApplicationContext
+     */
+    classLoader?: ClassLoader;
+    /**
+     *
+     * @type {string}
+     * @memberof ApplicationContext
+     */
+    displayName?: string;
+    /**
+     *
+     * @type {Environment}
+     * @memberof ApplicationContext
+     */
+    environment?: Environment;
+    /**
+     *
+     * @type {string}
+     * @memberof ApplicationContext
+     */
+    id?: string;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof ApplicationContext
+     */
+    parent?: ApplicationContext;
+    /**
+     *
+     * @type {object}
+     * @memberof ApplicationContext
+     */
+    parentBeanFactory?: object;
+    /**
+     *
+     * @type {number}
+     * @memberof ApplicationContext
+     */
+    startupDate?: number;
+}
+/**
+ *
+ * @export
  * @interface BroadleafEnumerationTypeWrapper
  */
 export interface BroadleafEnumerationTypeWrapper {
@@ -200,6 +279,87 @@ export interface BroadleafEnumerationTypeWrapper {
      * @memberof BroadleafEnumerationTypeWrapper
      */
     type?: string;
+}
+/**
+ *
+ * @export
+ * @interface BulkResponseFulfillmentOrderWrapper
+ */
+export interface BulkResponseFulfillmentOrderWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof BulkResponseFulfillmentOrderWrapper
+     */
+    bulkToken?: string;
+    /**
+     *
+     * @type {Array<FulfillmentOrderWrapper>}
+     * @memberof BulkResponseFulfillmentOrderWrapper
+     */
+    items?: Array<FulfillmentOrderWrapper>;
+}
+/**
+ *
+ * @export
+ * @interface BulkResponseOrderWrapper
+ */
+export interface BulkResponseOrderWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof BulkResponseOrderWrapper
+     */
+    bulkToken?: string;
+    /**
+     *
+     * @type {Array<OrderWrapper>}
+     * @memberof BulkResponseOrderWrapper
+     */
+    items?: Array<OrderWrapper>;
+}
+/**
+ *
+ * @export
+ * @interface CancelRequestWrapper
+ */
+export interface CancelRequestWrapper {
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof CancelRequestWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
+     * @type {string}
+     * @memberof CancelRequestWrapper
+     */
+    comment?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CancelRequestWrapper
+     */
+    fulfillmentOrderNumber?: string;
+    /**
+     *
+     * @type {Array<FulfillmentOrderItemWrapper>}
+     * @memberof CancelRequestWrapper
+     */
+    items?: Array<FulfillmentOrderItemWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof CancelRequestWrapper
+     */
+    orderNumber?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CancelRequestWrapper
+     */
+    reason?: string;
 }
 /**
  *
@@ -243,7 +403,7 @@ export interface CategoriesWrapper {
      * @type {Array<CategoryWrapper>}
      * @memberof CategoriesWrapper
      */
-    category?: Array<CategoryWrapper>;
+    categories?: Array<CategoryWrapper>;
 }
 /**
  *
@@ -308,16 +468,10 @@ export interface CategoryWrapper {
     archived?: string;
     /**
      *
-     * @type {Array<CategoryWrapper>}
-     * @memberof CategoryWrapper
-     */
-    category?: Array<CategoryWrapper>;
-    /**
-     *
      * @type {Array<CategoryAttributeWrapper>}
      * @memberof CategoryWrapper
      */
-    categoryAttribute?: Array<CategoryAttributeWrapper>;
+    categoryAttributes?: Array<CategoryAttributeWrapper>;
     /**
      *
      * @type {string}
@@ -335,19 +489,25 @@ export interface CategoryWrapper {
      * @type {string}
      * @memberof CategoryWrapper
      */
+    longDescription?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CategoryWrapper
+     */
     name?: string;
     /**
      *
      * @type {Array<ProductWrapper>}
      * @memberof CategoryWrapper
      */
-    product?: Array<ProductWrapper>;
+    products?: Array<ProductWrapper>;
     /**
      *
-     * @type {Array<ProductWrapper>}
+     * @type {Array<CategoryWrapper>}
      * @memberof CategoryWrapper
      */
-    relatedProduct?: Array<ProductWrapper>;
+    subcategories?: Array<CategoryWrapper>;
     /**
      *
      * @type {string}
@@ -389,6 +549,25 @@ export interface ChangePasswordForm {
 /**
  *
  * @export
+ * @interface ClassLoader
+ */
+export interface ClassLoader {
+    /**
+     *
+     * @type {boolean}
+     * @memberof ClassLoader
+     */
+    defaultAssertionStatus?: boolean;
+    /**
+     *
+     * @type {ClassLoader}
+     * @memberof ClassLoader
+     */
+    parent?: ClassLoader;
+}
+/**
+ *
+ * @export
  * @interface ConfigurableOrderItemWrapper
  */
 export interface ConfigurableOrderItemWrapper {
@@ -398,6 +577,12 @@ export interface ConfigurableOrderItemWrapper {
      * @memberof ConfigurableOrderItemWrapper
      */
     additionalAttributes?: Array<MapElementWrapper>;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof ConfigurableOrderItemWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {Array<ConfigurableOrderItemWrapper>}
@@ -418,18 +603,6 @@ export interface ConfigurableOrderItemWrapper {
     hasConfigurationError?: boolean;
     /**
      *
-     * @type {boolean}
-     * @memberof ConfigurableOrderItemWrapper
-     */
-    isMultiSelect?: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ConfigurableOrderItemWrapper
-     */
-    isUpdateRequest?: boolean;
-    /**
-     *
      * @type {Array<OrderItemAttributeWrapper>}
      * @memberof ConfigurableOrderItemWrapper
      */
@@ -446,6 +619,12 @@ export interface ConfigurableOrderItemWrapper {
      * @memberof ConfigurableOrderItemWrapper
      */
     minQuantity?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ConfigurableOrderItemWrapper
+     */
+    multiSelect?: boolean;
     /**
      *
      * @type {number}
@@ -512,6 +691,12 @@ export interface ConfigurableOrderItemWrapper {
      * @memberof ConfigurableOrderItemWrapper
      */
     skuId?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ConfigurableOrderItemWrapper
+     */
+    updateRequest?: boolean;
 }
 /**
  *
@@ -535,99 +720,6 @@ export interface CountryWrapper {
 /**
  *
  * @export
- * @interface CustomCategory
- */
-export interface CustomCategory {
-    /**
-     *
-     * @type {boolean}
-     * @memberof CustomCategory
-     */
-    active?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof CustomCategory
-     */
-    activeEndDate?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof CustomCategory
-     */
-    activeStartDate?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof CustomCategory
-     */
-    archived?: string;
-    /**
-     *
-     * @type {Array<CategoryWrapper>}
-     * @memberof CustomCategory
-     */
-    category?: Array<CategoryWrapper>;
-    /**
-     *
-     * @type {Array<CategoryAttributeWrapper>}
-     * @memberof CustomCategory
-     */
-    categoryAttribute?: Array<CategoryAttributeWrapper>;
-    /**
-     *
-     * @type {string}
-     * @memberof CustomCategory
-     */
-    description?: string;
-    /**
-     *
-     * @type {number}
-     * @memberof CustomCategory
-     */
-    id?: number;
-    /**
-     *
-     * @type {string}
-     * @memberof CustomCategory
-     */
-    name?: string;
-    /**
-     *
-     * @type {Array<CustomCategory>}
-     * @memberof CustomCategory
-     */
-    parent?: CustomCategory;
-    /**
-     *
-     * @type {Array<ProductWrapper>}
-     * @memberof CustomCategory
-     */
-    product?: Array<ProductWrapper>;
-    /**
-     *
-     * @type {Array<ProductWrapper>}
-     * @memberof CustomCategory
-     */
-    relatedProduct?: Array<ProductWrapper>;
-    /**
-     *
-     * @type {string}
-     * @memberof CustomCategory
-     */
-    url?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof CustomCategory
-     */
-    urlKey?: string;
-    slug?: string;
-    children?: Array<CustomCategory>;
-}
-/**
- *
- * @export
  * @interface CustomerAddressWrapper
  */
 export interface CustomerAddressWrapper {
@@ -643,6 +735,12 @@ export interface CustomerAddressWrapper {
      * @memberof CustomerAddressWrapper
      */
     addressName?: string;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof CustomerAddressWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -698,7 +796,13 @@ export interface CustomerPaymentWrapper {
      * @type {Array<MapElementWrapper>}
      * @memberof CustomerPaymentWrapper
      */
-    additionalField?: Array<MapElementWrapper>;
+    additionalFields?: Array<MapElementWrapper>;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof CustomerPaymentWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {AddressWrapper}
@@ -774,16 +878,10 @@ export interface CustomerPaymentWrapper {
 export interface CustomerWrapper {
     /**
      *
-     * @type {string}
-     * @memberof CustomerWrapper
-     */
-    archived?: string;
-    /**
-     *
      * @type {Array<CustomerAttributeWrapper>}
      * @memberof CustomerWrapper
      */
-    customerAttribute?: Array<CustomerAttributeWrapper>;
+    customerAttributes?: Array<CustomerAttributeWrapper>;
     /**
      *
      * @type {string}
@@ -823,10 +921,10 @@ export interface CustomerWrapper {
 export interface DimensionWrapper {
     /**
      *
-     * @type {object}
+     * @type {ApplicationContext}
      * @memberof DimensionWrapper
      */
-    applicationContext?: object;
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -878,6 +976,12 @@ export interface DimensionWrapper {
 export interface DynamicSkuPricesWrapper {
     /**
      *
+     * @type {ApplicationContext}
+     * @memberof DynamicSkuPricesWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
      * @type {Money}
      * @memberof DynamicSkuPricesWrapper
      */
@@ -894,6 +998,25 @@ export interface DynamicSkuPricesWrapper {
      * @memberof DynamicSkuPricesWrapper
      */
     salePrice?: Money;
+}
+/**
+ *
+ * @export
+ * @interface Environment
+ */
+export interface Environment {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof Environment
+     */
+    activeProfiles?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof Environment
+     */
+    defaultProfiles?: Array<string>;
 }
 /**
  *
@@ -931,7 +1054,7 @@ export interface ErrorWrapper {
      * @type {Array<ErrorMessageWrapper>}
      * @memberof ErrorWrapper
      */
-    message?: Array<ErrorMessageWrapper>;
+    messages?: Array<ErrorMessageWrapper>;
 }
 /**
  *
@@ -993,7 +1116,7 @@ export interface FulfillmentGroupItemWrapper {
      * @type {Array<TaxDetailWrapper>}
      * @memberof FulfillmentGroupItemWrapper
      */
-    taxDetail?: Array<TaxDetailWrapper>;
+    taxDetails?: Array<TaxDetailWrapper>;
     /**
      *
      * @type {Money}
@@ -1024,25 +1147,19 @@ export interface FulfillmentGroupWrapper {
      * @type {Array<AdjustmentWrapper>}
      * @memberof FulfillmentGroupWrapper
      */
-    fulfillmentGroupAdjustment?: Array<AdjustmentWrapper>;
+    fulfillmentGroupAdjustments?: Array<AdjustmentWrapper>;
     /**
      *
      * @type {Array<FulfillmentGroupItemWrapper>}
      * @memberof FulfillmentGroupWrapper
      */
-    fulfillmentGroupItem?: Array<FulfillmentGroupItemWrapper>;
+    fulfillmentGroupItems?: Array<FulfillmentGroupItemWrapper>;
     /**
      *
      * @type {FulfillmentOptionWrapper}
      * @memberof FulfillmentGroupWrapper
      */
     fulfillmentOption?: FulfillmentOptionWrapper;
-    /**
-     *
-     * @type {Money}
-     * @memberof FulfillmentGroupWrapper
-     */
-    fulfillmentPrice?: Money;
     /**
      *
      * @type {BroadleafEnumerationTypeWrapper}
@@ -1069,22 +1186,53 @@ export interface FulfillmentGroupWrapper {
     phone?: PhoneWrapper;
     /**
      *
-     * @type {string}
-     * @memberof FulfillmentGroupWrapper
-     */
-    status?: string;
-    /**
-     *
      * @type {Array<TaxDetailWrapper>}
      * @memberof FulfillmentGroupWrapper
      */
-    taxDetail?: Array<TaxDetailWrapper>;
+    taxDetails?: Array<TaxDetailWrapper>;
     /**
      *
      * @type {Money}
      * @memberof FulfillmentGroupWrapper
      */
     total?: Money;
+}
+/**
+ *
+ * @export
+ * @interface FulfillmentLocationWrapper
+ */
+export interface FulfillmentLocationWrapper {
+    /**
+     *
+     * @type {AddressWrapper}
+     * @memberof FulfillmentLocationWrapper
+     */
+    address?: AddressWrapper;
+    /**
+     *
+     * @type {boolean}
+     * @memberof FulfillmentLocationWrapper
+     */
+    defaultLocation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentLocationWrapper
+     */
+    fulfillmentType?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof FulfillmentLocationWrapper
+     */
+    id?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentLocationWrapper
+     */
+    name?: string;
 }
 /**
  *
@@ -1126,6 +1274,171 @@ export interface FulfillmentOptionWrapper {
 /**
  *
  * @export
+ * @interface FulfillmentOrderAcknowledgementWrapper
+ */
+export interface FulfillmentOrderAcknowledgementWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof FulfillmentOrderAcknowledgementWrapper
+     */
+    acknowledged?: boolean;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof FulfillmentOrderAcknowledgementWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentOrderAcknowledgementWrapper
+     */
+    externalFulfillmentOrderId?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof FulfillmentOrderAcknowledgementWrapper
+     */
+    fulfillmentOrderId?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof FulfillmentOrderAcknowledgementWrapper
+     */
+    inFulfillment?: boolean;
+    /**
+     *
+     * @type {Array<OrderAttributeWrapper>}
+     * @memberof FulfillmentOrderAcknowledgementWrapper
+     */
+    parentOrderAttributes?: Array<OrderAttributeWrapper>;
+}
+/**
+ *
+ * @export
+ * @interface FulfillmentOrderItemWrapper
+ */
+export interface FulfillmentOrderItemWrapper {
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof FulfillmentOrderItemWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
+     * @type {number}
+     * @memberof FulfillmentOrderItemWrapper
+     */
+    quantity?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof FulfillmentOrderItemWrapper
+     */
+    skuId?: number;
+}
+/**
+ *
+ * @export
+ * @interface FulfillmentOrderWrapper
+ */
+export interface FulfillmentOrderWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof FulfillmentOrderWrapper
+     */
+    acknowledged?: boolean;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof FulfillmentOrderWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentOrderWrapper
+     */
+    customerEmailAddress?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentOrderWrapper
+     */
+    customerFirstName?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof FulfillmentOrderWrapper
+     */
+    customerId?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentOrderWrapper
+     */
+    customerLastName?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof FulfillmentOrderWrapper
+     */
+    fulfillmentGroupId?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof FulfillmentOrderWrapper
+     */
+    fulfillmentOrderId?: number;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof FulfillmentOrderWrapper
+     */
+    fulfillmentOrderNotes?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentOrderWrapper
+     */
+    fulfillmentOrderNumber?: string;
+    /**
+     *
+     * @type {Array<FulfillmentOrderItemWrapper>}
+     * @memberof FulfillmentOrderWrapper
+     */
+    items?: Array<FulfillmentOrderItemWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentOrderWrapper
+     */
+    orderNumber?: string;
+    /**
+     *
+     * @type {Array<OrderAttributeWrapper>}
+     * @memberof FulfillmentOrderWrapper
+     */
+    parentOrderAttributes?: Array<OrderAttributeWrapper>;
+    /**
+     *
+     * @type {Array<ShipmentDetailWrapper>}
+     * @memberof FulfillmentOrderWrapper
+     */
+    shipmentDetails?: Array<ShipmentDetailWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof FulfillmentOrderWrapper
+     */
+    status?: string;
+}
+/**
+ *
+ * @export
  * @interface ISOCountryWrapper
  */
 export interface ISOCountryWrapper {
@@ -1145,27 +1458,77 @@ export interface ISOCountryWrapper {
 /**
  *
  * @export
+ * @interface InventoryNotificationWrapper
+ */
+export interface InventoryNotificationWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof InventoryNotificationWrapper
+     */
+    date?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof InventoryNotificationWrapper
+     */
+    emailAddress?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof InventoryNotificationWrapper
+     */
+    id?: number;
+    /**
+     *
+     * @type {FulfillmentLocationWrapper}
+     * @memberof InventoryNotificationWrapper
+     */
+    location?: FulfillmentLocationWrapper;
+    /**
+     *
+     * @type {boolean}
+     * @memberof InventoryNotificationWrapper
+     */
+    processed?: boolean;
+    /**
+     *
+     * @type {SkuWrapper}
+     * @memberof InventoryNotificationWrapper
+     */
+    sku?: SkuWrapper;
+}
+/**
+ *
+ * @export
  * @interface InventoryWrapper
  */
 export interface InventoryWrapper {
     /**
      *
+     * @type {boolean}
+     * @memberof InventoryWrapper
+     */
+    quantityOnHandEnabled?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface Link
+ */
+export interface Link {
+    /**
+     *
      * @type {string}
-     * @memberof InventoryWrapper
+     * @memberof Link
      */
-    inventoryType?: string;
+    href?: string;
     /**
      *
-     * @type {number}
-     * @memberof InventoryWrapper
+     * @type {boolean}
+     * @memberof Link
      */
-    quantityAvailable?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof InventoryWrapper
-     */
-    skuId?: number;
+    templated?: boolean;
 }
 /**
  *
@@ -1194,10 +1557,22 @@ export interface MapElementWrapper {
 export interface MediaWrapper {
     /**
      *
+     * @type {boolean}
+     * @memberof MediaWrapper
+     */
+    allowOverrideUrl?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof MediaWrapper
      */
     altText?: string;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof MediaWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -1285,70 +1660,73 @@ export interface ModelAndView {
     * @enum {string}
     */
 export declare enum ModelAndViewStatusEnum {
-    _100 = "100",
-    _101 = "101",
-    _102 = "102",
-    _103 = "103",
-    _200 = "200",
-    _201 = "201",
-    _202 = "202",
-    _203 = "203",
-    _204 = "204",
-    _205 = "205",
-    _206 = "206",
-    _207 = "207",
-    _208 = "208",
-    _226 = "226",
-    _300 = "300",
-    _301 = "301",
-    _302 = "302",
-    _303 = "303",
-    _304 = "304",
-    _305 = "305",
-    _307 = "307",
-    _308 = "308",
-    _400 = "400",
-    _401 = "401",
-    _402 = "402",
-    _403 = "403",
-    _404 = "404",
-    _405 = "405",
-    _406 = "406",
-    _407 = "407",
-    _408 = "408",
-    _409 = "409",
-    _410 = "410",
-    _411 = "411",
-    _412 = "412",
-    _413 = "413",
-    _414 = "414",
-    _415 = "415",
-    _416 = "416",
-    _417 = "417",
-    _418 = "418",
-    _419 = "419",
-    _420 = "420",
-    _421 = "421",
-    _422 = "422",
-    _423 = "423",
-    _424 = "424",
-    _426 = "426",
-    _428 = "428",
-    _429 = "429",
-    _431 = "431",
-    _451 = "451",
-    _500 = "500",
-    _501 = "501",
-    _502 = "502",
-    _503 = "503",
-    _504 = "504",
-    _505 = "505",
-    _506 = "506",
-    _507 = "507",
-    _508 = "508",
-    _509 = "509",
-    _510 = "510",
-    _511 = "511"
+    _100CONTINUE = "100 CONTINUE",
+    _101SWITCHINGPROTOCOLS = "101 SWITCHING_PROTOCOLS",
+    _102PROCESSING = "102 PROCESSING",
+    _103CHECKPOINT = "103 CHECKPOINT",
+    _200OK = "200 OK",
+    _201CREATED = "201 CREATED",
+    _202ACCEPTED = "202 ACCEPTED",
+    _203NONAUTHORITATIVEINFORMATION = "203 NON_AUTHORITATIVE_INFORMATION",
+    _204NOCONTENT = "204 NO_CONTENT",
+    _205RESETCONTENT = "205 RESET_CONTENT",
+    _206PARTIALCONTENT = "206 PARTIAL_CONTENT",
+    _207MULTISTATUS = "207 MULTI_STATUS",
+    _208ALREADYREPORTED = "208 ALREADY_REPORTED",
+    _226IMUSED = "226 IM_USED",
+    _300MULTIPLECHOICES = "300 MULTIPLE_CHOICES",
+    _301MOVEDPERMANENTLY = "301 MOVED_PERMANENTLY",
+    _302FOUND = "302 FOUND",
+    _302MOVEDTEMPORARILY = "302 MOVED_TEMPORARILY",
+    _303SEEOTHER = "303 SEE_OTHER",
+    _304NOTMODIFIED = "304 NOT_MODIFIED",
+    _305USEPROXY = "305 USE_PROXY",
+    _307TEMPORARYREDIRECT = "307 TEMPORARY_REDIRECT",
+    _308PERMANENTREDIRECT = "308 PERMANENT_REDIRECT",
+    _400BADREQUEST = "400 BAD_REQUEST",
+    _401UNAUTHORIZED = "401 UNAUTHORIZED",
+    _402PAYMENTREQUIRED = "402 PAYMENT_REQUIRED",
+    _403FORBIDDEN = "403 FORBIDDEN",
+    _404NOTFOUND = "404 NOT_FOUND",
+    _405METHODNOTALLOWED = "405 METHOD_NOT_ALLOWED",
+    _406NOTACCEPTABLE = "406 NOT_ACCEPTABLE",
+    _407PROXYAUTHENTICATIONREQUIRED = "407 PROXY_AUTHENTICATION_REQUIRED",
+    _408REQUESTTIMEOUT = "408 REQUEST_TIMEOUT",
+    _409CONFLICT = "409 CONFLICT",
+    _410GONE = "410 GONE",
+    _411LENGTHREQUIRED = "411 LENGTH_REQUIRED",
+    _412PRECONDITIONFAILED = "412 PRECONDITION_FAILED",
+    _413PAYLOADTOOLARGE = "413 PAYLOAD_TOO_LARGE",
+    _413REQUESTENTITYTOOLARGE = "413 REQUEST_ENTITY_TOO_LARGE",
+    _414URITOOLONG = "414 URI_TOO_LONG",
+    _414REQUESTURITOOLONG = "414 REQUEST_URI_TOO_LONG",
+    _415UNSUPPORTEDMEDIATYPE = "415 UNSUPPORTED_MEDIA_TYPE",
+    _416REQUESTEDRANGENOTSATISFIABLE = "416 REQUESTED_RANGE_NOT_SATISFIABLE",
+    _417EXPECTATIONFAILED = "417 EXPECTATION_FAILED",
+    _418IAMATEAPOT = "418 I_AM_A_TEAPOT",
+    _419INSUFFICIENTSPACEONRESOURCE = "419 INSUFFICIENT_SPACE_ON_RESOURCE",
+    _420METHODFAILURE = "420 METHOD_FAILURE",
+    _421DESTINATIONLOCKED = "421 DESTINATION_LOCKED",
+    _422UNPROCESSABLEENTITY = "422 UNPROCESSABLE_ENTITY",
+    _423LOCKED = "423 LOCKED",
+    _424FAILEDDEPENDENCY = "424 FAILED_DEPENDENCY",
+    _426UPGRADEREQUIRED = "426 UPGRADE_REQUIRED",
+    _428PRECONDITIONREQUIRED = "428 PRECONDITION_REQUIRED",
+    _429TOOMANYREQUESTS = "429 TOO_MANY_REQUESTS",
+    _431REQUESTHEADERFIELDSTOOLARGE = "431 REQUEST_HEADER_FIELDS_TOO_LARGE",
+    _451UNAVAILABLEFORLEGALREASONS = "451 UNAVAILABLE_FOR_LEGAL_REASONS",
+    _500INTERNALSERVERERROR = "500 INTERNAL_SERVER_ERROR",
+    _501NOTIMPLEMENTED = "501 NOT_IMPLEMENTED",
+    _502BADGATEWAY = "502 BAD_GATEWAY",
+    _503SERVICEUNAVAILABLE = "503 SERVICE_UNAVAILABLE",
+    _504GATEWAYTIMEOUT = "504 GATEWAY_TIMEOUT",
+    _505HTTPVERSIONNOTSUPPORTED = "505 HTTP_VERSION_NOT_SUPPORTED",
+    _506VARIANTALSONEGOTIATES = "506 VARIANT_ALSO_NEGOTIATES",
+    _507INSUFFICIENTSTORAGE = "507 INSUFFICIENT_STORAGE",
+    _508LOOPDETECTED = "508 LOOP_DETECTED",
+    _509BANDWIDTHLIMITEXCEEDED = "509 BANDWIDTH_LIMIT_EXCEEDED",
+    _510NOTEXTENDED = "510 NOT_EXTENDED",
+    _511NETWORKAUTHENTICATIONREQUIRED = "511 NETWORK_AUTHENTICATION_REQUIRED"
 }
 /**
  *
@@ -1368,6 +1746,55 @@ export interface Money {
      * @memberof Money
      */
     currency?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof Money
+     */
+    zero?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface OrderAcknowledgementWrapper
+ */
+export interface OrderAcknowledgementWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof OrderAcknowledgementWrapper
+     */
+    acknowledged?: boolean;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof OrderAcknowledgementWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
+     * @type {string}
+     * @memberof OrderAcknowledgementWrapper
+     */
+    externalOrderId?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof OrderAcknowledgementWrapper
+     */
+    inFulfillment?: boolean;
+    /**
+     *
+     * @type {Array<OrderAttributeWrapper>}
+     * @memberof OrderAcknowledgementWrapper
+     */
+    orderAttributes?: Array<OrderAttributeWrapper>;
+    /**
+     *
+     * @type {number}
+     * @memberof OrderAcknowledgementWrapper
+     */
+    orderId?: number;
 }
 /**
  *
@@ -1408,6 +1835,12 @@ export interface OrderAttributeWrapper {
 export interface OrderItemAttributeWrapper {
     /**
      *
+     * @type {ApplicationContext}
+     * @memberof OrderItemAttributeWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
      * @type {number}
      * @memberof OrderItemAttributeWrapper
      */
@@ -1439,16 +1872,22 @@ export interface OrderItemAttributeWrapper {
 export interface OrderItemPriceDetailWrapper {
     /**
      *
-     * @type {Array<AdjustmentWrapper>}
+     * @type {ApplicationContext}
      * @memberof OrderItemPriceDetailWrapper
      */
-    adjustment?: Array<AdjustmentWrapper>;
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {number}
      * @memberof OrderItemPriceDetailWrapper
      */
     id?: number;
+    /**
+     *
+     * @type {Array<AdjustmentWrapper>}
+     * @memberof OrderItemPriceDetailWrapper
+     */
+    orderItemPriceDetailAdjustments?: Array<AdjustmentWrapper>;
     /**
      *
      * @type {number}
@@ -1476,6 +1915,12 @@ export interface OrderItemPriceDetailWrapper {
 export interface OrderItemQualifierWrapper {
     /**
      *
+     * @type {ApplicationContext}
+     * @memberof OrderItemQualifierWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
      * @type {number}
      * @memberof OrderItemQualifierWrapper
      */
@@ -1495,16 +1940,34 @@ export interface OrderItemQualifierWrapper {
 export interface OrderItemWrapper {
     /**
      *
+     * @type {Array<MapElementWrapper>}
+     * @memberof OrderItemWrapper
+     */
+    additionalAttributes?: Array<MapElementWrapper>;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof OrderItemWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
      * @type {Money}
      * @memberof OrderItemWrapper
      */
     averagePrice?: Money;
     /**
      *
+     * @type {boolean}
+     * @memberof OrderItemWrapper
+     */
+    bundle?: boolean;
+    /**
+     *
      * @type {Array<OrderItemWrapper>}
      * @memberof OrderItemWrapper
      */
-    bundleItem?: Array<OrderItemWrapper>;
+    bundleItems?: Array<OrderItemWrapper>;
     /**
      *
      * @type {Array<string>}
@@ -1523,6 +1986,12 @@ export interface OrderItemWrapper {
      * @memberof OrderItemWrapper
      */
     childOrderItems?: Array<OrderItemWrapper>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof OrderItemWrapper
+     */
+    discountingAllowed?: boolean;
     /**
      *
      * @type {boolean}
@@ -1564,7 +2033,7 @@ export interface OrderItemWrapper {
      * @type {Array<OrderItemAttributeWrapper>}
      * @memberof OrderItemWrapper
      */
-    orderItemAttribute?: Array<OrderItemAttributeWrapper>;
+    orderItemAttributes?: Array<OrderItemAttributeWrapper>;
     /**
      *
      * @type {Array<OrderItemPriceDetailWrapper>}
@@ -1606,7 +2075,7 @@ export interface OrderItemWrapper {
      * @type {Array<OrderItemQualifierWrapper>}
      * @memberof OrderItemWrapper
      */
-    qualifier?: Array<OrderItemQualifierWrapper>;
+    qualifiers?: Array<OrderItemQualifierWrapper>;
     /**
      *
      * @type {number}
@@ -1647,9 +2116,34 @@ export interface OrderItemWrapper {
 /**
  *
  * @export
+ * @interface OrderNoteWrapper
+ */
+export interface OrderNoteWrapper {
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof OrderNoteWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
+     * @type {string}
+     * @memberof OrderNoteWrapper
+     */
+    orderNote?: string;
+}
+/**
+ *
+ * @export
  * @interface OrderPaymentWrapper
  */
 export interface OrderPaymentWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof OrderPaymentWrapper
+     */
+    active?: boolean;
     /**
      *
      * @type {number}
@@ -1680,12 +2174,6 @@ export interface OrderPaymentWrapper {
      * @memberof OrderPaymentWrapper
      */
     id?: number;
-    /**
-     *
-     * @type {boolean}
-     * @memberof OrderPaymentWrapper
-     */
-    isActive?: boolean;
     /**
      *
      * @type {number}
@@ -1737,16 +2225,16 @@ export interface OrderWrapper {
     emailAddress?: string;
     /**
      *
-     * @type {Array<FulfillmentGroupWrapper>}
-     * @memberof OrderWrapper
-     */
-    fulfillmentGroup?: Array<FulfillmentGroupWrapper>;
-    /**
-     *
      * @type {Money}
      * @memberof OrderWrapper
      */
     fulfillmentGroupAdjustmentsValue?: Money;
+    /**
+     *
+     * @type {Array<FulfillmentGroupWrapper>}
+     * @memberof OrderWrapper
+     */
+    fulfillmentGroups?: Array<FulfillmentGroupWrapper>;
     /**
      *
      * @type {number}
@@ -1770,7 +2258,7 @@ export interface OrderWrapper {
      * @type {Array<AdjustmentWrapper>}
      * @memberof OrderWrapper
      */
-    orderAdjustment?: Array<AdjustmentWrapper>;
+    orderAdjustments?: Array<AdjustmentWrapper>;
     /**
      *
      * @type {Money}
@@ -1782,13 +2270,13 @@ export interface OrderWrapper {
      * @type {Array<OrderAttributeWrapper>}
      * @memberof OrderWrapper
      */
-    orderAttribute?: Array<OrderAttributeWrapper>;
+    orderAttributes?: Array<OrderAttributeWrapper>;
     /**
      *
      * @type {Array<OrderItemWrapper>}
      * @memberof OrderWrapper
      */
-    orderItem?: Array<OrderItemWrapper>;
+    orderItems?: Array<OrderItemWrapper>;
     /**
      *
      * @type {string}
@@ -1800,7 +2288,7 @@ export interface OrderWrapper {
      * @type {Array<OrderPaymentWrapper>}
      * @memberof OrderWrapper
      */
-    payment?: Array<OrderPaymentWrapper>;
+    payments?: Array<OrderPaymentWrapper>;
     /**
      *
      * @type {string}
@@ -1855,7 +2343,7 @@ export interface PaymentTransactionWrapper {
      * @type {Array<MapElementWrapper>}
      * @memberof PaymentTransactionWrapper
      */
-    additionalField?: Array<MapElementWrapper>;
+    additionalFields?: Array<MapElementWrapper>;
     /**
      *
      * @type {number}
@@ -1956,6 +2444,12 @@ export interface PhoneWrapper {
 export interface ProductAttributeWrapper {
     /**
      *
+     * @type {ApplicationContext}
+     * @memberof ProductAttributeWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
      * @type {string}
      * @memberof ProductAttributeWrapper
      */
@@ -1993,6 +2487,12 @@ export interface ProductAttributeWrapper {
 export interface ProductOptionValueWrapper {
     /**
      *
+     * @type {ApplicationContext}
+     * @memberof ProductOptionValueWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
      * @type {string}
      * @memberof ProductOptionValueWrapper
      */
@@ -2027,7 +2527,13 @@ export interface ProductOptionWrapper {
      * @type {Array<ProductOptionValueWrapper>}
      * @memberof ProductOptionWrapper
      */
-    allowedValue?: Array<ProductOptionValueWrapper>;
+    allowedValues?: Array<ProductOptionValueWrapper>;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof ProductOptionWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -2109,6 +2615,12 @@ export interface ProductWrapper {
     additionalSkus?: Array<SkuWrapper>;
     /**
      *
+     * @type {ApplicationContext}
+     * @memberof ProductWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
      * @type {string}
      * @memberof ProductWrapper
      */
@@ -2130,7 +2642,7 @@ export interface ProductWrapper {
      * @type {Array<RelatedProductWrapper>}
      * @memberof ProductWrapper
      */
-    crossSaleProduct?: Array<RelatedProductWrapper>;
+    crossSaleProducts?: Array<RelatedProductWrapper>;
     /**
      *
      * @type {number}
@@ -2208,13 +2720,13 @@ export interface ProductWrapper {
      * @type {Array<ProductAttributeWrapper>}
      * @memberof ProductWrapper
      */
-    productAttribute?: Array<ProductAttributeWrapper>;
+    productAttributes?: Array<ProductAttributeWrapper>;
     /**
      *
      * @type {Array<ProductOptionWrapper>}
      * @memberof ProductWrapper
      */
-    productOption?: Array<ProductOptionWrapper>;
+    productOptions?: Array<ProductOptionWrapper>;
     /**
      *
      * @type {string}
@@ -2246,13 +2758,13 @@ export interface ProductWrapper {
      * @type {Array<SkuBundleItemWrapper>}
      * @memberof ProductWrapper
      */
-    skuBundleItem?: Array<SkuBundleItemWrapper>;
+    skuBundleItems?: Array<SkuBundleItemWrapper>;
     /**
      *
      * @type {Array<RelatedProductWrapper>}
      * @memberof ProductWrapper
      */
-    upsaleProduct?: Array<RelatedProductWrapper>;
+    upsaleProducts?: Array<RelatedProductWrapper>;
     /**
      *
      * @type {string}
@@ -2266,6 +2778,12 @@ export interface ProductWrapper {
  * @interface PromotionMessageDTOWrapper
  */
 export interface PromotionMessageDTOWrapper {
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof PromotionMessageDTOWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -2300,95 +2818,15 @@ export interface PromotionMessageDTOWrapper {
 /**
  *
  * @export
- * @interface RatingDetailWrapper
- */
-export interface RatingDetailWrapper {
-    /**
-     *
-     * @type {number}
-     * @memberof RatingDetailWrapper
-     */
-    id?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof RatingDetailWrapper
-     */
-    rating?: number;
-    /**
-     *
-     * @type {string}
-     * @memberof RatingDetailWrapper
-     */
-    ratingSubmittedDate?: string;
-}
-/**
- *
- * @export
- * @interface RatingSummaryWrapper
- */
-export interface RatingSummaryWrapper {
-    /**
-     *
-     * @type {number}
-     * @memberof RatingSummaryWrapper
-     */
-    averageRating?: number;
-    /**
-     *
-     * @type {ReviewDetailWrapper}
-     * @memberof RatingSummaryWrapper
-     */
-    currentCustomerReview?: ReviewDetailWrapper;
-    /**
-     *
-     * @type {number}
-     * @memberof RatingSummaryWrapper
-     */
-    id?: number;
-    /**
-     *
-     * @type {string}
-     * @memberof RatingSummaryWrapper
-     */
-    itemId?: string;
-    /**
-     *
-     * @type {number}
-     * @memberof RatingSummaryWrapper
-     */
-    numberOfRatings?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof RatingSummaryWrapper
-     */
-    numberOfReviews?: number;
-    /**
-     *
-     * @type {Array<RatingDetailWrapper>}
-     * @memberof RatingSummaryWrapper
-     */
-    rating?: Array<RatingDetailWrapper>;
-    /**
-     *
-     * @type {string}
-     * @memberof RatingSummaryWrapper
-     */
-    ratingType?: string;
-    /**
-     *
-     * @type {Array<ReviewDetailWrapper>}
-     * @memberof RatingSummaryWrapper
-     */
-    review?: Array<ReviewDetailWrapper>;
-}
-/**
- *
- * @export
  * @interface RelatedProductWrapper
  */
 export interface RelatedProductWrapper {
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof RelatedProductWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -2419,86 +2857,6 @@ export interface RelatedProductWrapper {
      * @memberof RelatedProductWrapper
      */
     sequence?: number;
-}
-/**
- *
- * @export
- * @interface ReviewDetailWrapper
- */
-export interface ReviewDetailWrapper {
-    /**
-     *
-     * @type {string}
-     * @memberof ReviewDetailWrapper
-     */
-    author?: string;
-    /**
-     *
-     * @type {number}
-     * @memberof ReviewDetailWrapper
-     */
-    helpfulCount?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof ReviewDetailWrapper
-     */
-    id?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof ReviewDetailWrapper
-     */
-    notHelpfulCount?: number;
-    /**
-     *
-     * @type {RatingDetailWrapper}
-     * @memberof ReviewDetailWrapper
-     */
-    ratingDetail?: RatingDetailWrapper;
-    /**
-     *
-     * @type {Array<ReviewFeedbackWrapper>}
-     * @memberof ReviewDetailWrapper
-     */
-    reviewFeedback?: Array<ReviewFeedbackWrapper>;
-    /**
-     *
-     * @type {string}
-     * @memberof ReviewDetailWrapper
-     */
-    reviewStatus?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ReviewDetailWrapper
-     */
-    reviewSubmittedDate?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ReviewDetailWrapper
-     */
-    reviewText?: string;
-}
-/**
- *
- * @export
- * @interface ReviewFeedbackWrapper
- */
-export interface ReviewFeedbackWrapper {
-    /**
-     *
-     * @type {boolean}
-     * @memberof ReviewFeedbackWrapper
-     */
-    helpful?: boolean;
-    /**
-     *
-     * @type {number}
-     * @memberof ReviewFeedbackWrapper
-     */
-    id?: number;
 }
 /**
  *
@@ -2557,12 +2915,6 @@ export interface SearchFacetWrapper {
     active?: boolean;
     /**
      *
-     * @type {boolean}
-     * @memberof SearchFacetWrapper
-     */
-    canMultiselect?: boolean;
-    /**
-     *
      * @type {string}
      * @memberof SearchFacetWrapper
      */
@@ -2603,19 +2955,13 @@ export interface SearchResultsWrapper {
      * @type {Array<ProductWrapper>}
      * @memberof SearchResultsWrapper
      */
-    product?: Array<ProductWrapper>;
+    products?: Array<ProductWrapper>;
     /**
      *
      * @type {Array<SearchFacetWrapper>}
      * @memberof SearchResultsWrapper
      */
-    searchFacet?: Array<SearchFacetWrapper>;
-    /**
-     *
-     * @type {Array<SkuWrapper>}
-     * @memberof SearchResultsWrapper
-     */
-    sku?: Array<SkuWrapper>;
+    searchFacets?: Array<SearchFacetWrapper>;
     /**
      *
      * @type {number}
@@ -2628,6 +2974,49 @@ export interface SearchResultsWrapper {
      * @memberof SearchResultsWrapper
      */
     totalResults?: number;
+}
+/**
+ *
+ * @export
+ * @interface ShipmentDetailWrapper
+ */
+export interface ShipmentDetailWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof ShipmentDetailWrapper
+     */
+    actualShipDate?: string;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof ShipmentDetailWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
+     * @type {string}
+     * @memberof ShipmentDetailWrapper
+     */
+    expectedShipDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ShipmentDetailWrapper
+     */
+    serviceCode?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ShipmentDetailWrapper
+     */
+    shipperType?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ShipmentDetailWrapper
+     */
+    trackingNumber?: string;
 }
 /**
  *
@@ -2678,6 +3067,12 @@ export interface SkuBundleItemWrapper {
      * @memberof SkuBundleItemWrapper
      */
     active?: boolean;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof SkuBundleItemWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -2769,6 +3164,12 @@ export interface SkuWrapper {
      * @memberof SkuWrapper
      */
     activeStartDate?: string;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof SkuWrapper
+     */
+    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -2913,6 +3314,356 @@ export interface TaxDetailWrapper {
 /**
  *
  * @export
+ * @interface UCProductIdsWrapper
+ */
+export interface UCProductIdsWrapper {
+    /**
+     *
+     * @type {Array<number>}
+     * @memberof UCProductIdsWrapper
+     */
+    productIds?: Array<number>;
+}
+/**
+ *
+ * @export
+ * @interface UCProductWrapper
+ */
+export interface UCProductWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCProductWrapper
+     */
+    active?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    activeEndDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    activeStartDate?: string;
+    /**
+     *
+     * @type {Array<SkuWrapper>}
+     * @memberof UCProductWrapper
+     */
+    additionalSkus?: Array<SkuWrapper>;
+    /**
+     *
+     * @type {ApplicationContext}
+     * @memberof UCProductWrapper
+     */
+    applicationContext?: ApplicationContext;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    archived?: string;
+    /**
+     *
+     * @type {Money}
+     * @memberof UCProductWrapper
+     */
+    bundleItemsRetailPrice?: Money;
+    /**
+     *
+     * @type {Money}
+     * @memberof UCProductWrapper
+     */
+    bundleItemsSalePrice?: Money;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCProductWrapper
+     */
+    canSellWithoutOptions?: boolean;
+    /**
+     *
+     * @type {Array<RelatedProductWrapper>}
+     * @memberof UCProductWrapper
+     */
+    crossSaleProducts?: Array<RelatedProductWrapper>;
+    /**
+     *
+     * @type {number}
+     * @memberof UCProductWrapper
+     */
+    defaultCategoryId?: number;
+    /**
+     *
+     * @type {SkuWrapper}
+     * @memberof UCProductWrapper
+     */
+    defaultSku?: SkuWrapper;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    description?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    displayTemplate?: string;
+    /**
+     *
+     * @type {DynamicSkuPricesWrapper}
+     * @memberof UCProductWrapper
+     */
+    dynamicSkuPrices?: DynamicSkuPricesWrapper;
+    /**
+     *
+     * @type {number}
+     * @memberof UCProductWrapper
+     */
+    id?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    longDescription?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    manufacturer?: string;
+    /**
+     *
+     * @type {Array<MediaWrapper>}
+     * @memberof UCProductWrapper
+     */
+    media?: Array<MediaWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    model?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    name?: string;
+    /**
+     *
+     * @type {MediaWrapper}
+     * @memberof UCProductWrapper
+     */
+    primaryMedia?: MediaWrapper;
+    /**
+     *
+     * @type {number}
+     * @memberof UCProductWrapper
+     */
+    priority?: number;
+    /**
+     *
+     * @type {Array<ProductAttributeWrapper>}
+     * @memberof UCProductWrapper
+     */
+    productAttributes?: Array<ProductAttributeWrapper>;
+    /**
+     *
+     * @type {Array<ProductOptionWrapper>}
+     * @memberof UCProductWrapper
+     */
+    productOptions?: Array<ProductOptionWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    promoMessage?: string;
+    /**
+     *
+     * @type {{ [key: string]: Array<PromotionMessageDTOWrapper>; }}
+     * @memberof UCProductWrapper
+     */
+    promotionMessages?: {
+        [key: string]: Array<PromotionMessageDTOWrapper>;
+    };
+    /**
+     *
+     * @type {Money}
+     * @memberof UCProductWrapper
+     */
+    retailPrice?: Money;
+    /**
+     *
+     * @type {Money}
+     * @memberof UCProductWrapper
+     */
+    salePrice?: Money;
+    /**
+     *
+     * @type {Array<SkuBundleItemWrapper>}
+     * @memberof UCProductWrapper
+     */
+    skuBundleItems?: Array<SkuBundleItemWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    taxCode?: string;
+    /**
+     *
+     * @type {Array<RelatedProductWrapper>}
+     * @memberof UCProductWrapper
+     */
+    upsaleProducts?: Array<RelatedProductWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    url?: string;
+}
+/**
+ *
+ * @export
+ * @interface UCProductsDeleteResponseWrapper
+ */
+export interface UCProductsDeleteResponseWrapper {
+    /**
+     *
+     * @type {Array<number>}
+     * @memberof UCProductsDeleteResponseWrapper
+     */
+    deletedProducts?: Array<number>;
+    /**
+     *
+     * @type {{ [key: string]: string; }}
+     * @memberof UCProductsDeleteResponseWrapper
+     */
+    erroredProducts?: {
+        [key: string]: string;
+    };
+    /**
+     *
+     * @type {Array<number>}
+     * @memberof UCProductsDeleteResponseWrapper
+     */
+    missingProducts?: Array<number>;
+}
+/**
+ *
+ * @export
+ * @interface USCategoryWrapper
+ */
+export interface USCategoryWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof USCategoryWrapper
+     */
+    active?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    activeEndDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    activeStartDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    archived?: string;
+    /**
+     *
+     * @type {Array<CategoryAttributeWrapper>}
+     * @memberof USCategoryWrapper
+     */
+    categoryAttributes?: Array<CategoryAttributeWrapper>;
+    /**
+     *
+     * @type {Array<USCategoryWrapper>}
+     * @memberof USCategoryWrapper
+     */
+    children?: Array<USCategoryWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    description?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof USCategoryWrapper
+     */
+    id?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    longDescription?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    name?: string;
+    /**
+     *
+     * @type {USCategoryWrapper}
+     * @memberof USCategoryWrapper
+     */
+    parent?: USCategoryWrapper;
+    /**
+     *
+     * @type {Array<ProductWrapper>}
+     * @memberof USCategoryWrapper
+     */
+    products?: Array<ProductWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    slug?: string;
+    /**
+     *
+     * @type {Array<CategoryWrapper>}
+     * @memberof USCategoryWrapper
+     */
+    subcategories?: Array<CategoryWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    url?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof USCategoryWrapper
+     */
+    urlKey?: string;
+}
+/**
+ *
+ * @export
  * @interface View
  */
 export interface View {
@@ -2943,167 +3694,59 @@ export interface WeightWrapper {
     weight?: number;
 }
 /**
- * AuditEventsMvcEndpointApi - axios parameter creator
- * @export
- */
-export declare const AuditEventsMvcEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary findByPrincipalAndAfterAndType
-     * @param {string} [principal] principal
-     * @param {string} [after] after
-     * @param {string} [type] type
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findByPrincipalAndAfterAndTypeUsingGET5: (principal?: string, after?: string, type?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findByPrincipalAndAfterAndType
-     * @param {string} [principal] principal
-     * @param {string} [after] after
-     * @param {string} [type] type
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findByPrincipalAndAfterAndTypeUsingGET7: (principal?: string, after?: string, type?: string, options?: any) => Promise<RequestArgs>;
-};
-/**
- * AuditEventsMvcEndpointApi - functional programming interface
- * @export
- */
-export declare const AuditEventsMvcEndpointApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary findByPrincipalAndAfterAndType
-     * @param {string} [principal] principal
-     * @param {string} [after] after
-     * @param {string} [type] type
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findByPrincipalAndAfterAndTypeUsingGET5(principal?: string, after?: string, type?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary findByPrincipalAndAfterAndType
-     * @param {string} [principal] principal
-     * @param {string} [after] after
-     * @param {string} [type] type
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findByPrincipalAndAfterAndTypeUsingGET7(principal?: string, after?: string, type?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-};
-/**
- * AuditEventsMvcEndpointApi - factory interface
- * @export
- */
-export declare const AuditEventsMvcEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary findByPrincipalAndAfterAndType
-     * @param {string} [principal] principal
-     * @param {string} [after] after
-     * @param {string} [type] type
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findByPrincipalAndAfterAndTypeUsingGET5(principal?: string, after?: string, type?: string, options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary findByPrincipalAndAfterAndType
-     * @param {string} [principal] principal
-     * @param {string} [after] after
-     * @param {string} [type] type
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findByPrincipalAndAfterAndTypeUsingGET7(principal?: string, after?: string, type?: string, options?: any): AxiosPromise<object>;
-};
-/**
- * AuditEventsMvcEndpointApi - object-oriented interface
- * @export
- * @class AuditEventsMvcEndpointApi
- * @extends {BaseAPI}
- */
-export declare class AuditEventsMvcEndpointApi extends BaseAPI {
-    /**
-     *
-     * @summary findByPrincipalAndAfterAndType
-     * @param {string} [principal] principal
-     * @param {string} [after] after
-     * @param {string} [type] type
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuditEventsMvcEndpointApi
-     */
-    findByPrincipalAndAfterAndTypeUsingGET5(principal?: string, after?: string, type?: string, options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary findByPrincipalAndAfterAndType
-     * @param {string} [principal] principal
-     * @param {string} [after] after
-     * @param {string} [type] type
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuditEventsMvcEndpointApi
-     */
-    findByPrincipalAndAfterAndTypeUsingGET7(principal?: string, after?: string, type?: string, options?: any): Promise<import("axios").AxiosResponse<object>>;
-}
-/**
  * BasicErrorControllerApi - axios parameter creator
  * @export
  */
 export declare const BasicErrorControllerApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingDELETE3: (options?: any) => Promise<RequestArgs>;
+    errorUsingDELETE1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingGET3: (options?: any) => Promise<RequestArgs>;
+    errorUsingGET1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingHEAD3: (options?: any) => Promise<RequestArgs>;
+    errorUsingHEAD1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingOPTIONS3: (options?: any) => Promise<RequestArgs>;
+    errorUsingOPTIONS1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPATCH3: (options?: any) => Promise<RequestArgs>;
+    errorUsingPATCH1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPOST3: (options?: any) => Promise<RequestArgs>;
+    errorUsingPOST1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPUT3: (options?: any) => Promise<RequestArgs>;
+    errorUsingPUT1: (options?: any) => Promise<RequestArgs>;
 };
 /**
  * BasicErrorControllerApi - functional programming interface
@@ -3112,53 +3755,67 @@ export declare const BasicErrorControllerApiAxiosParamCreator: (configuration?: 
 export declare const BasicErrorControllerApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingDELETE3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingDELETE1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingGET3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingHEAD3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingHEAD1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingOPTIONS3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingOPTIONS1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPATCH3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingPATCH1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPOST3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingPOST1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPUT3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingPUT1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
 };
 /**
  * BasicErrorControllerApi - factory interface
@@ -3167,53 +3824,67 @@ export declare const BasicErrorControllerApiFp: (configuration?: Configuration) 
 export declare const BasicErrorControllerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingDELETE3(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingDELETE1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingGET3(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingGET1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingHEAD3(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingHEAD1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingOPTIONS3(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingOPTIONS1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPATCH3(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingPATCH1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPOST3(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingPOST1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPUT3(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingPUT1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
 };
 /**
  * BasicErrorControllerApi - object-oriented interface
@@ -3224,60 +3895,74 @@ export declare const BasicErrorControllerApiFactory: (configuration?: Configurat
 export declare class BasicErrorControllerApi extends BaseAPI {
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingDELETE3(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingDELETE1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingGET3(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingGET1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingHEAD3(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingHEAD1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingOPTIONS3(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingOPTIONS1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingPATCH3(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingPATCH1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingPOST3(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingPOST1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingPUT3(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingPUT1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
 }
 /**
  * CartEndpointApi - axios parameter creator
@@ -3291,10 +3976,11 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {number} customerId
      * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
      * @param {boolean} [priceOrder] priceOrder
+     * @param {boolean} [isUpdateRequest] isUpdateRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToOrderUsingPOST3: (cartId: number, customerId: number, orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    addItemToOrderUsingPOST1: (cartId: number, customerId: number, orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, isUpdateRequest?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary addOfferCode
@@ -3305,7 +3991,45 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addOfferCodeUsingPOST3: (promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    addOfferCodeUsingPOST1: (promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addOrderPaymentTransaction
+     * @param {number} paymentId paymentId
+     * @param {number} cartId cartId
+     * @param {PaymentTransactionWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOrderPaymentTransactionUsingPUT1: (paymentId: number, cartId: number, wrapper: PaymentTransactionWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addPaymentToOrderById
+     * @param {number} amount amount
+     * @param {string} currency currency
+     * @param {number} customerPaymentId customerPaymentId
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderByIdUsingPOST1: (amount: number, currency: string, customerPaymentId: number, cartId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addPaymentToOrder
+     * @param {number} cartId cartId
+     * @param {OrderPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderUsingPOST1: (cartId: number, wrapper: OrderPaymentWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary configureProductItem
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    configureProductItemUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary createNewCartForCustomer
@@ -3313,7 +4037,7 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createNewCartForCustomerUsingPOST3: (customerId?: number, options?: any) => Promise<RequestArgs>;
+    createNewCartForCustomerUsingPOST1: (customerId?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary deleteOrderAttributes
@@ -3324,7 +4048,7 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrderAttributesUsingDELETE3: (cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    deleteOrderAttributesUsingDELETE1: (cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary deleteProductOptions
@@ -3336,7 +4060,7 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductOptionsUsingDELETE3: (cartId: number, itemId: number, customerId: number, priceOrder?: boolean, requestParams?: Array<OrderItemAttributeWrapper>, options?: any) => Promise<RequestArgs>;
+    deleteProductOptionsUsingDELETE1: (cartId: number, itemId: number, customerId: number, priceOrder?: boolean, requestParams?: Array<OrderItemAttributeWrapper>, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findCartById
@@ -3345,7 +4069,39 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCartByIdUsingGET3: (cartId: number, customerId: number, options?: any) => Promise<RequestArgs>;
+    findCartByIdUsingGET1: (cartId: number, customerId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findCartForCustomer
+     * @param {number} customerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCartForCustomerUsingGET1: (customerId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findPaymentsForOrder
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPaymentsForOrderUsingGET1: (cartId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary performCheckout
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    performCheckoutUsingPOST1: (cartId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary reconfigureOrderItemFromOrder
+     * @param {number} orderItemId orderItemId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    reconfigureOrderItemFromOrderUsingGET1: (orderItemId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeAllOfferCodes
@@ -3355,7 +4111,7 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllOfferCodesUsingDELETE3: (cartId: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    removeAllOfferCodesUsingDELETE1: (cartId: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeItemFromOrder
@@ -3366,7 +4122,7 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeItemFromOrderUsingDELETE3: (itemId: number, cartId: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    removeItemFromOrderUsingDELETE1: (itemId: number, cartId: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeOfferCode
@@ -3377,7 +4133,16 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeOfferCodeUsingDELETE3: (promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    removeOfferCodeUsingDELETE1: (promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removePaymentFromOrderById
+     * @param {number} paymentId paymentId
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePaymentFromOrderByIdUsingDELETE1: (paymentId: number, cartId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateItemQuantity
@@ -3389,7 +4154,7 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateItemQuantityUsingPUT3: (itemId: number, cartId: number, quantity: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    updateItemQuantityUsingPUT1: (itemId: number, cartId: number, quantity: number, customerId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateOrderAttributes
@@ -3400,7 +4165,7 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrderAttributesUsingPUT3: (cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    updateOrderAttributesUsingPUT1: (cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateProductOptions
@@ -3412,7 +4177,7 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductOptionsUsingPUT3: (cartId: number, itemId: number, customerId: number, requestParams: Array<OrderItemAttributeWrapper>, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    updateProductOptionsUsingPUT1: (cartId: number, itemId: number, customerId: number, requestParams: Array<OrderItemAttributeWrapper>, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
 };
 /**
  * CartEndpointApi - functional programming interface
@@ -3426,10 +4191,11 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {number} customerId
      * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
      * @param {boolean} [priceOrder] priceOrder
+     * @param {boolean} [isUpdateRequest] isUpdateRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToOrderUsingPOST3(cartId: number, customerId: number, orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    addItemToOrderUsingPOST1(cartId: number, customerId: number, orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, isUpdateRequest?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary addOfferCode
@@ -3440,7 +4206,45 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addOfferCodeUsingPOST3(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    addOfferCodeUsingPOST1(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary addOrderPaymentTransaction
+     * @param {number} paymentId paymentId
+     * @param {number} cartId cartId
+     * @param {PaymentTransactionWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOrderPaymentTransactionUsingPUT1(paymentId: number, cartId: number, wrapper: PaymentTransactionWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary addPaymentToOrderById
+     * @param {number} amount amount
+     * @param {string} currency currency
+     * @param {number} customerPaymentId customerPaymentId
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderByIdUsingPOST1(amount: number, currency: string, customerPaymentId: number, cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary addPaymentToOrder
+     * @param {number} cartId cartId
+     * @param {OrderPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderUsingPOST1(cartId: number, wrapper: OrderPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary configureProductItem
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    configureProductItemUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurableOrderItemWrapper>>;
     /**
      *
      * @summary createNewCartForCustomer
@@ -3448,7 +4252,7 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createNewCartForCustomerUsingPOST3(customerId?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    createNewCartForCustomerUsingPOST1(customerId?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary deleteOrderAttributes
@@ -3459,7 +4263,7 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrderAttributesUsingDELETE3(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    deleteOrderAttributesUsingDELETE1(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary deleteProductOptions
@@ -3471,7 +4275,7 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductOptionsUsingDELETE3(cartId: number, itemId: number, customerId: number, priceOrder?: boolean, requestParams?: Array<OrderItemAttributeWrapper>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    deleteProductOptionsUsingDELETE1(cartId: number, itemId: number, customerId: number, priceOrder?: boolean, requestParams?: Array<OrderItemAttributeWrapper>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary findCartById
@@ -3480,7 +4284,39 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCartByIdUsingGET3(cartId: number, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    findCartByIdUsingGET1(cartId: number, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary findCartForCustomer
+     * @param {number} customerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCartForCustomerUsingGET1(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary findPaymentsForOrder
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPaymentsForOrderUsingGET1(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderPaymentWrapper>>>;
+    /**
+     *
+     * @summary performCheckout
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    performCheckoutUsingPOST1(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary reconfigureOrderItemFromOrder
+     * @param {number} orderItemId orderItemId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    reconfigureOrderItemFromOrderUsingGET1(orderItemId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurableOrderItemWrapper>>;
     /**
      *
      * @summary removeAllOfferCodes
@@ -3490,7 +4326,7 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllOfferCodesUsingDELETE3(cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    removeAllOfferCodesUsingDELETE1(cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary removeItemFromOrder
@@ -3501,7 +4337,7 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeItemFromOrderUsingDELETE3(itemId: number, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    removeItemFromOrderUsingDELETE1(itemId: number, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary removeOfferCode
@@ -3512,7 +4348,16 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeOfferCodeUsingDELETE3(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    removeOfferCodeUsingDELETE1(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary removePaymentFromOrderById
+     * @param {number} paymentId paymentId
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePaymentFromOrderByIdUsingDELETE1(paymentId: number, cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary updateItemQuantity
@@ -3524,7 +4369,7 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateItemQuantityUsingPUT3(itemId: number, cartId: number, quantity: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    updateItemQuantityUsingPUT1(itemId: number, cartId: number, quantity: number, customerId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary updateOrderAttributes
@@ -3535,7 +4380,7 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrderAttributesUsingPUT3(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    updateOrderAttributesUsingPUT1(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary updateProductOptions
@@ -3547,7 +4392,7 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductOptionsUsingPUT3(cartId: number, itemId: number, customerId: number, requestParams: Array<OrderItemAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    updateProductOptionsUsingPUT1(cartId: number, itemId: number, customerId: number, requestParams: Array<OrderItemAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
 };
 /**
  * CartEndpointApi - factory interface
@@ -3561,10 +4406,11 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {number} customerId
      * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
      * @param {boolean} [priceOrder] priceOrder
+     * @param {boolean} [isUpdateRequest] isUpdateRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToOrderUsingPOST3(cartId: number, customerId: number, orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    addItemToOrderUsingPOST1(cartId: number, customerId: number, orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, isUpdateRequest?: boolean, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary addOfferCode
@@ -3575,7 +4421,45 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addOfferCodeUsingPOST3(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    addOfferCodeUsingPOST1(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary addOrderPaymentTransaction
+     * @param {number} paymentId paymentId
+     * @param {number} cartId cartId
+     * @param {PaymentTransactionWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOrderPaymentTransactionUsingPUT1(paymentId: number, cartId: number, wrapper: PaymentTransactionWrapper, options?: any): AxiosPromise<OrderPaymentWrapper>;
+    /**
+     *
+     * @summary addPaymentToOrderById
+     * @param {number} amount amount
+     * @param {string} currency currency
+     * @param {number} customerPaymentId customerPaymentId
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderByIdUsingPOST1(amount: number, currency: string, customerPaymentId: number, cartId: number, options?: any): AxiosPromise<OrderPaymentWrapper>;
+    /**
+     *
+     * @summary addPaymentToOrder
+     * @param {number} cartId cartId
+     * @param {OrderPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderUsingPOST1(cartId: number, wrapper: OrderPaymentWrapper, options?: any): AxiosPromise<OrderPaymentWrapper>;
+    /**
+     *
+     * @summary configureProductItem
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    configureProductItemUsingGET1(productId: number, options?: any): AxiosPromise<ConfigurableOrderItemWrapper>;
     /**
      *
      * @summary createNewCartForCustomer
@@ -3583,7 +4467,7 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createNewCartForCustomerUsingPOST3(customerId?: number, options?: any): AxiosPromise<OrderWrapper>;
+    createNewCartForCustomerUsingPOST1(customerId?: number, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary deleteOrderAttributes
@@ -3594,7 +4478,7 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrderAttributesUsingDELETE3(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    deleteOrderAttributesUsingDELETE1(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary deleteProductOptions
@@ -3606,7 +4490,7 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductOptionsUsingDELETE3(cartId: number, itemId: number, customerId: number, priceOrder?: boolean, requestParams?: Array<OrderItemAttributeWrapper>, options?: any): AxiosPromise<OrderWrapper>;
+    deleteProductOptionsUsingDELETE1(cartId: number, itemId: number, customerId: number, priceOrder?: boolean, requestParams?: Array<OrderItemAttributeWrapper>, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary findCartById
@@ -3615,7 +4499,39 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCartByIdUsingGET3(cartId: number, customerId: number, options?: any): AxiosPromise<OrderWrapper>;
+    findCartByIdUsingGET1(cartId: number, customerId: number, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary findCartForCustomer
+     * @param {number} customerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCartForCustomerUsingGET1(customerId: number, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary findPaymentsForOrder
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPaymentsForOrderUsingGET1(cartId: number, options?: any): AxiosPromise<Array<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary performCheckout
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    performCheckoutUsingPOST1(cartId: number, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary reconfigureOrderItemFromOrder
+     * @param {number} orderItemId orderItemId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    reconfigureOrderItemFromOrderUsingGET1(orderItemId: number, options?: any): AxiosPromise<ConfigurableOrderItemWrapper>;
     /**
      *
      * @summary removeAllOfferCodes
@@ -3625,7 +4541,7 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllOfferCodesUsingDELETE3(cartId: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    removeAllOfferCodesUsingDELETE1(cartId: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary removeItemFromOrder
@@ -3636,7 +4552,7 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeItemFromOrderUsingDELETE3(itemId: number, cartId: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    removeItemFromOrderUsingDELETE1(itemId: number, cartId: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary removeOfferCode
@@ -3647,7 +4563,16 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeOfferCodeUsingDELETE3(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    removeOfferCodeUsingDELETE1(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary removePaymentFromOrderById
+     * @param {number} paymentId paymentId
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePaymentFromOrderByIdUsingDELETE1(paymentId: number, cartId: number, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary updateItemQuantity
@@ -3659,7 +4584,7 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateItemQuantityUsingPUT3(itemId: number, cartId: number, quantity: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    updateItemQuantityUsingPUT1(itemId: number, cartId: number, quantity: number, customerId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary updateOrderAttributes
@@ -3670,7 +4595,7 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrderAttributesUsingPUT3(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    updateOrderAttributesUsingPUT1(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary updateProductOptions
@@ -3682,7 +4607,7 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductOptionsUsingPUT3(cartId: number, itemId: number, customerId: number, requestParams: Array<OrderItemAttributeWrapper>, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    updateProductOptionsUsingPUT1(cartId: number, itemId: number, customerId: number, requestParams: Array<OrderItemAttributeWrapper>, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
 };
 /**
  * CartEndpointApi - object-oriented interface
@@ -3698,11 +4623,12 @@ export declare class CartEndpointApi extends BaseAPI {
      * @param {number} customerId
      * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
      * @param {boolean} [priceOrder] priceOrder
+     * @param {boolean} [isUpdateRequest] isUpdateRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    addItemToOrderUsingPOST3(cartId: number, customerId: number, orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    addItemToOrderUsingPOST1(cartId: number, customerId: number, orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, isUpdateRequest?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary addOfferCode
@@ -3714,7 +4640,49 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    addOfferCodeUsingPOST3(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    addOfferCodeUsingPOST1(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary addOrderPaymentTransaction
+     * @param {number} paymentId paymentId
+     * @param {number} cartId cartId
+     * @param {PaymentTransactionWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    addOrderPaymentTransactionUsingPUT1(paymentId: number, cartId: number, wrapper: PaymentTransactionWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary addPaymentToOrderById
+     * @param {number} amount amount
+     * @param {string} currency currency
+     * @param {number} customerPaymentId customerPaymentId
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    addPaymentToOrderByIdUsingPOST1(amount: number, currency: string, customerPaymentId: number, cartId: number, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary addPaymentToOrder
+     * @param {number} cartId cartId
+     * @param {OrderPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    addPaymentToOrderUsingPOST1(cartId: number, wrapper: OrderPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary configureProductItem
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    configureProductItemUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<ConfigurableOrderItemWrapper>>;
     /**
      *
      * @summary createNewCartForCustomer
@@ -3723,7 +4691,7 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    createNewCartForCustomerUsingPOST3(customerId?: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    createNewCartForCustomerUsingPOST1(customerId?: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary deleteOrderAttributes
@@ -3735,7 +4703,7 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    deleteOrderAttributesUsingDELETE3(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    deleteOrderAttributesUsingDELETE1(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary deleteProductOptions
@@ -3748,7 +4716,7 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    deleteProductOptionsUsingDELETE3(cartId: number, itemId: number, customerId: number, priceOrder?: boolean, requestParams?: Array<OrderItemAttributeWrapper>, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    deleteProductOptionsUsingDELETE1(cartId: number, itemId: number, customerId: number, priceOrder?: boolean, requestParams?: Array<OrderItemAttributeWrapper>, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary findCartById
@@ -3758,7 +4726,43 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    findCartByIdUsingGET3(cartId: number, customerId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    findCartByIdUsingGET1(cartId: number, customerId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary findCartForCustomer
+     * @param {number} customerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    findCartForCustomerUsingGET1(customerId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary findPaymentsForOrder
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    findPaymentsForOrderUsingGET1(cartId: number, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper[]>>;
+    /**
+     *
+     * @summary performCheckout
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    performCheckoutUsingPOST1(cartId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary reconfigureOrderItemFromOrder
+     * @param {number} orderItemId orderItemId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    reconfigureOrderItemFromOrderUsingGET1(orderItemId: number, options?: any): Promise<import("axios").AxiosResponse<ConfigurableOrderItemWrapper>>;
     /**
      *
      * @summary removeAllOfferCodes
@@ -3769,7 +4773,7 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    removeAllOfferCodesUsingDELETE3(cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    removeAllOfferCodesUsingDELETE1(cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary removeItemFromOrder
@@ -3781,7 +4785,7 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    removeItemFromOrderUsingDELETE3(itemId: number, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    removeItemFromOrderUsingDELETE1(itemId: number, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary removeOfferCode
@@ -3793,7 +4797,17 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    removeOfferCodeUsingDELETE3(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    removeOfferCodeUsingDELETE1(promoCode: string, cartId: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary removePaymentFromOrderById
+     * @param {number} paymentId paymentId
+     * @param {number} cartId cartId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CartEndpointApi
+     */
+    removePaymentFromOrderByIdUsingDELETE1(paymentId: number, cartId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary updateItemQuantity
@@ -3806,7 +4820,7 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    updateItemQuantityUsingPUT3(itemId: number, cartId: number, quantity: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    updateItemQuantityUsingPUT1(itemId: number, cartId: number, quantity: number, customerId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary updateOrderAttributes
@@ -3818,7 +4832,7 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    updateOrderAttributesUsingPUT3(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    updateOrderAttributesUsingPUT1(cartId: number, customerId: number, requestParams: Array<OrderAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary updateProductOptions
@@ -3831,7 +4845,7 @@ export declare class CartEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    updateProductOptionsUsingPUT3(cartId: number, itemId: number, customerId: number, requestParams: Array<OrderItemAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    updateProductOptionsUsingPUT1(cartId: number, itemId: number, customerId: number, requestParams: Array<OrderItemAttributeWrapper>, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
 }
 /**
  * CatalogEndpointApi - axios parameter creator
@@ -3840,6 +4854,22 @@ export declare class CartEndpointApi extends BaseAPI {
 export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
+     * @summary deleteProductById
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductByIdUsingDELETE1: (productId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary deleteProductsById
+     * @param {UCProductIdsWrapper} products products
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductsByIdUsingDELETE1: (products: UCProductIdsWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary findActiveSubCategories
      * @param {number} categoryId categoryId
      * @param {number} [limit] limit
@@ -3847,7 +4877,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findActiveSubCategoriesUsingGET3: (categoryId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    findActiveSubCategoriesUsingGET1: (categoryId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findAllCategories
@@ -3857,7 +4887,18 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllCategoriesUsingGET3: (name?: string, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    findAllCategoriesUsingGET1: (name?: string, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAllProducts
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllProductsUsingGET1: (limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findCategoryAttributesForCategory
@@ -3865,7 +4906,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryAttributesForCategoryUsingGET3: (categoryId: number, options?: any) => Promise<RequestArgs>;
+    findCategoryAttributesForCategoryUsingGET1: (categoryId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findCategoryByIdOrName
@@ -3877,7 +4918,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryByIdOrNameUsingGET3: (searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
+    findCategoryByIdOrNameUsingGET1: (searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findCategoryById
@@ -3889,7 +4930,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryByIdUsingGET3: (categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
+    findCategoryByIdUsingGET1: (categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findCrossSaleProductsByProduct
@@ -3899,7 +4940,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCrossSaleProductsByProductUsingGET3: (productId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    findCrossSaleProductsByProductUsingGET1: (productId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findDefaultSkuByProductId
@@ -3907,7 +4948,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findDefaultSkuByProductIdUsingGET3: (productId: number, options?: any) => Promise<RequestArgs>;
+    findDefaultSkuByProductIdUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findInventoryForSkus
@@ -3915,7 +4956,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findInventoryForSkusUsingGET3: (id: Array<number>, options?: any) => Promise<RequestArgs>;
+    findInventoryForSkusUsingGET1: (id: Array<number>, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findMediaForCategory
@@ -3923,7 +4964,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForCategoryUsingGET3: (id: number, options?: any) => Promise<RequestArgs>;
+    findMediaForCategoryUsingGET1: (id: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findMediaForProduct
@@ -3931,7 +4972,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForProductUsingGET3: (productId: number, options?: any) => Promise<RequestArgs>;
+    findMediaForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findMediaForSku
@@ -3939,7 +4980,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForSkuUsingGET3: (skuId: number, options?: any) => Promise<RequestArgs>;
+    findMediaForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findParentCategoriesForProduct
@@ -3947,7 +4988,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findParentCategoriesForProductUsingGET3: (productId: number, options?: any) => Promise<RequestArgs>;
+    findParentCategoriesForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findProductAttributesForProduct
@@ -3955,7 +4996,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findProductAttributesForProductUsingGET3: (productId: number, options?: any) => Promise<RequestArgs>;
+    findProductAttributesForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findProductById
@@ -3965,7 +5006,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findProductByIdUsingGET3: (id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
+    findProductByIdUsingGET1: (id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findSearchResultsByCategoryAndQuery
@@ -3978,7 +5019,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSearchResultsByCategoryAndQueryUsingGET3: (categoryId: number, q?: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
+    findSearchResultsByCategoryAndQueryUsingGET1: (categoryId: number, q?: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findSearchResultsByQuery
@@ -3990,7 +5031,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSearchResultsByQueryUsingGET3: (q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
+    findSearchResultsByQueryUsingGET1: (q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findSkuAttributesForSku
@@ -3998,7 +5039,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuAttributesForSkuUsingGET3: (skuId: number, options?: any) => Promise<RequestArgs>;
+    findSkuAttributesForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findSkuById
@@ -4006,7 +5047,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuByIdUsingGET3: (skuId: number, options?: any) => Promise<RequestArgs>;
+    findSkuByIdUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findSkusByProductById
@@ -4014,7 +5055,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkusByProductByIdUsingGET3: (productId: number, options?: any) => Promise<RequestArgs>;
+    findSkusByProductByIdUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findSubCategories
@@ -4025,7 +5066,7 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSubCategoriesUsingGET3: (categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any) => Promise<RequestArgs>;
+    findSubCategoriesUsingGET1: (categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findUpSaleProductsByProduct
@@ -4035,7 +5076,16 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findUpSaleProductsByProductUsingGET3: (productId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    findUpSaleProductsByProductUsingGET1: (productId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary updateProductById
+     * @param {number} productId productId
+     * @param {UCProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateProductByIdUsingPUT1: (productId: number, wrapper: UCProductWrapper, options?: any) => Promise<RequestArgs>;
 };
 /**
  * CatalogEndpointApi - functional programming interface
@@ -4044,6 +5094,22 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
 export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
     /**
      *
+     * @summary deleteProductById
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductByIdUsingDELETE1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     *
+     * @summary deleteProductsById
+     * @param {UCProductIdsWrapper} products products
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductsDeleteResponseWrapper>>;
+    /**
+     *
      * @summary findActiveSubCategories
      * @param {number} categoryId categoryId
      * @param {number} [limit] limit
@@ -4051,7 +5117,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findActiveSubCategoriesUsingGET3(categoryId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
+    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
     /**
      *
      * @summary findAllCategories
@@ -4061,7 +5127,18 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllCategoriesUsingGET3(name?: string, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
+    findAllCategoriesUsingGET1(name?: string, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
+    /**
+     *
+     * @summary findAllProducts
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWrapper>>>;
     /**
      *
      * @summary findCategoryAttributesForCategory
@@ -4069,7 +5146,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryAttributesForCategoryUsingGET3(categoryId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CategoryAttributeWrapper>>>;
+    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CategoryAttributeWrapper>>>;
     /**
      *
      * @summary findCategoryByIdOrName
@@ -4081,7 +5158,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryByIdOrNameUsingGET3(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoryWrapper>>;
+    findCategoryByIdOrNameUsingGET1(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<USCategoryWrapper>>;
     /**
      *
      * @summary findCategoryById
@@ -4093,7 +5170,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryByIdUsingGET3(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoryWrapper>>;
+    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoryWrapper>>;
     /**
      *
      * @summary findCrossSaleProductsByProduct
@@ -4103,7 +5180,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCrossSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    findCrossSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
     /**
      *
      * @summary findDefaultSkuByProductId
@@ -4111,7 +5188,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findDefaultSkuByProductIdUsingGET3(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SkuWrapper>>;
+    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SkuWrapper>>;
     /**
      *
      * @summary findInventoryForSkus
@@ -4119,7 +5196,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findInventoryForSkusUsingGET3(id: Array<number>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
+    findInventoryForSkusUsingGET1(id: Array<number>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
     /**
      *
      * @summary findMediaForCategory
@@ -4127,7 +5204,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForCategoryUsingGET3(id: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
+    findMediaForCategoryUsingGET1(id: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
     /**
      *
      * @summary findMediaForProduct
@@ -4135,7 +5212,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForProductUsingGET3(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
+    findMediaForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
     /**
      *
      * @summary findMediaForSku
@@ -4143,7 +5220,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForSkuUsingGET3(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
+    findMediaForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
     /**
      *
      * @summary findParentCategoriesForProduct
@@ -4151,7 +5228,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findParentCategoriesForProductUsingGET3(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
+    findParentCategoriesForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
     /**
      *
      * @summary findProductAttributesForProduct
@@ -4159,7 +5236,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findProductAttributesForProductUsingGET3(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductAttributeWrapper>>>;
+    findProductAttributesForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductAttributeWrapper>>>;
     /**
      *
      * @summary findProductById
@@ -4169,7 +5246,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findProductByIdUsingGET3(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductWrapper>>;
+    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductWrapper>>;
     /**
      *
      * @summary findSearchResultsByCategoryAndQuery
@@ -4182,7 +5259,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSearchResultsByCategoryAndQueryUsingGET3(categoryId: number, q?: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchResultsWrapper>>;
+    findSearchResultsByCategoryAndQueryUsingGET1(categoryId: number, q?: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchResultsWrapper>>;
     /**
      *
      * @summary findSearchResultsByQuery
@@ -4194,7 +5271,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSearchResultsByQueryUsingGET3(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchResultsWrapper>>;
+    findSearchResultsByQueryUsingGET1(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchResultsWrapper>>;
     /**
      *
      * @summary findSkuAttributesForSku
@@ -4202,7 +5279,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuAttributesForSkuUsingGET3(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuAttributeWrapper>>>;
+    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuAttributeWrapper>>>;
     /**
      *
      * @summary findSkuById
@@ -4210,7 +5287,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuByIdUsingGET3(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SkuWrapper>>;
+    findSkuByIdUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SkuWrapper>>;
     /**
      *
      * @summary findSkusByProductById
@@ -4218,7 +5295,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkusByProductByIdUsingGET3(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuWrapper>>>;
+    findSkusByProductByIdUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuWrapper>>>;
     /**
      *
      * @summary findSubCategories
@@ -4229,7 +5306,7 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSubCategoriesUsingGET3(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
+    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
     /**
      *
      * @summary findUpSaleProductsByProduct
@@ -4239,7 +5316,16 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findUpSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    findUpSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    /**
+     *
+     * @summary updateProductById
+     * @param {number} productId productId
+     * @param {UCProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateProductByIdUsingPUT1(productId: number, wrapper: UCProductWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductWrapper>>;
 };
 /**
  * CatalogEndpointApi - factory interface
@@ -4248,6 +5334,22 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
 export declare const CatalogEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
+     * @summary deleteProductById
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductByIdUsingDELETE1(productId: number, options?: any): AxiosPromise<void>;
+    /**
+     *
+     * @summary deleteProductsById
+     * @param {UCProductIdsWrapper} products products
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): AxiosPromise<UCProductsDeleteResponseWrapper>;
+    /**
+     *
      * @summary findActiveSubCategories
      * @param {number} categoryId categoryId
      * @param {number} [limit] limit
@@ -4255,7 +5357,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findActiveSubCategoriesUsingGET3(categoryId: number, limit?: number, offset?: number, options?: any): AxiosPromise<CategoriesWrapper>;
+    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): AxiosPromise<CategoriesWrapper>;
     /**
      *
      * @summary findAllCategories
@@ -4265,7 +5367,18 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllCategoriesUsingGET3(name?: string, limit?: number, offset?: number, options?: any): AxiosPromise<CategoriesWrapper>;
+    findAllCategoriesUsingGET1(name?: string, limit?: number, offset?: number, options?: any): AxiosPromise<CategoriesWrapper>;
+    /**
+     *
+     * @summary findAllProducts
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<Array<ProductWrapper>>;
     /**
      *
      * @summary findCategoryAttributesForCategory
@@ -4273,7 +5386,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryAttributesForCategoryUsingGET3(categoryId: number, options?: any): AxiosPromise<Array<CategoryAttributeWrapper>>;
+    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): AxiosPromise<Array<CategoryAttributeWrapper>>;
     /**
      *
      * @summary findCategoryByIdOrName
@@ -4285,7 +5398,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryByIdOrNameUsingGET3(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<CategoryWrapper>;
+    findCategoryByIdOrNameUsingGET1(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<USCategoryWrapper>;
     /**
      *
      * @summary findCategoryById
@@ -4297,7 +5410,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCategoryByIdUsingGET3(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<CategoryWrapper>;
+    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<CategoryWrapper>;
     /**
      *
      * @summary findCrossSaleProductsByProduct
@@ -4307,7 +5420,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCrossSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    findCrossSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
     /**
      *
      * @summary findDefaultSkuByProductId
@@ -4315,7 +5428,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findDefaultSkuByProductIdUsingGET3(productId: number, options?: any): AxiosPromise<SkuWrapper>;
+    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): AxiosPromise<SkuWrapper>;
     /**
      *
      * @summary findInventoryForSkus
@@ -4323,7 +5436,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findInventoryForSkusUsingGET3(id: Array<number>, options?: any): AxiosPromise<Array<InventoryWrapper>>;
+    findInventoryForSkusUsingGET1(id: Array<number>, options?: any): AxiosPromise<Array<InventoryWrapper>>;
     /**
      *
      * @summary findMediaForCategory
@@ -4331,7 +5444,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForCategoryUsingGET3(id: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
+    findMediaForCategoryUsingGET1(id: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
     /**
      *
      * @summary findMediaForProduct
@@ -4339,7 +5452,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForProductUsingGET3(productId: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
+    findMediaForProductUsingGET1(productId: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
     /**
      *
      * @summary findMediaForSku
@@ -4347,7 +5460,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findMediaForSkuUsingGET3(skuId: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
+    findMediaForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
     /**
      *
      * @summary findParentCategoriesForProduct
@@ -4355,7 +5468,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findParentCategoriesForProductUsingGET3(productId: number, options?: any): AxiosPromise<CategoriesWrapper>;
+    findParentCategoriesForProductUsingGET1(productId: number, options?: any): AxiosPromise<CategoriesWrapper>;
     /**
      *
      * @summary findProductAttributesForProduct
@@ -4363,7 +5476,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findProductAttributesForProductUsingGET3(productId: number, options?: any): AxiosPromise<Array<ProductAttributeWrapper>>;
+    findProductAttributesForProductUsingGET1(productId: number, options?: any): AxiosPromise<Array<ProductAttributeWrapper>>;
     /**
      *
      * @summary findProductById
@@ -4373,7 +5486,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findProductByIdUsingGET3(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<ProductWrapper>;
+    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<UCProductWrapper>;
     /**
      *
      * @summary findSearchResultsByCategoryAndQuery
@@ -4386,7 +5499,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSearchResultsByCategoryAndQueryUsingGET3(categoryId: number, q?: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<SearchResultsWrapper>;
+    findSearchResultsByCategoryAndQueryUsingGET1(categoryId: number, q?: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<SearchResultsWrapper>;
     /**
      *
      * @summary findSearchResultsByQuery
@@ -4398,7 +5511,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSearchResultsByQueryUsingGET3(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<SearchResultsWrapper>;
+    findSearchResultsByQueryUsingGET1(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<SearchResultsWrapper>;
     /**
      *
      * @summary findSkuAttributesForSku
@@ -4406,7 +5519,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuAttributesForSkuUsingGET3(skuId: number, options?: any): AxiosPromise<Array<SkuAttributeWrapper>>;
+    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<SkuAttributeWrapper>>;
     /**
      *
      * @summary findSkuById
@@ -4414,7 +5527,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuByIdUsingGET3(skuId: number, options?: any): AxiosPromise<SkuWrapper>;
+    findSkuByIdUsingGET1(skuId: number, options?: any): AxiosPromise<SkuWrapper>;
     /**
      *
      * @summary findSkusByProductById
@@ -4422,7 +5535,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkusByProductByIdUsingGET3(productId: number, options?: any): AxiosPromise<Array<SkuWrapper>>;
+    findSkusByProductByIdUsingGET1(productId: number, options?: any): AxiosPromise<Array<SkuWrapper>>;
     /**
      *
      * @summary findSubCategories
@@ -4433,7 +5546,7 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSubCategoriesUsingGET3(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): AxiosPromise<CategoriesWrapper>;
+    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): AxiosPromise<CategoriesWrapper>;
     /**
      *
      * @summary findUpSaleProductsByProduct
@@ -4443,7 +5556,16 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findUpSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    findUpSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    /**
+     *
+     * @summary updateProductById
+     * @param {number} productId productId
+     * @param {UCProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateProductByIdUsingPUT1(productId: number, wrapper: UCProductWrapper, options?: any): AxiosPromise<UCProductWrapper>;
 };
 /**
  * CatalogEndpointApi - object-oriented interface
@@ -4454,6 +5576,24 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
 export declare class CatalogEndpointApi extends BaseAPI {
     /**
      *
+     * @summary deleteProductById
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CatalogEndpointApi
+     */
+    deleteProductByIdUsingDELETE1(productId: number, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     *
+     * @summary deleteProductsById
+     * @param {UCProductIdsWrapper} products products
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CatalogEndpointApi
+     */
+    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): Promise<import("axios").AxiosResponse<UCProductsDeleteResponseWrapper>>;
+    /**
+     *
      * @summary findActiveSubCategories
      * @param {number} categoryId categoryId
      * @param {number} [limit] limit
@@ -4462,7 +5602,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findActiveSubCategoriesUsingGET3(categoryId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
     /**
      *
      * @summary findAllCategories
@@ -4473,7 +5613,19 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findAllCategoriesUsingGET3(name?: string, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    findAllCategoriesUsingGET1(name?: string, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    /**
+     *
+     * @summary findAllProducts
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CatalogEndpointApi
+     */
+    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<ProductWrapper[]>>;
     /**
      *
      * @summary findCategoryAttributesForCategory
@@ -4482,7 +5634,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findCategoryAttributesForCategoryUsingGET3(categoryId: number, options?: any): Promise<import("axios").AxiosResponse<CategoryAttributeWrapper[]>>;
+    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): Promise<import("axios").AxiosResponse<CategoryAttributeWrapper[]>>;
     /**
      *
      * @summary findCategoryByIdOrName
@@ -4495,7 +5647,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findCategoryByIdOrNameUsingGET3(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoryWrapper>>;
+    findCategoryByIdOrNameUsingGET1(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<USCategoryWrapper>>;
     /**
      *
      * @summary findCategoryById
@@ -4508,7 +5660,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findCategoryByIdUsingGET3(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoryWrapper>>;
+    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoryWrapper>>;
     /**
      *
      * @summary findCrossSaleProductsByProduct
@@ -4519,7 +5671,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findCrossSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
+    findCrossSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
     /**
      *
      * @summary findDefaultSkuByProductId
@@ -4528,7 +5680,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findDefaultSkuByProductIdUsingGET3(productId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper>>;
+    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper>>;
     /**
      *
      * @summary findInventoryForSkus
@@ -4537,7 +5689,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findInventoryForSkusUsingGET3(id: Array<number>, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
+    findInventoryForSkusUsingGET1(id: Array<number>, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
     /**
      *
      * @summary findMediaForCategory
@@ -4546,7 +5698,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findMediaForCategoryUsingGET3(id: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
+    findMediaForCategoryUsingGET1(id: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
     /**
      *
      * @summary findMediaForProduct
@@ -4555,7 +5707,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findMediaForProductUsingGET3(productId: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
+    findMediaForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
     /**
      *
      * @summary findMediaForSku
@@ -4564,7 +5716,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findMediaForSkuUsingGET3(skuId: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
+    findMediaForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
     /**
      *
      * @summary findParentCategoriesForProduct
@@ -4573,7 +5725,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findParentCategoriesForProductUsingGET3(productId: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    findParentCategoriesForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
     /**
      *
      * @summary findProductAttributesForProduct
@@ -4582,7 +5734,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findProductAttributesForProductUsingGET3(productId: number, options?: any): Promise<import("axios").AxiosResponse<ProductAttributeWrapper[]>>;
+    findProductAttributesForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<ProductAttributeWrapper[]>>;
     /**
      *
      * @summary findProductById
@@ -4593,7 +5745,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findProductByIdUsingGET3(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<ProductWrapper>>;
+    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper>>;
     /**
      *
      * @summary findSearchResultsByCategoryAndQuery
@@ -4607,7 +5759,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findSearchResultsByCategoryAndQueryUsingGET3(categoryId: number, q?: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<SearchResultsWrapper>>;
+    findSearchResultsByCategoryAndQueryUsingGET1(categoryId: number, q?: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<SearchResultsWrapper>>;
     /**
      *
      * @summary findSearchResultsByQuery
@@ -4620,7 +5772,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findSearchResultsByQueryUsingGET3(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<SearchResultsWrapper>>;
+    findSearchResultsByQueryUsingGET1(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<SearchResultsWrapper>>;
     /**
      *
      * @summary findSkuAttributesForSku
@@ -4629,7 +5781,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findSkuAttributesForSkuUsingGET3(skuId: number, options?: any): Promise<import("axios").AxiosResponse<SkuAttributeWrapper[]>>;
+    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<SkuAttributeWrapper[]>>;
     /**
      *
      * @summary findSkuById
@@ -4638,7 +5790,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findSkuByIdUsingGET3(skuId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper>>;
+    findSkuByIdUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper>>;
     /**
      *
      * @summary findSkusByProductById
@@ -4647,7 +5799,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findSkusByProductByIdUsingGET3(productId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper[]>>;
+    findSkusByProductByIdUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper[]>>;
     /**
      *
      * @summary findSubCategories
@@ -4659,7 +5811,7 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findSubCategoriesUsingGET3(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
     /**
      *
      * @summary findUpSaleProductsByProduct
@@ -4670,377 +5822,17 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findUpSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
-}
-/**
- * CategoryEndpointApi - axios parameter creator
- * @export
- */
-export declare const CategoryEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+    findUpSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
     /**
      *
-     * @summary findCategoryByUrl
-     * @param {string} query
+     * @summary updateProductById
+     * @param {number} productId productId
+     * @param {UCProductWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CatalogEndpointApi
      */
-    findCategoryByUrlUsingGET3: (query: string, options?: any) => Promise<RequestArgs>;
-};
-/**
- * CategoryEndpointApi - functional programming interface
- * @export
- */
-export declare const CategoryEndpointApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary findCategoryByUrl
-     * @param {string} query
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryByUrlUsingGET3(query: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomCategory>>;
-};
-/**
- * CategoryEndpointApi - factory interface
- * @export
- */
-export declare const CategoryEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary findCategoryByUrl
-     * @param {string} query
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryByUrlUsingGET3(query: string, options?: any): AxiosPromise<CustomCategory>;
-};
-/**
- * CategoryEndpointApi - object-oriented interface
- * @export
- * @class CategoryEndpointApi
- * @extends {BaseAPI}
- */
-export declare class CategoryEndpointApi extends BaseAPI {
-    /**
-     *
-     * @summary findCategoryByUrl
-     * @param {string} query
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CategoryEndpointApi
-     */
-    findCategoryByUrlUsingGET3(query: string, options?: any): Promise<import("axios").AxiosResponse<CustomCategory>>;
-}
-/**
- * CheckoutEndpointApi - axios parameter creator
- * @export
- */
-export declare const CheckoutEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary addOrderPaymentTransaction
-     * @param {number} paymentId paymentId
-     * @param {number} cartId cartId
-     * @param {PaymentTransactionWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addOrderPaymentTransactionUsingPUT3: (paymentId: number, cartId: number, wrapper: PaymentTransactionWrapper, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary addPaymentToOrderById
-     * @param {number} amount amount
-     * @param {string} currency currency
-     * @param {number} customerPaymentId customerPaymentId
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPaymentToOrderByIdUsingPOST3: (amount: number, currency: string, customerPaymentId: number, cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary addPaymentToOrder
-     * @param {number} cartId cartId
-     * @param {OrderPaymentWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPaymentToOrderUsingPOST3: (cartId: number, wrapper: OrderPaymentWrapper, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findPaymentsForOrder
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findPaymentsForOrderUsingGET3: (cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary performCheckout
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    performCheckoutUsingPOST3: (cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary removePaymentFromOrderById
-     * @param {number} paymentId paymentId
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePaymentFromOrderByIdUsingDELETE3: (paymentId: number, cartId: number, options?: any) => Promise<RequestArgs>;
-};
-/**
- * CheckoutEndpointApi - functional programming interface
- * @export
- */
-export declare const CheckoutEndpointApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary addOrderPaymentTransaction
-     * @param {number} paymentId paymentId
-     * @param {number} cartId cartId
-     * @param {PaymentTransactionWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addOrderPaymentTransactionUsingPUT3(paymentId: number, cartId: number, wrapper: PaymentTransactionWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
-    /**
-     *
-     * @summary addPaymentToOrderById
-     * @param {number} amount amount
-     * @param {string} currency currency
-     * @param {number} customerPaymentId customerPaymentId
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPaymentToOrderByIdUsingPOST3(amount: number, currency: string, customerPaymentId: number, cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
-    /**
-     *
-     * @summary addPaymentToOrder
-     * @param {number} cartId cartId
-     * @param {OrderPaymentWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPaymentToOrderUsingPOST3(cartId: number, wrapper: OrderPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
-    /**
-     *
-     * @summary findPaymentsForOrder
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findPaymentsForOrderUsingGET3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderPaymentWrapper>>>;
-    /**
-     *
-     * @summary performCheckout
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    performCheckoutUsingPOST3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
-    /**
-     *
-     * @summary removePaymentFromOrderById
-     * @param {number} paymentId paymentId
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
-};
-/**
- * CheckoutEndpointApi - factory interface
- * @export
- */
-export declare const CheckoutEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary addOrderPaymentTransaction
-     * @param {number} paymentId paymentId
-     * @param {number} cartId cartId
-     * @param {PaymentTransactionWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addOrderPaymentTransactionUsingPUT3(paymentId: number, cartId: number, wrapper: PaymentTransactionWrapper, options?: any): AxiosPromise<OrderPaymentWrapper>;
-    /**
-     *
-     * @summary addPaymentToOrderById
-     * @param {number} amount amount
-     * @param {string} currency currency
-     * @param {number} customerPaymentId customerPaymentId
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPaymentToOrderByIdUsingPOST3(amount: number, currency: string, customerPaymentId: number, cartId: number, options?: any): AxiosPromise<OrderPaymentWrapper>;
-    /**
-     *
-     * @summary addPaymentToOrder
-     * @param {number} cartId cartId
-     * @param {OrderPaymentWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPaymentToOrderUsingPOST3(cartId: number, wrapper: OrderPaymentWrapper, options?: any): AxiosPromise<OrderPaymentWrapper>;
-    /**
-     *
-     * @summary findPaymentsForOrder
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findPaymentsForOrderUsingGET3(cartId: number, options?: any): AxiosPromise<Array<OrderPaymentWrapper>>;
-    /**
-     *
-     * @summary performCheckout
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    performCheckoutUsingPOST3(cartId: number, options?: any): AxiosPromise<OrderWrapper>;
-    /**
-     *
-     * @summary removePaymentFromOrderById
-     * @param {number} paymentId paymentId
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, cartId: number, options?: any): AxiosPromise<OrderWrapper>;
-};
-/**
- * CheckoutEndpointApi - object-oriented interface
- * @export
- * @class CheckoutEndpointApi
- * @extends {BaseAPI}
- */
-export declare class CheckoutEndpointApi extends BaseAPI {
-    /**
-     *
-     * @summary addOrderPaymentTransaction
-     * @param {number} paymentId paymentId
-     * @param {number} cartId cartId
-     * @param {PaymentTransactionWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CheckoutEndpointApi
-     */
-    addOrderPaymentTransactionUsingPUT3(paymentId: number, cartId: number, wrapper: PaymentTransactionWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
-    /**
-     *
-     * @summary addPaymentToOrderById
-     * @param {number} amount amount
-     * @param {string} currency currency
-     * @param {number} customerPaymentId customerPaymentId
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CheckoutEndpointApi
-     */
-    addPaymentToOrderByIdUsingPOST3(amount: number, currency: string, customerPaymentId: number, cartId: number, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
-    /**
-     *
-     * @summary addPaymentToOrder
-     * @param {number} cartId cartId
-     * @param {OrderPaymentWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CheckoutEndpointApi
-     */
-    addPaymentToOrderUsingPOST3(cartId: number, wrapper: OrderPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
-    /**
-     *
-     * @summary findPaymentsForOrder
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CheckoutEndpointApi
-     */
-    findPaymentsForOrderUsingGET3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper[]>>;
-    /**
-     *
-     * @summary performCheckout
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CheckoutEndpointApi
-     */
-    performCheckoutUsingPOST3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
-    /**
-     *
-     * @summary removePaymentFromOrderById
-     * @param {number} paymentId paymentId
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CheckoutEndpointApi
-     */
-    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, cartId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
-}
-/**
- * CustomCartEndpointApi - axios parameter creator
- * @export
- */
-export declare const CustomCartEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary findCartForCustomer
-     * @param {number} customerId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCartForCustomerUsingGET3: (customerId: number, options?: any) => Promise<RequestArgs>;
-};
-/**
- * CustomCartEndpointApi - functional programming interface
- * @export
- */
-export declare const CustomCartEndpointApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary findCartForCustomer
-     * @param {number} customerId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCartForCustomerUsingGET3(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
-};
-/**
- * CustomCartEndpointApi - factory interface
- * @export
- */
-export declare const CustomCartEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary findCartForCustomer
-     * @param {number} customerId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCartForCustomerUsingGET3(customerId: number, options?: any): AxiosPromise<OrderWrapper>;
-};
-/**
- * CustomCartEndpointApi - object-oriented interface
- * @export
- * @class CustomCartEndpointApi
- * @extends {BaseAPI}
- */
-export declare class CustomCartEndpointApi extends BaseAPI {
-    /**
-     *
-     * @summary findCartForCustomer
-     * @param {number} customerId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CustomCartEndpointApi
-     */
-    findCartForCustomerUsingGET3(customerId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    updateProductByIdUsingPUT1(productId: number, wrapper: UCProductWrapper, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper>>;
 }
 /**
  * CustomerEndpointApi - axios parameter creator
@@ -5055,7 +5847,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAddressUsingPUT3: (customerId: number, wrapper: CustomerAddressWrapper, options?: any) => Promise<RequestArgs>;
+    addAddressUsingPUT1: (customerId: number, wrapper: CustomerAddressWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary addAttribute
@@ -5064,7 +5856,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAttributeUsingPUT3: (customerId: number, wrapper: CustomerAttributeWrapper, options?: any) => Promise<RequestArgs>;
+    addAttributeUsingPUT1: (customerId: number, wrapper: CustomerAttributeWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary addCustomerPayment
@@ -5073,7 +5865,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addCustomerPaymentUsingPOST3: (customerId: number, wrapper: CustomerPaymentWrapper, options?: any) => Promise<RequestArgs>;
+    addCustomerPaymentUsingPOST1: (customerId: number, wrapper: CustomerPaymentWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary addCustomer
@@ -5081,7 +5873,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addCustomerUsingPOST3: (wrapper: CustomerWrapper, options?: any) => Promise<RequestArgs>;
+    addCustomerUsingPOST1: (wrapper: CustomerWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary changePassword
@@ -5089,7 +5881,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changePasswordUsingPOST3: (changePasswordForm: ChangePasswordForm, options?: any) => Promise<RequestArgs>;
+    changePasswordUsingPOST1: (changePasswordForm: ChangePasswordForm, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findAddress
@@ -5098,7 +5890,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAddressUsingGET3: (addressName: string, customerId: number, options?: any) => Promise<RequestArgs>;
+    findAddressUsingGET1: (addressName: string, customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findAllAddresses
@@ -5106,7 +5898,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllAddressesUsingGET3: (customerId: number, options?: any) => Promise<RequestArgs>;
+    findAllAddressesUsingGET1: (customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findAllCustomerPayments
@@ -5114,7 +5906,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllCustomerPaymentsUsingGET3: (customerId: number, options?: any) => Promise<RequestArgs>;
+    findAllCustomerPaymentsUsingGET1: (customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findCustomerByEmail
@@ -5122,7 +5914,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCustomerByEmailUsingGET3: (email: string, options?: any) => Promise<RequestArgs>;
+    findCustomerByEmailUsingGET1: (email: string, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findCustomerPayment
@@ -5131,7 +5923,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCustomerPaymentUsingGET3: (paymentId: number, customerId: number, options?: any) => Promise<RequestArgs>;
+    findCustomerPaymentUsingGET1: (paymentId: number, customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeAddress
@@ -5140,7 +5932,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAddressUsingDELETE3: (addressName: string, customerId: number, options?: any) => Promise<RequestArgs>;
+    removeAddressUsingDELETE1: (addressName: string, customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeAllAddresses
@@ -5148,7 +5940,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllAddressesUsingDELETE3: (customerId: number, options?: any) => Promise<RequestArgs>;
+    removeAllAddressesUsingDELETE1: (customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeAllAttributes
@@ -5156,7 +5948,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllAttributesUsingDELETE3: (customerId: number, options?: any) => Promise<RequestArgs>;
+    removeAllAttributesUsingDELETE1: (customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeAllCustomerPayments
@@ -5164,7 +5956,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllCustomerPaymentsUsingDELETE3: (customerId: number, options?: any) => Promise<RequestArgs>;
+    removeAllCustomerPaymentsUsingDELETE1: (customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeAttribute
@@ -5173,7 +5965,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAttributeUsingDELETE3: (attributeName: string, customerId: number, options?: any) => Promise<RequestArgs>;
+    removeAttributeUsingDELETE1: (attributeName: string, customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeCustomerPayment
@@ -5182,7 +5974,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeCustomerPaymentUsingDELETE3: (paymentId: number, customerId: number, options?: any) => Promise<RequestArgs>;
+    removeCustomerPaymentUsingDELETE1: (paymentId: number, customerId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateAddress
@@ -5192,7 +5984,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAddressUsingPUT3: (addressId: number, customerId: number, wrapper: CustomerAddressWrapper, options?: any) => Promise<RequestArgs>;
+    updateAddressUsingPUT1: (addressId: number, customerId: number, wrapper: CustomerAddressWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateCustomerPayment
@@ -5202,7 +5994,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPaymentUsingPUT3: (paymentId: number, customerId: number, wrapper: CustomerPaymentWrapper, options?: any) => Promise<RequestArgs>;
+    updateCustomerPaymentUsingPUT1: (paymentId: number, customerId: number, wrapper: CustomerPaymentWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateCustomer
@@ -5211,7 +6003,7 @@ export declare const CustomerEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerUsingPUT3: (customerId: number, wrapper: CustomerWrapper, options?: any) => Promise<RequestArgs>;
+    updateCustomerUsingPUT1: (customerId: number, wrapper: CustomerWrapper, options?: any) => Promise<RequestArgs>;
 };
 /**
  * CustomerEndpointApi - functional programming interface
@@ -5226,7 +6018,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAddressUsingPUT3(customerId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
+    addAddressUsingPUT1(customerId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
     /**
      *
      * @summary addAttribute
@@ -5235,7 +6027,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAttributeUsingPUT3(customerId: number, wrapper: CustomerAttributeWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    addAttributeUsingPUT1(customerId: number, wrapper: CustomerAttributeWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary addCustomerPayment
@@ -5244,7 +6036,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addCustomerPaymentUsingPOST3(customerId: number, wrapper: CustomerPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPaymentWrapper>>;
+    addCustomerPaymentUsingPOST1(customerId: number, wrapper: CustomerPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPaymentWrapper>>;
     /**
      *
      * @summary addCustomer
@@ -5252,7 +6044,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addCustomerUsingPOST3(wrapper: CustomerWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    addCustomerUsingPOST1(wrapper: CustomerWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary changePassword
@@ -5260,7 +6052,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changePasswordUsingPOST3(changePasswordForm: ChangePasswordForm, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    changePasswordUsingPOST1(changePasswordForm: ChangePasswordForm, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary findAddress
@@ -5269,7 +6061,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAddressUsingGET3(addressName: string, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
+    findAddressUsingGET1(addressName: string, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
     /**
      *
      * @summary findAllAddresses
@@ -5277,7 +6069,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllAddressesUsingGET3(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerAddressWrapper>>>;
+    findAllAddressesUsingGET1(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerAddressWrapper>>>;
     /**
      *
      * @summary findAllCustomerPayments
@@ -5285,7 +6077,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllCustomerPaymentsUsingGET3(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerPaymentWrapper>>>;
+    findAllCustomerPaymentsUsingGET1(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerPaymentWrapper>>>;
     /**
      *
      * @summary findCustomerByEmail
@@ -5293,7 +6085,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCustomerByEmailUsingGET3(email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    findCustomerByEmailUsingGET1(email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary findCustomerPayment
@@ -5302,7 +6094,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCustomerPaymentUsingGET3(paymentId: number, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPaymentWrapper>>;
+    findCustomerPaymentUsingGET1(paymentId: number, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPaymentWrapper>>;
     /**
      *
      * @summary removeAddress
@@ -5311,7 +6103,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAddressUsingDELETE3(addressName: string, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerAddressWrapper>>>;
+    removeAddressUsingDELETE1(addressName: string, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerAddressWrapper>>>;
     /**
      *
      * @summary removeAllAddresses
@@ -5319,7 +6111,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllAddressesUsingDELETE3(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    removeAllAddressesUsingDELETE1(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary removeAllAttributes
@@ -5327,7 +6119,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllAttributesUsingDELETE3(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    removeAllAttributesUsingDELETE1(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary removeAllCustomerPayments
@@ -5335,7 +6127,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllCustomerPaymentsUsingDELETE3(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    removeAllCustomerPaymentsUsingDELETE1(customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary removeAttribute
@@ -5344,7 +6136,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAttributeUsingDELETE3(attributeName: string, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    removeAttributeUsingDELETE1(attributeName: string, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary removeCustomerPayment
@@ -5353,7 +6145,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeCustomerPaymentUsingDELETE3(paymentId: number, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerPaymentWrapper>>>;
+    removeCustomerPaymentUsingDELETE1(paymentId: number, customerId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerPaymentWrapper>>>;
     /**
      *
      * @summary updateAddress
@@ -5363,7 +6155,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAddressUsingPUT3(addressId: number, customerId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
+    updateAddressUsingPUT1(addressId: number, customerId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
     /**
      *
      * @summary updateCustomerPayment
@@ -5373,7 +6165,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPaymentUsingPUT3(paymentId: number, customerId: number, wrapper: CustomerPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPaymentWrapper>>;
+    updateCustomerPaymentUsingPUT1(paymentId: number, customerId: number, wrapper: CustomerPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPaymentWrapper>>;
     /**
      *
      * @summary updateCustomer
@@ -5382,7 +6174,7 @@ export declare const CustomerEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerUsingPUT3(customerId: number, wrapper: CustomerWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    updateCustomerUsingPUT1(customerId: number, wrapper: CustomerWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
 };
 /**
  * CustomerEndpointApi - factory interface
@@ -5397,7 +6189,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAddressUsingPUT3(customerId: number, wrapper: CustomerAddressWrapper, options?: any): AxiosPromise<CustomerAddressWrapper>;
+    addAddressUsingPUT1(customerId: number, wrapper: CustomerAddressWrapper, options?: any): AxiosPromise<CustomerAddressWrapper>;
     /**
      *
      * @summary addAttribute
@@ -5406,7 +6198,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAttributeUsingPUT3(customerId: number, wrapper: CustomerAttributeWrapper, options?: any): AxiosPromise<CustomerWrapper>;
+    addAttributeUsingPUT1(customerId: number, wrapper: CustomerAttributeWrapper, options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary addCustomerPayment
@@ -5415,7 +6207,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addCustomerPaymentUsingPOST3(customerId: number, wrapper: CustomerPaymentWrapper, options?: any): AxiosPromise<CustomerPaymentWrapper>;
+    addCustomerPaymentUsingPOST1(customerId: number, wrapper: CustomerPaymentWrapper, options?: any): AxiosPromise<CustomerPaymentWrapper>;
     /**
      *
      * @summary addCustomer
@@ -5423,7 +6215,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addCustomerUsingPOST3(wrapper: CustomerWrapper, options?: any): AxiosPromise<CustomerWrapper>;
+    addCustomerUsingPOST1(wrapper: CustomerWrapper, options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary changePassword
@@ -5431,7 +6223,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changePasswordUsingPOST3(changePasswordForm: ChangePasswordForm, options?: any): AxiosPromise<CustomerWrapper>;
+    changePasswordUsingPOST1(changePasswordForm: ChangePasswordForm, options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary findAddress
@@ -5440,7 +6232,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAddressUsingGET3(addressName: string, customerId: number, options?: any): AxiosPromise<CustomerAddressWrapper>;
+    findAddressUsingGET1(addressName: string, customerId: number, options?: any): AxiosPromise<CustomerAddressWrapper>;
     /**
      *
      * @summary findAllAddresses
@@ -5448,7 +6240,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllAddressesUsingGET3(customerId: number, options?: any): AxiosPromise<Array<CustomerAddressWrapper>>;
+    findAllAddressesUsingGET1(customerId: number, options?: any): AxiosPromise<Array<CustomerAddressWrapper>>;
     /**
      *
      * @summary findAllCustomerPayments
@@ -5456,7 +6248,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllCustomerPaymentsUsingGET3(customerId: number, options?: any): AxiosPromise<Array<CustomerPaymentWrapper>>;
+    findAllCustomerPaymentsUsingGET1(customerId: number, options?: any): AxiosPromise<Array<CustomerPaymentWrapper>>;
     /**
      *
      * @summary findCustomerByEmail
@@ -5464,7 +6256,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCustomerByEmailUsingGET3(email: string, options?: any): AxiosPromise<CustomerWrapper>;
+    findCustomerByEmailUsingGET1(email: string, options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary findCustomerPayment
@@ -5473,7 +6265,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findCustomerPaymentUsingGET3(paymentId: number, customerId: number, options?: any): AxiosPromise<CustomerPaymentWrapper>;
+    findCustomerPaymentUsingGET1(paymentId: number, customerId: number, options?: any): AxiosPromise<CustomerPaymentWrapper>;
     /**
      *
      * @summary removeAddress
@@ -5482,7 +6274,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAddressUsingDELETE3(addressName: string, customerId: number, options?: any): AxiosPromise<Array<CustomerAddressWrapper>>;
+    removeAddressUsingDELETE1(addressName: string, customerId: number, options?: any): AxiosPromise<Array<CustomerAddressWrapper>>;
     /**
      *
      * @summary removeAllAddresses
@@ -5490,7 +6282,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllAddressesUsingDELETE3(customerId: number, options?: any): AxiosPromise<CustomerWrapper>;
+    removeAllAddressesUsingDELETE1(customerId: number, options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary removeAllAttributes
@@ -5498,7 +6290,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllAttributesUsingDELETE3(customerId: number, options?: any): AxiosPromise<CustomerWrapper>;
+    removeAllAttributesUsingDELETE1(customerId: number, options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary removeAllCustomerPayments
@@ -5506,7 +6298,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllCustomerPaymentsUsingDELETE3(customerId: number, options?: any): AxiosPromise<CustomerWrapper>;
+    removeAllCustomerPaymentsUsingDELETE1(customerId: number, options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary removeAttribute
@@ -5515,7 +6307,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAttributeUsingDELETE3(attributeName: string, customerId: number, options?: any): AxiosPromise<CustomerWrapper>;
+    removeAttributeUsingDELETE1(attributeName: string, customerId: number, options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary removeCustomerPayment
@@ -5524,7 +6316,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeCustomerPaymentUsingDELETE3(paymentId: number, customerId: number, options?: any): AxiosPromise<Array<CustomerPaymentWrapper>>;
+    removeCustomerPaymentUsingDELETE1(paymentId: number, customerId: number, options?: any): AxiosPromise<Array<CustomerPaymentWrapper>>;
     /**
      *
      * @summary updateAddress
@@ -5534,7 +6326,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAddressUsingPUT3(addressId: number, customerId: number, wrapper: CustomerAddressWrapper, options?: any): AxiosPromise<CustomerAddressWrapper>;
+    updateAddressUsingPUT1(addressId: number, customerId: number, wrapper: CustomerAddressWrapper, options?: any): AxiosPromise<CustomerAddressWrapper>;
     /**
      *
      * @summary updateCustomerPayment
@@ -5544,7 +6336,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPaymentUsingPUT3(paymentId: number, customerId: number, wrapper: CustomerPaymentWrapper, options?: any): AxiosPromise<CustomerPaymentWrapper>;
+    updateCustomerPaymentUsingPUT1(paymentId: number, customerId: number, wrapper: CustomerPaymentWrapper, options?: any): AxiosPromise<CustomerPaymentWrapper>;
     /**
      *
      * @summary updateCustomer
@@ -5553,7 +6345,7 @@ export declare const CustomerEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerUsingPUT3(customerId: number, wrapper: CustomerWrapper, options?: any): AxiosPromise<CustomerWrapper>;
+    updateCustomerUsingPUT1(customerId: number, wrapper: CustomerWrapper, options?: any): AxiosPromise<CustomerWrapper>;
 };
 /**
  * CustomerEndpointApi - object-oriented interface
@@ -5571,7 +6363,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    addAddressUsingPUT3(customerId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
+    addAddressUsingPUT1(customerId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
     /**
      *
      * @summary addAttribute
@@ -5581,7 +6373,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    addAttributeUsingPUT3(customerId: number, wrapper: CustomerAttributeWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    addAttributeUsingPUT1(customerId: number, wrapper: CustomerAttributeWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary addCustomerPayment
@@ -5591,7 +6383,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    addCustomerPaymentUsingPOST3(customerId: number, wrapper: CustomerPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper>>;
+    addCustomerPaymentUsingPOST1(customerId: number, wrapper: CustomerPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper>>;
     /**
      *
      * @summary addCustomer
@@ -5600,7 +6392,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    addCustomerUsingPOST3(wrapper: CustomerWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    addCustomerUsingPOST1(wrapper: CustomerWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary changePassword
@@ -5609,7 +6401,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    changePasswordUsingPOST3(changePasswordForm: ChangePasswordForm, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    changePasswordUsingPOST1(changePasswordForm: ChangePasswordForm, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary findAddress
@@ -5619,7 +6411,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    findAddressUsingGET3(addressName: string, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
+    findAddressUsingGET1(addressName: string, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
     /**
      *
      * @summary findAllAddresses
@@ -5628,7 +6420,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    findAllAddressesUsingGET3(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper[]>>;
+    findAllAddressesUsingGET1(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper[]>>;
     /**
      *
      * @summary findAllCustomerPayments
@@ -5637,7 +6429,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    findAllCustomerPaymentsUsingGET3(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper[]>>;
+    findAllCustomerPaymentsUsingGET1(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper[]>>;
     /**
      *
      * @summary findCustomerByEmail
@@ -5646,7 +6438,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    findCustomerByEmailUsingGET3(email: string, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    findCustomerByEmailUsingGET1(email: string, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary findCustomerPayment
@@ -5656,7 +6448,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    findCustomerPaymentUsingGET3(paymentId: number, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper>>;
+    findCustomerPaymentUsingGET1(paymentId: number, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper>>;
     /**
      *
      * @summary removeAddress
@@ -5666,7 +6458,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    removeAddressUsingDELETE3(addressName: string, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper[]>>;
+    removeAddressUsingDELETE1(addressName: string, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper[]>>;
     /**
      *
      * @summary removeAllAddresses
@@ -5675,7 +6467,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    removeAllAddressesUsingDELETE3(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    removeAllAddressesUsingDELETE1(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary removeAllAttributes
@@ -5684,7 +6476,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    removeAllAttributesUsingDELETE3(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    removeAllAttributesUsingDELETE1(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary removeAllCustomerPayments
@@ -5693,7 +6485,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    removeAllCustomerPaymentsUsingDELETE3(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    removeAllCustomerPaymentsUsingDELETE1(customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary removeAttribute
@@ -5703,7 +6495,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    removeAttributeUsingDELETE3(attributeName: string, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    removeAttributeUsingDELETE1(attributeName: string, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary removeCustomerPayment
@@ -5713,7 +6505,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    removeCustomerPaymentUsingDELETE3(paymentId: number, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper[]>>;
+    removeCustomerPaymentUsingDELETE1(paymentId: number, customerId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper[]>>;
     /**
      *
      * @summary updateAddress
@@ -5724,7 +6516,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    updateAddressUsingPUT3(addressId: number, customerId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
+    updateAddressUsingPUT1(addressId: number, customerId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
     /**
      *
      * @summary updateCustomerPayment
@@ -5735,7 +6527,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    updateCustomerPaymentUsingPUT3(paymentId: number, customerId: number, wrapper: CustomerPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper>>;
+    updateCustomerPaymentUsingPUT1(paymentId: number, customerId: number, wrapper: CustomerPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper>>;
     /**
      *
      * @summary updateCustomer
@@ -5745,556 +6537,7 @@ export declare class CustomerEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomerEndpointApi
      */
-    updateCustomerUsingPUT3(customerId: number, wrapper: CustomerWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
-}
-/**
- * EndpointMvcAdapterApi - axios parameter creator
- * @export
- */
-export declare const EndpointMvcAdapterApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET49: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET51: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET53: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET55: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET57: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET59: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET61: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET63: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET65: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET67: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET69: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET71: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET73: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET75: (options?: any) => Promise<RequestArgs>;
-};
-/**
- * EndpointMvcAdapterApi - functional programming interface
- * @export
- */
-export declare const EndpointMvcAdapterApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET49(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET51(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET53(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET55(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET57(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET59(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET61(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET63(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET65(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET67(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET69(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET71(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET73(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET75(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-};
-/**
- * EndpointMvcAdapterApi - factory interface
- * @export
- */
-export declare const EndpointMvcAdapterApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET49(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET51(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET53(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET55(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET57(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET59(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET61(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET63(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET65(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET67(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET69(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET71(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET73(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET75(options?: any): AxiosPromise<object>;
-};
-/**
- * EndpointMvcAdapterApi - object-oriented interface
- * @export
- * @class EndpointMvcAdapterApi
- * @extends {BaseAPI}
- */
-export declare class EndpointMvcAdapterApi extends BaseAPI {
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET49(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET51(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET53(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET55(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET57(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET59(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET61(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET63(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET65(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET67(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET69(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET71(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET73(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EndpointMvcAdapterApi
-     */
-    invokeUsingGET75(options?: any): Promise<import("axios").AxiosResponse<object>>;
-}
-/**
- * EnvironmentMvcEndpointApi - axios parameter creator
- * @export
- */
-export declare const EnvironmentMvcEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET77: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET79: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary value
-     * @param {string} name name
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    valueUsingGET5: (name: string, options?: any) => Promise<RequestArgs>;
-};
-/**
- * EnvironmentMvcEndpointApi - functional programming interface
- * @export
- */
-export declare const EnvironmentMvcEndpointApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET77(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET79(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-    /**
-     *
-     * @summary value
-     * @param {string} name name
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    valueUsingGET5(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
-};
-/**
- * EnvironmentMvcEndpointApi - factory interface
- * @export
- */
-export declare const EnvironmentMvcEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET77(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET79(options?: any): AxiosPromise<object>;
-    /**
-     *
-     * @summary value
-     * @param {string} name name
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    valueUsingGET5(name: string, options?: any): AxiosPromise<object>;
-};
-/**
- * EnvironmentMvcEndpointApi - object-oriented interface
- * @export
- * @class EnvironmentMvcEndpointApi
- * @extends {BaseAPI}
- */
-export declare class EnvironmentMvcEndpointApi extends BaseAPI {
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnvironmentMvcEndpointApi
-     */
-    invokeUsingGET77(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnvironmentMvcEndpointApi
-     */
-    invokeUsingGET79(options?: any): Promise<import("axios").AxiosResponse<object>>;
-    /**
-     *
-     * @summary value
-     * @param {string} name name
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnvironmentMvcEndpointApi
-     */
-    valueUsingGET5(name: string, options?: any): Promise<import("axios").AxiosResponse<object>>;
+    updateCustomerUsingPUT1(customerId: number, wrapper: CustomerWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
 }
 /**
  * FulfillmentEndpointApi - axios parameter creator
@@ -6310,7 +6553,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFulfillmentGroupToOrderUsingPOST3: (cartId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    addFulfillmentGroupToOrderUsingPOST1: (cartId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary addFulfillmentOptionToFulfillmentGroup
@@ -6321,7 +6564,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFulfillmentOptionToFulfillmentGroupUsingPUT3: (fulfillmentGroupId: number, fulfillmentOptionId: number, cartId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    addFulfillmentOptionToFulfillmentGroupUsingPUT1: (fulfillmentGroupId: number, fulfillmentOptionId: number, cartId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary addItemToFulfillmentGroup
@@ -6332,7 +6575,43 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToFulfillmentGroupUsingPOST3: (fulfillmentGroupId: number, cartId: number, wrapper: FulfillmentGroupItemWrapper, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    addItemToFulfillmentGroupUsingPOST1: (fulfillmentGroupId: number, cartId: number, wrapper: FulfillmentGroupItemWrapper, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAllInventoryForLocation
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllInventoryForLocationUsingGET1: (locationId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAllPhysicalLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllPhysicalLocationsUsingGET1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAllPickupLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllPickupLocationsUsingGET1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAllShippingLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllShippingLocationsUsingGET1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findDefaultFulfillmentLocation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findDefaultFulfillmentLocationUsingGET1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findFulfillmentGroupsForOrder
@@ -6340,7 +6619,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findFulfillmentGroupsForOrderUsingGET3: (cartId: number, options?: any) => Promise<RequestArgs>;
+    findFulfillmentGroupsForOrderUsingGET1: (cartId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findFulfillmentOptions
@@ -6348,7 +6627,15 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findFulfillmentOptionsUsingGET3: (fulfillmentType: string, options?: any) => Promise<RequestArgs>;
+    findFulfillmentOptionsUsingGET1: (fulfillmentType: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findLocationById
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findLocationByIdUsingGET1: (locationId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary getFulfillmentEstimations
@@ -6356,55 +6643,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFulfillmentEstimationsUsingDELETE3: (cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingGET3: (cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingHEAD3: (cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingOPTIONS3: (cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPATCH3: (cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPOST3: (cartId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPUT3: (cartId: number, options?: any) => Promise<RequestArgs>;
+    getFulfillmentEstimationsUsingGET1: (cartId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeAllFulfillmentGroupsFromOrder
@@ -6413,7 +6652,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllFulfillmentGroupsFromOrderUsingDELETE3: (cartId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    removeAllFulfillmentGroupsFromOrderUsingDELETE1: (cartId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeFulfillmentGroupFromOrder
@@ -6422,7 +6661,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFulfillmentGroupFromOrderUsingDELETE3: (fulfillmentGroupId: number, cartId: number, options?: any) => Promise<RequestArgs>;
+    removeFulfillmentGroupFromOrderUsingDELETE1: (fulfillmentGroupId: number, cartId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeOrderItemFromFulfillmentGroup
@@ -6432,7 +6671,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeOrderItemFromFulfillmentGroupUsingDELETE3: (fulfillmentGroupId: number, itemId: number, cartId: number, options?: any) => Promise<RequestArgs>;
+    removeOrderItemFromFulfillmentGroupUsingDELETE1: (fulfillmentGroupId: number, itemId: number, cartId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateFulfillmentGroupAddress
@@ -6442,7 +6681,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFulfillmentGroupAddressUsingPUT3: (fulfillmentGroupId: number, cartId: number, address: AddressWrapper, options?: any) => Promise<RequestArgs>;
+    updateFulfillmentGroupAddressUsingPUT1: (fulfillmentGroupId: number, cartId: number, address: AddressWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateFulfillmentGroup
@@ -6453,7 +6692,7 @@ export declare const FulfillmentEndpointApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFulfillmentGroupUsingPATCH3: (cartId: number, fulfillmentGroupId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    updateFulfillmentGroupUsingPATCH1: (cartId: number, fulfillmentGroupId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
 };
 /**
  * FulfillmentEndpointApi - functional programming interface
@@ -6469,7 +6708,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFulfillmentGroupToOrderUsingPOST3(cartId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
+    addFulfillmentGroupToOrderUsingPOST1(cartId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary addFulfillmentOptionToFulfillmentGroup
@@ -6480,7 +6719,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFulfillmentOptionToFulfillmentGroupUsingPUT3(fulfillmentGroupId: number, fulfillmentOptionId: number, cartId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
+    addFulfillmentOptionToFulfillmentGroupUsingPUT1(fulfillmentGroupId: number, fulfillmentOptionId: number, cartId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary addItemToFulfillmentGroup
@@ -6491,7 +6730,43 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToFulfillmentGroupUsingPOST3(fulfillmentGroupId: number, cartId: number, wrapper: FulfillmentGroupItemWrapper, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
+    addItemToFulfillmentGroupUsingPOST1(fulfillmentGroupId: number, cartId: number, wrapper: FulfillmentGroupItemWrapper, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
+    /**
+     *
+     * @summary findAllInventoryForLocation
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllInventoryForLocationUsingGET1(locationId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
+    /**
+     *
+     * @summary findAllPhysicalLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllPhysicalLocationsUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentLocationWrapper>>>;
+    /**
+     *
+     * @summary findAllPickupLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllPickupLocationsUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentLocationWrapper>>>;
+    /**
+     *
+     * @summary findAllShippingLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllShippingLocationsUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentLocationWrapper>>>;
+    /**
+     *
+     * @summary findDefaultFulfillmentLocation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findDefaultFulfillmentLocationUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentLocationWrapper>>;
     /**
      *
      * @summary findFulfillmentGroupsForOrder
@@ -6499,7 +6774,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findFulfillmentGroupsForOrderUsingGET3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentGroupWrapper>>>;
+    findFulfillmentGroupsForOrderUsingGET1(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentGroupWrapper>>>;
     /**
      *
      * @summary findFulfillmentOptions
@@ -6507,7 +6782,15 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findFulfillmentOptionsUsingGET3(fulfillmentType: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentOptionWrapper>>>;
+    findFulfillmentOptionsUsingGET1(fulfillmentType: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentOptionWrapper>>>;
+    /**
+     *
+     * @summary findLocationById
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findLocationByIdUsingGET1(locationId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentLocationWrapper>>;
     /**
      *
      * @summary getFulfillmentEstimations
@@ -6515,55 +6798,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFulfillmentEstimationsUsingDELETE3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentEstimationWrapper>>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingGET3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentEstimationWrapper>>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingHEAD3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentEstimationWrapper>>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingOPTIONS3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentEstimationWrapper>>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPATCH3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentEstimationWrapper>>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPOST3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentEstimationWrapper>>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPUT3(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentEstimationWrapper>>>;
+    getFulfillmentEstimationsUsingGET1(cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentEstimationWrapper>>>;
     /**
      *
      * @summary removeAllFulfillmentGroupsFromOrder
@@ -6572,7 +6807,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllFulfillmentGroupsFromOrderUsingDELETE3(cartId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    removeAllFulfillmentGroupsFromOrderUsingDELETE1(cartId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary removeFulfillmentGroupFromOrder
@@ -6581,7 +6816,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFulfillmentGroupFromOrderUsingDELETE3(fulfillmentGroupId: number, cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentGroupWrapper>>>;
+    removeFulfillmentGroupFromOrderUsingDELETE1(fulfillmentGroupId: number, cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentGroupWrapper>>>;
     /**
      *
      * @summary removeOrderItemFromFulfillmentGroup
@@ -6591,7 +6826,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeOrderItemFromFulfillmentGroupUsingDELETE3(fulfillmentGroupId: number, itemId: number, cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
+    removeOrderItemFromFulfillmentGroupUsingDELETE1(fulfillmentGroupId: number, itemId: number, cartId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary updateFulfillmentGroupAddress
@@ -6601,7 +6836,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFulfillmentGroupAddressUsingPUT3(fulfillmentGroupId: number, cartId: number, address: AddressWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
+    updateFulfillmentGroupAddressUsingPUT1(fulfillmentGroupId: number, cartId: number, address: AddressWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary updateFulfillmentGroup
@@ -6612,7 +6847,7 @@ export declare const FulfillmentEndpointApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFulfillmentGroupUsingPATCH3(cartId: number, fulfillmentGroupId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
+    updateFulfillmentGroupUsingPATCH1(cartId: number, fulfillmentGroupId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FulfillmentGroupWrapper>>;
 };
 /**
  * FulfillmentEndpointApi - factory interface
@@ -6628,7 +6863,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFulfillmentGroupToOrderUsingPOST3(cartId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
+    addFulfillmentGroupToOrderUsingPOST1(cartId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
     /**
      *
      * @summary addFulfillmentOptionToFulfillmentGroup
@@ -6639,7 +6874,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFulfillmentOptionToFulfillmentGroupUsingPUT3(fulfillmentGroupId: number, fulfillmentOptionId: number, cartId: number, priceOrder?: boolean, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
+    addFulfillmentOptionToFulfillmentGroupUsingPUT1(fulfillmentGroupId: number, fulfillmentOptionId: number, cartId: number, priceOrder?: boolean, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
     /**
      *
      * @summary addItemToFulfillmentGroup
@@ -6650,7 +6885,43 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToFulfillmentGroupUsingPOST3(fulfillmentGroupId: number, cartId: number, wrapper: FulfillmentGroupItemWrapper, priceOrder?: boolean, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
+    addItemToFulfillmentGroupUsingPOST1(fulfillmentGroupId: number, cartId: number, wrapper: FulfillmentGroupItemWrapper, priceOrder?: boolean, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
+    /**
+     *
+     * @summary findAllInventoryForLocation
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllInventoryForLocationUsingGET1(locationId: number, options?: any): AxiosPromise<Array<InventoryWrapper>>;
+    /**
+     *
+     * @summary findAllPhysicalLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllPhysicalLocationsUsingGET1(options?: any): AxiosPromise<Array<FulfillmentLocationWrapper>>;
+    /**
+     *
+     * @summary findAllPickupLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllPickupLocationsUsingGET1(options?: any): AxiosPromise<Array<FulfillmentLocationWrapper>>;
+    /**
+     *
+     * @summary findAllShippingLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllShippingLocationsUsingGET1(options?: any): AxiosPromise<Array<FulfillmentLocationWrapper>>;
+    /**
+     *
+     * @summary findDefaultFulfillmentLocation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findDefaultFulfillmentLocationUsingGET1(options?: any): AxiosPromise<FulfillmentLocationWrapper>;
     /**
      *
      * @summary findFulfillmentGroupsForOrder
@@ -6658,7 +6929,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findFulfillmentGroupsForOrderUsingGET3(cartId: number, options?: any): AxiosPromise<Array<FulfillmentGroupWrapper>>;
+    findFulfillmentGroupsForOrderUsingGET1(cartId: number, options?: any): AxiosPromise<Array<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary findFulfillmentOptions
@@ -6666,7 +6937,15 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findFulfillmentOptionsUsingGET3(fulfillmentType: string, options?: any): AxiosPromise<Array<FulfillmentOptionWrapper>>;
+    findFulfillmentOptionsUsingGET1(fulfillmentType: string, options?: any): AxiosPromise<Array<FulfillmentOptionWrapper>>;
+    /**
+     *
+     * @summary findLocationById
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findLocationByIdUsingGET1(locationId: number, options?: any): AxiosPromise<FulfillmentLocationWrapper>;
     /**
      *
      * @summary getFulfillmentEstimations
@@ -6674,55 +6953,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFulfillmentEstimationsUsingDELETE3(cartId: number, options?: any): AxiosPromise<Array<FulfillmentEstimationWrapper>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingGET3(cartId: number, options?: any): AxiosPromise<Array<FulfillmentEstimationWrapper>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingHEAD3(cartId: number, options?: any): AxiosPromise<Array<FulfillmentEstimationWrapper>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingOPTIONS3(cartId: number, options?: any): AxiosPromise<Array<FulfillmentEstimationWrapper>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPATCH3(cartId: number, options?: any): AxiosPromise<Array<FulfillmentEstimationWrapper>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPOST3(cartId: number, options?: any): AxiosPromise<Array<FulfillmentEstimationWrapper>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFulfillmentEstimationsUsingPUT3(cartId: number, options?: any): AxiosPromise<Array<FulfillmentEstimationWrapper>>;
+    getFulfillmentEstimationsUsingGET1(cartId: number, options?: any): AxiosPromise<Array<FulfillmentEstimationWrapper>>;
     /**
      *
      * @summary removeAllFulfillmentGroupsFromOrder
@@ -6731,7 +6962,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAllFulfillmentGroupsFromOrderUsingDELETE3(cartId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    removeAllFulfillmentGroupsFromOrderUsingDELETE1(cartId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary removeFulfillmentGroupFromOrder
@@ -6740,7 +6971,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFulfillmentGroupFromOrderUsingDELETE3(fulfillmentGroupId: number, cartId: number, options?: any): AxiosPromise<Array<FulfillmentGroupWrapper>>;
+    removeFulfillmentGroupFromOrderUsingDELETE1(fulfillmentGroupId: number, cartId: number, options?: any): AxiosPromise<Array<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary removeOrderItemFromFulfillmentGroup
@@ -6750,7 +6981,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeOrderItemFromFulfillmentGroupUsingDELETE3(fulfillmentGroupId: number, itemId: number, cartId: number, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
+    removeOrderItemFromFulfillmentGroupUsingDELETE1(fulfillmentGroupId: number, itemId: number, cartId: number, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
     /**
      *
      * @summary updateFulfillmentGroupAddress
@@ -6760,7 +6991,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFulfillmentGroupAddressUsingPUT3(fulfillmentGroupId: number, cartId: number, address: AddressWrapper, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
+    updateFulfillmentGroupAddressUsingPUT1(fulfillmentGroupId: number, cartId: number, address: AddressWrapper, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
     /**
      *
      * @summary updateFulfillmentGroup
@@ -6771,7 +7002,7 @@ export declare const FulfillmentEndpointApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFulfillmentGroupUsingPATCH3(cartId: number, fulfillmentGroupId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
+    updateFulfillmentGroupUsingPATCH1(cartId: number, fulfillmentGroupId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): AxiosPromise<FulfillmentGroupWrapper>;
 };
 /**
  * FulfillmentEndpointApi - object-oriented interface
@@ -6790,7 +7021,7 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    addFulfillmentGroupToOrderUsingPOST3(cartId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
+    addFulfillmentGroupToOrderUsingPOST1(cartId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary addFulfillmentOptionToFulfillmentGroup
@@ -6802,7 +7033,7 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    addFulfillmentOptionToFulfillmentGroupUsingPUT3(fulfillmentGroupId: number, fulfillmentOptionId: number, cartId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
+    addFulfillmentOptionToFulfillmentGroupUsingPUT1(fulfillmentGroupId: number, fulfillmentOptionId: number, cartId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary addItemToFulfillmentGroup
@@ -6814,7 +7045,48 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    addItemToFulfillmentGroupUsingPOST3(fulfillmentGroupId: number, cartId: number, wrapper: FulfillmentGroupItemWrapper, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
+    addItemToFulfillmentGroupUsingPOST1(fulfillmentGroupId: number, cartId: number, wrapper: FulfillmentGroupItemWrapper, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
+    /**
+     *
+     * @summary findAllInventoryForLocation
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FulfillmentEndpointApi
+     */
+    findAllInventoryForLocationUsingGET1(locationId: number, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
+    /**
+     *
+     * @summary findAllPhysicalLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FulfillmentEndpointApi
+     */
+    findAllPhysicalLocationsUsingGET1(options?: any): Promise<import("axios").AxiosResponse<FulfillmentLocationWrapper[]>>;
+    /**
+     *
+     * @summary findAllPickupLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FulfillmentEndpointApi
+     */
+    findAllPickupLocationsUsingGET1(options?: any): Promise<import("axios").AxiosResponse<FulfillmentLocationWrapper[]>>;
+    /**
+     *
+     * @summary findAllShippingLocations
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FulfillmentEndpointApi
+     */
+    findAllShippingLocationsUsingGET1(options?: any): Promise<import("axios").AxiosResponse<FulfillmentLocationWrapper[]>>;
+    /**
+     *
+     * @summary findDefaultFulfillmentLocation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FulfillmentEndpointApi
+     */
+    findDefaultFulfillmentLocationUsingGET1(options?: any): Promise<import("axios").AxiosResponse<FulfillmentLocationWrapper>>;
     /**
      *
      * @summary findFulfillmentGroupsForOrder
@@ -6823,7 +7095,7 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    findFulfillmentGroupsForOrderUsingGET3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper[]>>;
+    findFulfillmentGroupsForOrderUsingGET1(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper[]>>;
     /**
      *
      * @summary findFulfillmentOptions
@@ -6832,7 +7104,16 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    findFulfillmentOptionsUsingGET3(fulfillmentType: string, options?: any): Promise<import("axios").AxiosResponse<FulfillmentOptionWrapper[]>>;
+    findFulfillmentOptionsUsingGET1(fulfillmentType: string, options?: any): Promise<import("axios").AxiosResponse<FulfillmentOptionWrapper[]>>;
+    /**
+     *
+     * @summary findLocationById
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FulfillmentEndpointApi
+     */
+    findLocationByIdUsingGET1(locationId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentLocationWrapper>>;
     /**
      *
      * @summary getFulfillmentEstimations
@@ -6841,61 +7122,7 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    getFulfillmentEstimationsUsingDELETE3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentEstimationWrapper[]>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FulfillmentEndpointApi
-     */
-    getFulfillmentEstimationsUsingGET3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentEstimationWrapper[]>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FulfillmentEndpointApi
-     */
-    getFulfillmentEstimationsUsingHEAD3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentEstimationWrapper[]>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FulfillmentEndpointApi
-     */
-    getFulfillmentEstimationsUsingOPTIONS3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentEstimationWrapper[]>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FulfillmentEndpointApi
-     */
-    getFulfillmentEstimationsUsingPATCH3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentEstimationWrapper[]>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FulfillmentEndpointApi
-     */
-    getFulfillmentEstimationsUsingPOST3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentEstimationWrapper[]>>;
-    /**
-     *
-     * @summary getFulfillmentEstimations
-     * @param {number} cartId cartId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FulfillmentEndpointApi
-     */
-    getFulfillmentEstimationsUsingPUT3(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentEstimationWrapper[]>>;
+    getFulfillmentEstimationsUsingGET1(cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentEstimationWrapper[]>>;
     /**
      *
      * @summary removeAllFulfillmentGroupsFromOrder
@@ -6905,7 +7132,7 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    removeAllFulfillmentGroupsFromOrderUsingDELETE3(cartId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    removeAllFulfillmentGroupsFromOrderUsingDELETE1(cartId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary removeFulfillmentGroupFromOrder
@@ -6915,7 +7142,7 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    removeFulfillmentGroupFromOrderUsingDELETE3(fulfillmentGroupId: number, cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper[]>>;
+    removeFulfillmentGroupFromOrderUsingDELETE1(fulfillmentGroupId: number, cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper[]>>;
     /**
      *
      * @summary removeOrderItemFromFulfillmentGroup
@@ -6926,7 +7153,7 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    removeOrderItemFromFulfillmentGroupUsingDELETE3(fulfillmentGroupId: number, itemId: number, cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
+    removeOrderItemFromFulfillmentGroupUsingDELETE1(fulfillmentGroupId: number, itemId: number, cartId: number, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary updateFulfillmentGroupAddress
@@ -6937,7 +7164,7 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    updateFulfillmentGroupAddressUsingPUT3(fulfillmentGroupId: number, cartId: number, address: AddressWrapper, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
+    updateFulfillmentGroupAddressUsingPUT1(fulfillmentGroupId: number, cartId: number, address: AddressWrapper, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
     /**
      *
      * @summary updateFulfillmentGroup
@@ -6949,462 +7176,1252 @@ export declare class FulfillmentEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FulfillmentEndpointApi
      */
-    updateFulfillmentGroupUsingPATCH3(cartId: number, fulfillmentGroupId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
+    updateFulfillmentGroupUsingPATCH1(cartId: number, fulfillmentGroupId: number, wrapper: FulfillmentGroupWrapper, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper>>;
 }
 /**
- * HealthMvcEndpointApi - axios parameter creator
+ * InventoryEndpointApi - axios parameter creator
  * @export
  */
-export declare const HealthMvcEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+export declare const InventoryEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary invoke
+     * @summary addNotification
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
+     * @param {string} email email
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET81: (options?: any) => Promise<RequestArgs>;
+    addNotificationUsingPUT1: (skuId: number, locationId: number, email: string, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary invoke
+     * @summary findInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET83: (options?: any) => Promise<RequestArgs>;
+    findInventoryForSkuUsingGET1: (skuId: number, locationId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findPhysicalInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPhysicalInventoryForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findPickupInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPickupInventoryForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findShippableInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findShippableInventoryForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary getAllUnProcessedNotifications
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllUnProcessedNotificationsUsingGET1: (limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary getQuantityAvailable
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getQuantityAvailableUsingGET1: (skuId: number, locationId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary getUnProcessedNotificationsForEmail
+     * @param {string} email email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUnProcessedNotificationsForEmailUsingGET1: (email: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary processNotification
+     * @param {number} notificationId notificationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    processNotificationUsingPOST1: (notificationId: number, options?: any) => Promise<RequestArgs>;
 };
 /**
- * HealthMvcEndpointApi - functional programming interface
+ * InventoryEndpointApi - functional programming interface
  * @export
  */
-export declare const HealthMvcEndpointApiFp: (configuration?: Configuration) => {
+export declare const InventoryEndpointApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary invoke
+     * @summary addNotification
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
+     * @param {string} email email
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET81(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    addNotificationUsingPUT1(skuId: number, locationId: number, email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      *
-     * @summary invoke
+     * @summary findInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET83(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    findInventoryForSkuUsingGET1(skuId: number, locationId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
+    /**
+     *
+     * @summary findPhysicalInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPhysicalInventoryForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
+    /**
+     *
+     * @summary findPickupInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPickupInventoryForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
+    /**
+     *
+     * @summary findShippableInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findShippableInventoryForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
+    /**
+     *
+     * @summary getAllUnProcessedNotifications
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllUnProcessedNotificationsUsingGET1(limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryNotificationWrapper>>>;
+    /**
+     *
+     * @summary getQuantityAvailable
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getQuantityAvailableUsingGET1(skuId: number, locationId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>>;
+    /**
+     *
+     * @summary getUnProcessedNotificationsForEmail
+     * @param {string} email email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUnProcessedNotificationsForEmailUsingGET1(email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryNotificationWrapper>>>;
+    /**
+     *
+     * @summary processNotification
+     * @param {number} notificationId notificationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    processNotificationUsingPOST1(notificationId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
 };
 /**
- * HealthMvcEndpointApi - factory interface
+ * InventoryEndpointApi - factory interface
  * @export
  */
-export declare const HealthMvcEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+export declare const InventoryEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary invoke
+     * @summary addNotification
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
+     * @param {string} email email
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET81(options?: any): AxiosPromise<object>;
+    addNotificationUsingPUT1(skuId: number, locationId: number, email: string, options?: any): AxiosPromise<boolean>;
     /**
      *
-     * @summary invoke
+     * @summary findInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET83(options?: any): AxiosPromise<object>;
+    findInventoryForSkuUsingGET1(skuId: number, locationId: number, options?: any): AxiosPromise<Array<InventoryWrapper>>;
+    /**
+     *
+     * @summary findPhysicalInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPhysicalInventoryForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<InventoryWrapper>>;
+    /**
+     *
+     * @summary findPickupInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPickupInventoryForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<InventoryWrapper>>;
+    /**
+     *
+     * @summary findShippableInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findShippableInventoryForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<InventoryWrapper>>;
+    /**
+     *
+     * @summary getAllUnProcessedNotifications
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAllUnProcessedNotificationsUsingGET1(limit?: number, offset?: number, options?: any): AxiosPromise<Array<InventoryNotificationWrapper>>;
+    /**
+     *
+     * @summary getQuantityAvailable
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getQuantityAvailableUsingGET1(skuId: number, locationId: number, options?: any): AxiosPromise<number>;
+    /**
+     *
+     * @summary getUnProcessedNotificationsForEmail
+     * @param {string} email email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUnProcessedNotificationsForEmailUsingGET1(email: string, options?: any): AxiosPromise<Array<InventoryNotificationWrapper>>;
+    /**
+     *
+     * @summary processNotification
+     * @param {number} notificationId notificationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    processNotificationUsingPOST1(notificationId: number, options?: any): AxiosPromise<boolean>;
 };
 /**
- * HealthMvcEndpointApi - object-oriented interface
+ * InventoryEndpointApi - object-oriented interface
  * @export
- * @class HealthMvcEndpointApi
+ * @class InventoryEndpointApi
  * @extends {BaseAPI}
  */
-export declare class HealthMvcEndpointApi extends BaseAPI {
+export declare class InventoryEndpointApi extends BaseAPI {
     /**
      *
-     * @summary invoke
+     * @summary addNotification
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
+     * @param {string} email email
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HealthMvcEndpointApi
+     * @memberof InventoryEndpointApi
      */
-    invokeUsingGET81(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    addNotificationUsingPUT1(skuId: number, locationId: number, email: string, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
     /**
      *
-     * @summary invoke
+     * @summary findInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HealthMvcEndpointApi
+     * @memberof InventoryEndpointApi
      */
-    invokeUsingGET83(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    findInventoryForSkuUsingGET1(skuId: number, locationId: number, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
+    /**
+     *
+     * @summary findPhysicalInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InventoryEndpointApi
+     */
+    findPhysicalInventoryForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
+    /**
+     *
+     * @summary findPickupInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InventoryEndpointApi
+     */
+    findPickupInventoryForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
+    /**
+     *
+     * @summary findShippableInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InventoryEndpointApi
+     */
+    findShippableInventoryForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
+    /**
+     *
+     * @summary getAllUnProcessedNotifications
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InventoryEndpointApi
+     */
+    getAllUnProcessedNotificationsUsingGET1(limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<InventoryNotificationWrapper[]>>;
+    /**
+     *
+     * @summary getQuantityAvailable
+     * @param {number} skuId skuId
+     * @param {number} locationId locationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InventoryEndpointApi
+     */
+    getQuantityAvailableUsingGET1(skuId: number, locationId: number, options?: any): Promise<import("axios").AxiosResponse<number>>;
+    /**
+     *
+     * @summary getUnProcessedNotificationsForEmail
+     * @param {string} email email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InventoryEndpointApi
+     */
+    getUnProcessedNotificationsForEmailUsingGET1(email: string, options?: any): Promise<import("axios").AxiosResponse<InventoryNotificationWrapper[]>>;
+    /**
+     *
+     * @summary processNotification
+     * @param {number} notificationId notificationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InventoryEndpointApi
+     */
+    processNotificationUsingPOST1(notificationId: number, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
 }
 /**
- * HeapdumpMvcEndpointApi - axios parameter creator
+ * OperationHandlerApi - axios parameter creator
  * @export
  */
-export declare const HeapdumpMvcEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+export declare const OperationHandlerApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary invoke
-     * @param {boolean} [live] live
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET85: (live?: boolean, options?: any) => Promise<RequestArgs>;
+    handleUsingGET1: (body?: {
+        [key: string]: string;
+    }, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary invoke
-     * @param {boolean} [live] live
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET87: (live?: boolean, options?: any) => Promise<RequestArgs>;
-};
-/**
- * HeapdumpMvcEndpointApi - functional programming interface
- * @export
- */
-export declare const HeapdumpMvcEndpointApiFp: (configuration?: Configuration) => {
+    handleUsingGET3: (body?: {
+        [key: string]: string;
+    }, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary invoke
-     * @param {boolean} [live] live
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET85(live?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    handleUsingGET5: (body?: {
+        [key: string]: string;
+    }, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary invoke
-     * @param {boolean} [live] live
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET87(live?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-};
-/**
- * HeapdumpMvcEndpointApi - factory interface
- * @export
- */
-export declare const HeapdumpMvcEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary invoke
-     * @param {boolean} [live] live
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET85(live?: boolean, options?: any): AxiosPromise<void>;
-    /**
-     *
-     * @summary invoke
-     * @param {boolean} [live] live
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET87(live?: boolean, options?: any): AxiosPromise<void>;
-};
-/**
- * HeapdumpMvcEndpointApi - object-oriented interface
- * @export
- * @class HeapdumpMvcEndpointApi
- * @extends {BaseAPI}
- */
-export declare class HeapdumpMvcEndpointApi extends BaseAPI {
-    /**
-     *
-     * @summary invoke
-     * @param {boolean} [live] live
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof HeapdumpMvcEndpointApi
-     */
-    invokeUsingGET85(live?: boolean, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     *
-     * @summary invoke
-     * @param {boolean} [live] live
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof HeapdumpMvcEndpointApi
-     */
-    invokeUsingGET87(live?: boolean, options?: any): Promise<import("axios").AxiosResponse<void>>;
-}
-/**
- * LoggersMvcEndpointApi - axios parameter creator
- * @export
- */
-export declare const LoggersMvcEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary get
-     * @param {string} name name
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getUsingGET3: (name: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET89: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary invoke
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    invokeUsingGET91: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary set
-     * @param {string} name name
-     * @param {{ [key: string]: string; }} configuration configuration
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    setUsingPOST3: (name: string, configuration: {
+    handleUsingGET7: (body?: {
         [key: string]: string;
     }, options?: any) => Promise<RequestArgs>;
 };
 /**
- * LoggersMvcEndpointApi - functional programming interface
+ * OperationHandlerApi - functional programming interface
  * @export
  */
-export declare const LoggersMvcEndpointApiFp: (configuration?: Configuration) => {
+export declare const OperationHandlerApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary get
-     * @param {string} name name
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsingGET3(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    handleUsingGET1(body?: {
+        [key: string]: string;
+    }, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
     /**
      *
-     * @summary invoke
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET89(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    handleUsingGET3(body?: {
+        [key: string]: string;
+    }, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
     /**
      *
-     * @summary invoke
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET91(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    handleUsingGET5(body?: {
+        [key: string]: string;
+    }, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
     /**
      *
-     * @summary set
-     * @param {string} name name
-     * @param {{ [key: string]: string; }} configuration configuration
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setUsingPOST3(name: string, configuration: {
+    handleUsingGET7(body?: {
         [key: string]: string;
     }, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
 };
 /**
- * LoggersMvcEndpointApi - factory interface
+ * OperationHandlerApi - factory interface
  * @export
  */
-export declare const LoggersMvcEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+export declare const OperationHandlerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary get
-     * @param {string} name name
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsingGET3(name: string, options?: any): AxiosPromise<object>;
+    handleUsingGET1(body?: {
+        [key: string]: string;
+    }, options?: any): AxiosPromise<object>;
     /**
      *
-     * @summary invoke
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET89(options?: any): AxiosPromise<object>;
+    handleUsingGET3(body?: {
+        [key: string]: string;
+    }, options?: any): AxiosPromise<object>;
     /**
      *
-     * @summary invoke
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET91(options?: any): AxiosPromise<object>;
+    handleUsingGET5(body?: {
+        [key: string]: string;
+    }, options?: any): AxiosPromise<object>;
     /**
      *
-     * @summary set
-     * @param {string} name name
-     * @param {{ [key: string]: string; }} configuration configuration
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    setUsingPOST3(name: string, configuration: {
+    handleUsingGET7(body?: {
         [key: string]: string;
     }, options?: any): AxiosPromise<object>;
 };
 /**
- * LoggersMvcEndpointApi - object-oriented interface
+ * OperationHandlerApi - object-oriented interface
  * @export
- * @class LoggersMvcEndpointApi
+ * @class OperationHandlerApi
  * @extends {BaseAPI}
  */
-export declare class LoggersMvcEndpointApi extends BaseAPI {
+export declare class OperationHandlerApi extends BaseAPI {
     /**
      *
-     * @summary get
-     * @param {string} name name
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LoggersMvcEndpointApi
+     * @memberof OperationHandlerApi
      */
-    getUsingGET3(name: string, options?: any): Promise<import("axios").AxiosResponse<object>>;
+    handleUsingGET1(body?: {
+        [key: string]: string;
+    }, options?: any): Promise<import("axios").AxiosResponse<object>>;
     /**
      *
-     * @summary invoke
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LoggersMvcEndpointApi
+     * @memberof OperationHandlerApi
      */
-    invokeUsingGET89(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    handleUsingGET3(body?: {
+        [key: string]: string;
+    }, options?: any): Promise<import("axios").AxiosResponse<object>>;
     /**
      *
-     * @summary invoke
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LoggersMvcEndpointApi
+     * @memberof OperationHandlerApi
      */
-    invokeUsingGET91(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    handleUsingGET5(body?: {
+        [key: string]: string;
+    }, options?: any): Promise<import("axios").AxiosResponse<object>>;
     /**
      *
-     * @summary set
-     * @param {string} name name
-     * @param {{ [key: string]: string; }} configuration configuration
+     * @summary handle
+     * @param {{ [key: string]: string; }} [body] body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LoggersMvcEndpointApi
+     * @memberof OperationHandlerApi
      */
-    setUsingPOST3(name: string, configuration: {
+    handleUsingGET7(body?: {
         [key: string]: string;
     }, options?: any): Promise<import("axios").AxiosResponse<object>>;
 }
 /**
- * MetricsMvcEndpointApi - axios parameter creator
+ * OrderEndpointApi - axios parameter creator
  * @export
  */
-export declare const MetricsMvcEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+export declare const OrderEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary invoke
+     * @summary acknowledgeFulfillmentOrder
+     * @param {Array<FulfillmentOrderAcknowledgementWrapper>} fulfillmentOrderAcknowledgementList fulfillmentOrderAcknowledgementList
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET93: (options?: any) => Promise<RequestArgs>;
+    acknowledgeFulfillmentOrderUsingPATCH1: (fulfillmentOrderAcknowledgementList: Array<FulfillmentOrderAcknowledgementWrapper>, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary invoke
+     * @summary acknowledgeOrder
+     * @param {Array<OrderAcknowledgementWrapper>} orderAcknowledgementList orderAcknowledgementList
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET95: (options?: any) => Promise<RequestArgs>;
+    acknowledgeOrderUsingPATCH1: (orderAcknowledgementList: Array<OrderAcknowledgementWrapper>, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary value
-     * @param {string} name name
+     * @summary addNote
+     * @param {string} orderNumber orderNumber
+     * @param {OrderNoteWrapper} orderNoteWrapper orderNoteWrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    valueUsingGET7: (name: string, options?: any) => Promise<RequestArgs>;
+    addNoteUsingPOST1: (orderNumber: string, orderNoteWrapper: OrderNoteWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary blockOrder
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    blockOrderUsingPOST1: (orderNumber: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary cancelItems
+     * @param {Array<CancelRequestWrapper>} cancelRequestWrappers cancelRequestWrappers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelItemsUsingPOST1: (cancelRequestWrappers: Array<CancelRequestWrapper>, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary cancelItems
+     * @param {string} orderNumber orderNumber
+     * @param {CancelRequestWrapper} cancelRequestWrapper cancelRequestWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelItemsUsingPOST3: (orderNumber: string, cancelRequestWrapper: CancelRequestWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary cancelOrder
+     * @param {string} orderNumber orderNumber
+     * @param {CancelRequestWrapper} cancelRequestWrapper cancelRequestWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelOrderUsingPOST1: (orderNumber: string, cancelRequestWrapper: CancelRequestWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary cancelSingleItem
+     * @param {string} orderNumber orderNumber
+     * @param {string} fulfillmentOrderNumber fulfillmentOrderNumber
+     * @param {number} skuId skuId
+     * @param {FulfillmentOrderItemWrapper} fulfillmentOrderItemWrapper fulfillmentOrderItemWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelSingleItemUsingPOST1: (orderNumber: string, fulfillmentOrderNumber: string, skuId: number, fulfillmentOrderItemWrapper: FulfillmentOrderItemWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary getFulfillmentOrders
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFulfillmentOrdersUsingGET1: (orderNumber: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary getNotes
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getNotesUsingGET1: (orderNumber: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary listFulfillmentOrders
+     * @param {string} [token] token
+     * @param {number} [maxRecords] maxRecords
+     * @param {string} [status] status
+     * @param {boolean} [includeBlockedOrders] includeBlockedOrders
+     * @param {boolean} [acknowledged] acknowledged
+     * @param {string} [beginDate] beginDate
+     * @param {string} [endDate] endDate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFulfillmentOrdersUsingGET1: (token?: string, maxRecords?: number, status?: string, includeBlockedOrders?: boolean, acknowledged?: boolean, beginDate?: string, endDate?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary listOrders
+     * @param {string} [token] token
+     * @param {number} [maxRecords] maxRecords
+     * @param {string} [status] status
+     * @param {boolean} [includeBlockedOrders] includeBlockedOrders
+     * @param {boolean} [acknowledged] acknowledged
+     * @param {string} [beginDate] beginDate
+     * @param {string} [endDate] endDate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listOrdersUsingGET1: (token?: string, maxRecords?: number, status?: string, includeBlockedOrders?: boolean, acknowledged?: boolean, beginDate?: string, endDate?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary shipItems
+     * @param {Array<FulfillmentOrderWrapper>} fulfillmentOrderWrappers fulfillmentOrderWrappers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    shipItemsUsingPOST1: (fulfillmentOrderWrappers: Array<FulfillmentOrderWrapper>, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary shipItems
+     * @param {string} orderNumber orderNumber
+     * @param {FulfillmentOrderWrapper} fulfillmentOrderWrapper fulfillmentOrderWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    shipItemsUsingPOST3: (orderNumber: string, fulfillmentOrderWrapper: FulfillmentOrderWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary showFulfillmentGroups
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    showFulfillmentGroupsUsingGET1: (orderNumber: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary showOrderPayments
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    showOrderPaymentsUsingGET1: (orderNumber: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary updateFulfillmentGroupAddress
+     * @param {string} orderNumber orderNumber
+     * @param {number} fulfillmentGroupId fulfillmentGroupId
+     * @param {FulfillmentGroupWrapper} fulfillmentGroupWrapper fulfillmentGroupWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFulfillmentGroupAddressUsingPUT3: (orderNumber: string, fulfillmentGroupId: number, fulfillmentGroupWrapper: FulfillmentGroupWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary updateOrderPaymentAddress
+     * @param {string} orderNumber orderNumber
+     * @param {number} paymentId paymentId
+     * @param {OrderPaymentWrapper} orderPaymentWrapper orderPaymentWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateOrderPaymentAddressUsingPUT1: (orderNumber: string, paymentId: number, orderPaymentWrapper: OrderPaymentWrapper, options?: any) => Promise<RequestArgs>;
 };
 /**
- * MetricsMvcEndpointApi - functional programming interface
+ * OrderEndpointApi - functional programming interface
  * @export
  */
-export declare const MetricsMvcEndpointApiFp: (configuration?: Configuration) => {
+export declare const OrderEndpointApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary invoke
+     * @summary acknowledgeFulfillmentOrder
+     * @param {Array<FulfillmentOrderAcknowledgementWrapper>} fulfillmentOrderAcknowledgementList fulfillmentOrderAcknowledgementList
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET93(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    acknowledgeFulfillmentOrderUsingPATCH1(fulfillmentOrderAcknowledgementList: Array<FulfillmentOrderAcknowledgementWrapper>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentOrderAcknowledgementWrapper>>>;
     /**
      *
-     * @summary invoke
+     * @summary acknowledgeOrder
+     * @param {Array<OrderAcknowledgementWrapper>} orderAcknowledgementList orderAcknowledgementList
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET95(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    acknowledgeOrderUsingPATCH1(orderAcknowledgementList: Array<OrderAcknowledgementWrapper>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderAcknowledgementWrapper>>>;
     /**
      *
-     * @summary value
-     * @param {string} name name
+     * @summary addNote
+     * @param {string} orderNumber orderNumber
+     * @param {OrderNoteWrapper} orderNoteWrapper orderNoteWrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    valueUsingGET7(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    addNoteUsingPOST1(orderNumber: string, orderNoteWrapper: OrderNoteWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderNoteWrapper>>>;
+    /**
+     *
+     * @summary blockOrder
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    blockOrderUsingPOST1(orderNumber: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>>;
+    /**
+     *
+     * @summary cancelItems
+     * @param {Array<CancelRequestWrapper>} cancelRequestWrappers cancelRequestWrappers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelItemsUsingPOST1(cancelRequestWrappers: Array<CancelRequestWrapper>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     *
+     * @summary cancelItems
+     * @param {string} orderNumber orderNumber
+     * @param {CancelRequestWrapper} cancelRequestWrapper cancelRequestWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelItemsUsingPOST3(orderNumber: string, cancelRequestWrapper: CancelRequestWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentOrderWrapper>>>;
+    /**
+     *
+     * @summary cancelOrder
+     * @param {string} orderNumber orderNumber
+     * @param {CancelRequestWrapper} cancelRequestWrapper cancelRequestWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelOrderUsingPOST1(orderNumber: string, cancelRequestWrapper: CancelRequestWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentOrderWrapper>>>;
+    /**
+     *
+     * @summary cancelSingleItem
+     * @param {string} orderNumber orderNumber
+     * @param {string} fulfillmentOrderNumber fulfillmentOrderNumber
+     * @param {number} skuId skuId
+     * @param {FulfillmentOrderItemWrapper} fulfillmentOrderItemWrapper fulfillmentOrderItemWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelSingleItemUsingPOST1(orderNumber: string, fulfillmentOrderNumber: string, skuId: number, fulfillmentOrderItemWrapper: FulfillmentOrderItemWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentOrderWrapper>>>;
+    /**
+     *
+     * @summary getFulfillmentOrders
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFulfillmentOrdersUsingGET1(orderNumber: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentOrderWrapper>>>;
+    /**
+     *
+     * @summary getNotes
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getNotesUsingGET1(orderNumber: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderNoteWrapper>>>;
+    /**
+     *
+     * @summary listFulfillmentOrders
+     * @param {string} [token] token
+     * @param {number} [maxRecords] maxRecords
+     * @param {string} [status] status
+     * @param {boolean} [includeBlockedOrders] includeBlockedOrders
+     * @param {boolean} [acknowledged] acknowledged
+     * @param {string} [beginDate] beginDate
+     * @param {string} [endDate] endDate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFulfillmentOrdersUsingGET1(token?: string, maxRecords?: number, status?: string, includeBlockedOrders?: boolean, acknowledged?: boolean, beginDate?: string, endDate?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkResponseFulfillmentOrderWrapper>>;
+    /**
+     *
+     * @summary listOrders
+     * @param {string} [token] token
+     * @param {number} [maxRecords] maxRecords
+     * @param {string} [status] status
+     * @param {boolean} [includeBlockedOrders] includeBlockedOrders
+     * @param {boolean} [acknowledged] acknowledged
+     * @param {string} [beginDate] beginDate
+     * @param {string} [endDate] endDate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listOrdersUsingGET1(token?: string, maxRecords?: number, status?: string, includeBlockedOrders?: boolean, acknowledged?: boolean, beginDate?: string, endDate?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkResponseOrderWrapper>>;
+    /**
+     *
+     * @summary shipItems
+     * @param {Array<FulfillmentOrderWrapper>} fulfillmentOrderWrappers fulfillmentOrderWrappers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    shipItemsUsingPOST1(fulfillmentOrderWrappers: Array<FulfillmentOrderWrapper>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     *
+     * @summary shipItems
+     * @param {string} orderNumber orderNumber
+     * @param {FulfillmentOrderWrapper} fulfillmentOrderWrapper fulfillmentOrderWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    shipItemsUsingPOST3(orderNumber: string, fulfillmentOrderWrapper: FulfillmentOrderWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentOrderWrapper>>>;
+    /**
+     *
+     * @summary showFulfillmentGroups
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    showFulfillmentGroupsUsingGET1(orderNumber: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentGroupWrapper>>>;
+    /**
+     *
+     * @summary showOrderPayments
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    showOrderPaymentsUsingGET1(orderNumber: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderPaymentWrapper>>>;
+    /**
+     *
+     * @summary updateFulfillmentGroupAddress
+     * @param {string} orderNumber orderNumber
+     * @param {number} fulfillmentGroupId fulfillmentGroupId
+     * @param {FulfillmentGroupWrapper} fulfillmentGroupWrapper fulfillmentGroupWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFulfillmentGroupAddressUsingPUT3(orderNumber: string, fulfillmentGroupId: number, fulfillmentGroupWrapper: FulfillmentGroupWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FulfillmentGroupWrapper>>>;
+    /**
+     *
+     * @summary updateOrderPaymentAddress
+     * @param {string} orderNumber orderNumber
+     * @param {number} paymentId paymentId
+     * @param {OrderPaymentWrapper} orderPaymentWrapper orderPaymentWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateOrderPaymentAddressUsingPUT1(orderNumber: string, paymentId: number, orderPaymentWrapper: OrderPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderPaymentWrapper>>>;
 };
 /**
- * MetricsMvcEndpointApi - factory interface
+ * OrderEndpointApi - factory interface
  * @export
  */
-export declare const MetricsMvcEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+export declare const OrderEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary invoke
+     * @summary acknowledgeFulfillmentOrder
+     * @param {Array<FulfillmentOrderAcknowledgementWrapper>} fulfillmentOrderAcknowledgementList fulfillmentOrderAcknowledgementList
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET93(options?: any): AxiosPromise<object>;
+    acknowledgeFulfillmentOrderUsingPATCH1(fulfillmentOrderAcknowledgementList: Array<FulfillmentOrderAcknowledgementWrapper>, options?: any): AxiosPromise<Array<FulfillmentOrderAcknowledgementWrapper>>;
     /**
      *
-     * @summary invoke
+     * @summary acknowledgeOrder
+     * @param {Array<OrderAcknowledgementWrapper>} orderAcknowledgementList orderAcknowledgementList
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invokeUsingGET95(options?: any): AxiosPromise<object>;
+    acknowledgeOrderUsingPATCH1(orderAcknowledgementList: Array<OrderAcknowledgementWrapper>, options?: any): AxiosPromise<Array<OrderAcknowledgementWrapper>>;
     /**
      *
-     * @summary value
-     * @param {string} name name
+     * @summary addNote
+     * @param {string} orderNumber orderNumber
+     * @param {OrderNoteWrapper} orderNoteWrapper orderNoteWrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    valueUsingGET7(name: string, options?: any): AxiosPromise<object>;
+    addNoteUsingPOST1(orderNumber: string, orderNoteWrapper: OrderNoteWrapper, options?: any): AxiosPromise<Array<OrderNoteWrapper>>;
+    /**
+     *
+     * @summary blockOrder
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    blockOrderUsingPOST1(orderNumber: string, options?: any): AxiosPromise<Array<object>>;
+    /**
+     *
+     * @summary cancelItems
+     * @param {Array<CancelRequestWrapper>} cancelRequestWrappers cancelRequestWrappers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelItemsUsingPOST1(cancelRequestWrappers: Array<CancelRequestWrapper>, options?: any): AxiosPromise<void>;
+    /**
+     *
+     * @summary cancelItems
+     * @param {string} orderNumber orderNumber
+     * @param {CancelRequestWrapper} cancelRequestWrapper cancelRequestWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelItemsUsingPOST3(orderNumber: string, cancelRequestWrapper: CancelRequestWrapper, options?: any): AxiosPromise<Array<FulfillmentOrderWrapper>>;
+    /**
+     *
+     * @summary cancelOrder
+     * @param {string} orderNumber orderNumber
+     * @param {CancelRequestWrapper} cancelRequestWrapper cancelRequestWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelOrderUsingPOST1(orderNumber: string, cancelRequestWrapper: CancelRequestWrapper, options?: any): AxiosPromise<Array<FulfillmentOrderWrapper>>;
+    /**
+     *
+     * @summary cancelSingleItem
+     * @param {string} orderNumber orderNumber
+     * @param {string} fulfillmentOrderNumber fulfillmentOrderNumber
+     * @param {number} skuId skuId
+     * @param {FulfillmentOrderItemWrapper} fulfillmentOrderItemWrapper fulfillmentOrderItemWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    cancelSingleItemUsingPOST1(orderNumber: string, fulfillmentOrderNumber: string, skuId: number, fulfillmentOrderItemWrapper: FulfillmentOrderItemWrapper, options?: any): AxiosPromise<Array<FulfillmentOrderWrapper>>;
+    /**
+     *
+     * @summary getFulfillmentOrders
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFulfillmentOrdersUsingGET1(orderNumber: string, options?: any): AxiosPromise<Array<FulfillmentOrderWrapper>>;
+    /**
+     *
+     * @summary getNotes
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getNotesUsingGET1(orderNumber: string, options?: any): AxiosPromise<Array<OrderNoteWrapper>>;
+    /**
+     *
+     * @summary listFulfillmentOrders
+     * @param {string} [token] token
+     * @param {number} [maxRecords] maxRecords
+     * @param {string} [status] status
+     * @param {boolean} [includeBlockedOrders] includeBlockedOrders
+     * @param {boolean} [acknowledged] acknowledged
+     * @param {string} [beginDate] beginDate
+     * @param {string} [endDate] endDate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFulfillmentOrdersUsingGET1(token?: string, maxRecords?: number, status?: string, includeBlockedOrders?: boolean, acknowledged?: boolean, beginDate?: string, endDate?: string, options?: any): AxiosPromise<BulkResponseFulfillmentOrderWrapper>;
+    /**
+     *
+     * @summary listOrders
+     * @param {string} [token] token
+     * @param {number} [maxRecords] maxRecords
+     * @param {string} [status] status
+     * @param {boolean} [includeBlockedOrders] includeBlockedOrders
+     * @param {boolean} [acknowledged] acknowledged
+     * @param {string} [beginDate] beginDate
+     * @param {string} [endDate] endDate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listOrdersUsingGET1(token?: string, maxRecords?: number, status?: string, includeBlockedOrders?: boolean, acknowledged?: boolean, beginDate?: string, endDate?: string, options?: any): AxiosPromise<BulkResponseOrderWrapper>;
+    /**
+     *
+     * @summary shipItems
+     * @param {Array<FulfillmentOrderWrapper>} fulfillmentOrderWrappers fulfillmentOrderWrappers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    shipItemsUsingPOST1(fulfillmentOrderWrappers: Array<FulfillmentOrderWrapper>, options?: any): AxiosPromise<void>;
+    /**
+     *
+     * @summary shipItems
+     * @param {string} orderNumber orderNumber
+     * @param {FulfillmentOrderWrapper} fulfillmentOrderWrapper fulfillmentOrderWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    shipItemsUsingPOST3(orderNumber: string, fulfillmentOrderWrapper: FulfillmentOrderWrapper, options?: any): AxiosPromise<Array<FulfillmentOrderWrapper>>;
+    /**
+     *
+     * @summary showFulfillmentGroups
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    showFulfillmentGroupsUsingGET1(orderNumber: string, options?: any): AxiosPromise<Array<FulfillmentGroupWrapper>>;
+    /**
+     *
+     * @summary showOrderPayments
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    showOrderPaymentsUsingGET1(orderNumber: string, options?: any): AxiosPromise<Array<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary updateFulfillmentGroupAddress
+     * @param {string} orderNumber orderNumber
+     * @param {number} fulfillmentGroupId fulfillmentGroupId
+     * @param {FulfillmentGroupWrapper} fulfillmentGroupWrapper fulfillmentGroupWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFulfillmentGroupAddressUsingPUT3(orderNumber: string, fulfillmentGroupId: number, fulfillmentGroupWrapper: FulfillmentGroupWrapper, options?: any): AxiosPromise<Array<FulfillmentGroupWrapper>>;
+    /**
+     *
+     * @summary updateOrderPaymentAddress
+     * @param {string} orderNumber orderNumber
+     * @param {number} paymentId paymentId
+     * @param {OrderPaymentWrapper} orderPaymentWrapper orderPaymentWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateOrderPaymentAddressUsingPUT1(orderNumber: string, paymentId: number, orderPaymentWrapper: OrderPaymentWrapper, options?: any): AxiosPromise<Array<OrderPaymentWrapper>>;
 };
 /**
- * MetricsMvcEndpointApi - object-oriented interface
+ * OrderEndpointApi - object-oriented interface
  * @export
- * @class MetricsMvcEndpointApi
+ * @class OrderEndpointApi
  * @extends {BaseAPI}
  */
-export declare class MetricsMvcEndpointApi extends BaseAPI {
+export declare class OrderEndpointApi extends BaseAPI {
     /**
      *
-     * @summary invoke
+     * @summary acknowledgeFulfillmentOrder
+     * @param {Array<FulfillmentOrderAcknowledgementWrapper>} fulfillmentOrderAcknowledgementList fulfillmentOrderAcknowledgementList
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MetricsMvcEndpointApi
+     * @memberof OrderEndpointApi
      */
-    invokeUsingGET93(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    acknowledgeFulfillmentOrderUsingPATCH1(fulfillmentOrderAcknowledgementList: Array<FulfillmentOrderAcknowledgementWrapper>, options?: any): Promise<import("axios").AxiosResponse<FulfillmentOrderAcknowledgementWrapper[]>>;
     /**
      *
-     * @summary invoke
+     * @summary acknowledgeOrder
+     * @param {Array<OrderAcknowledgementWrapper>} orderAcknowledgementList orderAcknowledgementList
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MetricsMvcEndpointApi
+     * @memberof OrderEndpointApi
      */
-    invokeUsingGET95(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    acknowledgeOrderUsingPATCH1(orderAcknowledgementList: Array<OrderAcknowledgementWrapper>, options?: any): Promise<import("axios").AxiosResponse<OrderAcknowledgementWrapper[]>>;
     /**
      *
-     * @summary value
-     * @param {string} name name
+     * @summary addNote
+     * @param {string} orderNumber orderNumber
+     * @param {OrderNoteWrapper} orderNoteWrapper orderNoteWrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MetricsMvcEndpointApi
+     * @memberof OrderEndpointApi
      */
-    valueUsingGET7(name: string, options?: any): Promise<import("axios").AxiosResponse<object>>;
+    addNoteUsingPOST1(orderNumber: string, orderNoteWrapper: OrderNoteWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderNoteWrapper[]>>;
+    /**
+     *
+     * @summary blockOrder
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    blockOrderUsingPOST1(orderNumber: string, options?: any): Promise<import("axios").AxiosResponse<object[]>>;
+    /**
+     *
+     * @summary cancelItems
+     * @param {Array<CancelRequestWrapper>} cancelRequestWrappers cancelRequestWrappers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    cancelItemsUsingPOST1(cancelRequestWrappers: Array<CancelRequestWrapper>, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     *
+     * @summary cancelItems
+     * @param {string} orderNumber orderNumber
+     * @param {CancelRequestWrapper} cancelRequestWrapper cancelRequestWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    cancelItemsUsingPOST3(orderNumber: string, cancelRequestWrapper: CancelRequestWrapper, options?: any): Promise<import("axios").AxiosResponse<FulfillmentOrderWrapper[]>>;
+    /**
+     *
+     * @summary cancelOrder
+     * @param {string} orderNumber orderNumber
+     * @param {CancelRequestWrapper} cancelRequestWrapper cancelRequestWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    cancelOrderUsingPOST1(orderNumber: string, cancelRequestWrapper: CancelRequestWrapper, options?: any): Promise<import("axios").AxiosResponse<FulfillmentOrderWrapper[]>>;
+    /**
+     *
+     * @summary cancelSingleItem
+     * @param {string} orderNumber orderNumber
+     * @param {string} fulfillmentOrderNumber fulfillmentOrderNumber
+     * @param {number} skuId skuId
+     * @param {FulfillmentOrderItemWrapper} fulfillmentOrderItemWrapper fulfillmentOrderItemWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    cancelSingleItemUsingPOST1(orderNumber: string, fulfillmentOrderNumber: string, skuId: number, fulfillmentOrderItemWrapper: FulfillmentOrderItemWrapper, options?: any): Promise<import("axios").AxiosResponse<FulfillmentOrderWrapper[]>>;
+    /**
+     *
+     * @summary getFulfillmentOrders
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    getFulfillmentOrdersUsingGET1(orderNumber: string, options?: any): Promise<import("axios").AxiosResponse<FulfillmentOrderWrapper[]>>;
+    /**
+     *
+     * @summary getNotes
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    getNotesUsingGET1(orderNumber: string, options?: any): Promise<import("axios").AxiosResponse<OrderNoteWrapper[]>>;
+    /**
+     *
+     * @summary listFulfillmentOrders
+     * @param {string} [token] token
+     * @param {number} [maxRecords] maxRecords
+     * @param {string} [status] status
+     * @param {boolean} [includeBlockedOrders] includeBlockedOrders
+     * @param {boolean} [acknowledged] acknowledged
+     * @param {string} [beginDate] beginDate
+     * @param {string} [endDate] endDate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    listFulfillmentOrdersUsingGET1(token?: string, maxRecords?: number, status?: string, includeBlockedOrders?: boolean, acknowledged?: boolean, beginDate?: string, endDate?: string, options?: any): Promise<import("axios").AxiosResponse<BulkResponseFulfillmentOrderWrapper>>;
+    /**
+     *
+     * @summary listOrders
+     * @param {string} [token] token
+     * @param {number} [maxRecords] maxRecords
+     * @param {string} [status] status
+     * @param {boolean} [includeBlockedOrders] includeBlockedOrders
+     * @param {boolean} [acknowledged] acknowledged
+     * @param {string} [beginDate] beginDate
+     * @param {string} [endDate] endDate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    listOrdersUsingGET1(token?: string, maxRecords?: number, status?: string, includeBlockedOrders?: boolean, acknowledged?: boolean, beginDate?: string, endDate?: string, options?: any): Promise<import("axios").AxiosResponse<BulkResponseOrderWrapper>>;
+    /**
+     *
+     * @summary shipItems
+     * @param {Array<FulfillmentOrderWrapper>} fulfillmentOrderWrappers fulfillmentOrderWrappers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    shipItemsUsingPOST1(fulfillmentOrderWrappers: Array<FulfillmentOrderWrapper>, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     *
+     * @summary shipItems
+     * @param {string} orderNumber orderNumber
+     * @param {FulfillmentOrderWrapper} fulfillmentOrderWrapper fulfillmentOrderWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    shipItemsUsingPOST3(orderNumber: string, fulfillmentOrderWrapper: FulfillmentOrderWrapper, options?: any): Promise<import("axios").AxiosResponse<FulfillmentOrderWrapper[]>>;
+    /**
+     *
+     * @summary showFulfillmentGroups
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    showFulfillmentGroupsUsingGET1(orderNumber: string, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper[]>>;
+    /**
+     *
+     * @summary showOrderPayments
+     * @param {string} orderNumber orderNumber
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    showOrderPaymentsUsingGET1(orderNumber: string, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper[]>>;
+    /**
+     *
+     * @summary updateFulfillmentGroupAddress
+     * @param {string} orderNumber orderNumber
+     * @param {number} fulfillmentGroupId fulfillmentGroupId
+     * @param {FulfillmentGroupWrapper} fulfillmentGroupWrapper fulfillmentGroupWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    updateFulfillmentGroupAddressUsingPUT3(orderNumber: string, fulfillmentGroupId: number, fulfillmentGroupWrapper: FulfillmentGroupWrapper, options?: any): Promise<import("axios").AxiosResponse<FulfillmentGroupWrapper[]>>;
+    /**
+     *
+     * @summary updateOrderPaymentAddress
+     * @param {string} orderNumber orderNumber
+     * @param {number} paymentId paymentId
+     * @param {OrderPaymentWrapper} orderPaymentWrapper orderPaymentWrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrderEndpointApi
+     */
+    updateOrderPaymentAddressUsingPUT1(orderNumber: string, paymentId: number, orderPaymentWrapper: OrderPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper[]>>;
 }
 /**
  * OrderHistoryEndpointApi - axios parameter creator
@@ -7417,7 +8434,7 @@ export declare const OrderHistoryEndpointApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllOrdersForCustomerUsingGET3: (options?: any) => Promise<RequestArgs>;
+    findAllOrdersForCustomerUsingGET1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findOrderById
@@ -7425,7 +8442,7 @@ export declare const OrderHistoryEndpointApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findOrderByIdUsingGET3: (orderId: number, options?: any) => Promise<RequestArgs>;
+    findOrderByIdUsingGET1: (orderId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findOrdersForCustomer
@@ -7434,7 +8451,7 @@ export declare const OrderHistoryEndpointApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findOrdersForCustomerUsingGET3: (orderStatus?: string, orderNumber?: string, options?: any) => Promise<RequestArgs>;
+    findOrdersForCustomerUsingGET1: (orderStatus?: string, orderNumber?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * OrderHistoryEndpointApi - functional programming interface
@@ -7447,7 +8464,7 @@ export declare const OrderHistoryEndpointApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllOrdersForCustomerUsingGET3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderWrapper>>>;
+    findAllOrdersForCustomerUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderWrapper>>>;
     /**
      *
      * @summary findOrderById
@@ -7455,7 +8472,7 @@ export declare const OrderHistoryEndpointApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findOrderByIdUsingGET3(orderId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    findOrderByIdUsingGET1(orderId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary findOrdersForCustomer
@@ -7464,7 +8481,7 @@ export declare const OrderHistoryEndpointApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findOrdersForCustomerUsingGET3(orderStatus?: string, orderNumber?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderWrapper>>>;
+    findOrdersForCustomerUsingGET1(orderStatus?: string, orderNumber?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderWrapper>>>;
 };
 /**
  * OrderHistoryEndpointApi - factory interface
@@ -7477,7 +8494,7 @@ export declare const OrderHistoryEndpointApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllOrdersForCustomerUsingGET3(options?: any): AxiosPromise<Array<OrderWrapper>>;
+    findAllOrdersForCustomerUsingGET1(options?: any): AxiosPromise<Array<OrderWrapper>>;
     /**
      *
      * @summary findOrderById
@@ -7485,7 +8502,7 @@ export declare const OrderHistoryEndpointApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findOrderByIdUsingGET3(orderId: number, options?: any): AxiosPromise<OrderWrapper>;
+    findOrderByIdUsingGET1(orderId: number, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary findOrdersForCustomer
@@ -7494,7 +8511,7 @@ export declare const OrderHistoryEndpointApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findOrdersForCustomerUsingGET3(orderStatus?: string, orderNumber?: string, options?: any): AxiosPromise<Array<OrderWrapper>>;
+    findOrdersForCustomerUsingGET1(orderStatus?: string, orderNumber?: string, options?: any): AxiosPromise<Array<OrderWrapper>>;
 };
 /**
  * OrderHistoryEndpointApi - object-oriented interface
@@ -7510,7 +8527,7 @@ export declare class OrderHistoryEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrderHistoryEndpointApi
      */
-    findAllOrdersForCustomerUsingGET3(options?: any): Promise<import("axios").AxiosResponse<OrderWrapper[]>>;
+    findAllOrdersForCustomerUsingGET1(options?: any): Promise<import("axios").AxiosResponse<OrderWrapper[]>>;
     /**
      *
      * @summary findOrderById
@@ -7519,7 +8536,7 @@ export declare class OrderHistoryEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrderHistoryEndpointApi
      */
-    findOrderByIdUsingGET3(orderId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    findOrderByIdUsingGET1(orderId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary findOrdersForCustomer
@@ -7529,7 +8546,7 @@ export declare class OrderHistoryEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrderHistoryEndpointApi
      */
-    findOrdersForCustomerUsingGET3(orderStatus?: string, orderNumber?: string, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper[]>>;
+    findOrdersForCustomerUsingGET1(orderStatus?: string, orderNumber?: string, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper[]>>;
 }
 /**
  * PreviewTemplateControllerApi - axios parameter creator
@@ -7542,49 +8559,49 @@ export declare const PreviewTemplateControllerApiAxiosParamCreator: (configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingDELETE3: (options?: any) => Promise<RequestArgs>;
+    displayPreviewUsingDELETE1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingGET3: (options?: any) => Promise<RequestArgs>;
+    displayPreviewUsingGET1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingHEAD3: (options?: any) => Promise<RequestArgs>;
+    displayPreviewUsingHEAD1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingOPTIONS3: (options?: any) => Promise<RequestArgs>;
+    displayPreviewUsingOPTIONS1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPATCH3: (options?: any) => Promise<RequestArgs>;
+    displayPreviewUsingPATCH1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPOST3: (options?: any) => Promise<RequestArgs>;
+    displayPreviewUsingPOST1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPUT3: (options?: any) => Promise<RequestArgs>;
+    displayPreviewUsingPUT1: (options?: any) => Promise<RequestArgs>;
 };
 /**
  * PreviewTemplateControllerApi - functional programming interface
@@ -7597,49 +8614,49 @@ export declare const PreviewTemplateControllerApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingDELETE3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    displayPreviewUsingDELETE1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingGET3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    displayPreviewUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingHEAD3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    displayPreviewUsingHEAD1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingOPTIONS3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    displayPreviewUsingOPTIONS1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPATCH3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    displayPreviewUsingPATCH1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPOST3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    displayPreviewUsingPOST1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPUT3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    displayPreviewUsingPUT1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
 };
 /**
  * PreviewTemplateControllerApi - factory interface
@@ -7652,49 +8669,49 @@ export declare const PreviewTemplateControllerApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingDELETE3(options?: any): AxiosPromise<string>;
+    displayPreviewUsingDELETE1(options?: any): AxiosPromise<string>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingGET3(options?: any): AxiosPromise<string>;
+    displayPreviewUsingGET1(options?: any): AxiosPromise<string>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingHEAD3(options?: any): AxiosPromise<string>;
+    displayPreviewUsingHEAD1(options?: any): AxiosPromise<string>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingOPTIONS3(options?: any): AxiosPromise<string>;
+    displayPreviewUsingOPTIONS1(options?: any): AxiosPromise<string>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPATCH3(options?: any): AxiosPromise<string>;
+    displayPreviewUsingPATCH1(options?: any): AxiosPromise<string>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPOST3(options?: any): AxiosPromise<string>;
+    displayPreviewUsingPOST1(options?: any): AxiosPromise<string>;
     /**
      *
      * @summary displayPreview
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    displayPreviewUsingPUT3(options?: any): AxiosPromise<string>;
+    displayPreviewUsingPUT1(options?: any): AxiosPromise<string>;
 };
 /**
  * PreviewTemplateControllerApi - object-oriented interface
@@ -7710,7 +8727,7 @@ export declare class PreviewTemplateControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PreviewTemplateControllerApi
      */
-    displayPreviewUsingDELETE3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    displayPreviewUsingDELETE1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary displayPreview
@@ -7718,7 +8735,7 @@ export declare class PreviewTemplateControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PreviewTemplateControllerApi
      */
-    displayPreviewUsingGET3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    displayPreviewUsingGET1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary displayPreview
@@ -7726,7 +8743,7 @@ export declare class PreviewTemplateControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PreviewTemplateControllerApi
      */
-    displayPreviewUsingHEAD3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    displayPreviewUsingHEAD1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary displayPreview
@@ -7734,7 +8751,7 @@ export declare class PreviewTemplateControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PreviewTemplateControllerApi
      */
-    displayPreviewUsingOPTIONS3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    displayPreviewUsingOPTIONS1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary displayPreview
@@ -7742,7 +8759,7 @@ export declare class PreviewTemplateControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PreviewTemplateControllerApi
      */
-    displayPreviewUsingPATCH3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    displayPreviewUsingPATCH1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary displayPreview
@@ -7750,7 +8767,7 @@ export declare class PreviewTemplateControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PreviewTemplateControllerApi
      */
-    displayPreviewUsingPOST3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    displayPreviewUsingPOST1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary displayPreview
@@ -7758,7 +8775,7 @@ export declare class PreviewTemplateControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PreviewTemplateControllerApi
      */
-    displayPreviewUsingPUT3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    displayPreviewUsingPUT1(options?: any): Promise<import("axios").AxiosResponse<string>>;
 }
 /**
  * PromotionMessageEndpointApi - axios parameter creator
@@ -7772,7 +8789,7 @@ export declare const PromotionMessageEndpointApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findPromotionMessagesForProductUsingGET3: (productId: number, options?: any) => Promise<RequestArgs>;
+    findPromotionMessagesForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
 };
 /**
  * PromotionMessageEndpointApi - functional programming interface
@@ -7786,7 +8803,7 @@ export declare const PromotionMessageEndpointApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findPromotionMessagesForProductUsingGET3(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+    findPromotionMessagesForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
         [key: string]: PromotionMessageDTOWrapper[];
     }>>;
 };
@@ -7802,7 +8819,7 @@ export declare const PromotionMessageEndpointApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findPromotionMessagesForProductUsingGET3(productId: number, options?: any): AxiosPromise<{
+    findPromotionMessagesForProductUsingGET1(productId: number, options?: any): AxiosPromise<{
         [key: string]: PromotionMessageDTOWrapper[];
     }>;
 };
@@ -7821,298 +8838,9 @@ export declare class PromotionMessageEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PromotionMessageEndpointApi
      */
-    findPromotionMessagesForProductUsingGET3(productId: number, options?: any): Promise<import("axios").AxiosResponse<{
+    findPromotionMessagesForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<{
         [key: string]: PromotionMessageDTOWrapper[];
     }>>;
-}
-/**
- * RatingEndpointApi - axios parameter creator
- * @export
- */
-export declare const RatingEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingDELETE3: (itemId: string, ratingType?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingGET3: (itemId: string, ratingType?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingHEAD3: (itemId: string, ratingType?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingOPTIONS3: (itemId: string, ratingType?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingPATCH3: (itemId: string, ratingType?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingPUT3: (itemId: string, ratingType?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary submitReviewForItem
-     * @param {string} itemId itemId
-     * @param {ReviewDetailWrapper} reviewDetailWrapper reviewDetailWrapper
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    submitReviewForItemUsingPOST3: (itemId: string, reviewDetailWrapper: ReviewDetailWrapper, ratingType?: string, options?: any) => Promise<RequestArgs>;
-};
-/**
- * RatingEndpointApi - functional programming interface
- * @export
- */
-export declare const RatingEndpointApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingDELETE3(itemId: string, ratingType?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingGET3(itemId: string, ratingType?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingHEAD3(itemId: string, ratingType?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingOPTIONS3(itemId: string, ratingType?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingPATCH3(itemId: string, ratingType?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingPUT3(itemId: string, ratingType?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary submitReviewForItem
-     * @param {string} itemId itemId
-     * @param {ReviewDetailWrapper} reviewDetailWrapper reviewDetailWrapper
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    submitReviewForItemUsingPOST3(itemId: string, reviewDetailWrapper: ReviewDetailWrapper, ratingType?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RatingSummaryWrapper>>;
-};
-/**
- * RatingEndpointApi - factory interface
- * @export
- */
-export declare const RatingEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingDELETE3(itemId: string, ratingType?: string, options?: any): AxiosPromise<RatingSummaryWrapper>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingGET3(itemId: string, ratingType?: string, options?: any): AxiosPromise<RatingSummaryWrapper>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingHEAD3(itemId: string, ratingType?: string, options?: any): AxiosPromise<RatingSummaryWrapper>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingOPTIONS3(itemId: string, ratingType?: string, options?: any): AxiosPromise<RatingSummaryWrapper>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingPATCH3(itemId: string, ratingType?: string, options?: any): AxiosPromise<RatingSummaryWrapper>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRatingsForItemUsingPUT3(itemId: string, ratingType?: string, options?: any): AxiosPromise<RatingSummaryWrapper>;
-    /**
-     *
-     * @summary submitReviewForItem
-     * @param {string} itemId itemId
-     * @param {ReviewDetailWrapper} reviewDetailWrapper reviewDetailWrapper
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    submitReviewForItemUsingPOST3(itemId: string, reviewDetailWrapper: ReviewDetailWrapper, ratingType?: string, options?: any): AxiosPromise<RatingSummaryWrapper>;
-};
-/**
- * RatingEndpointApi - object-oriented interface
- * @export
- * @class RatingEndpointApi
- * @extends {BaseAPI}
- */
-export declare class RatingEndpointApi extends BaseAPI {
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RatingEndpointApi
-     */
-    getRatingsForItemUsingDELETE3(itemId: string, ratingType?: string, options?: any): Promise<import("axios").AxiosResponse<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RatingEndpointApi
-     */
-    getRatingsForItemUsingGET3(itemId: string, ratingType?: string, options?: any): Promise<import("axios").AxiosResponse<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RatingEndpointApi
-     */
-    getRatingsForItemUsingHEAD3(itemId: string, ratingType?: string, options?: any): Promise<import("axios").AxiosResponse<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RatingEndpointApi
-     */
-    getRatingsForItemUsingOPTIONS3(itemId: string, ratingType?: string, options?: any): Promise<import("axios").AxiosResponse<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RatingEndpointApi
-     */
-    getRatingsForItemUsingPATCH3(itemId: string, ratingType?: string, options?: any): Promise<import("axios").AxiosResponse<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary getRatingsForItem
-     * @param {string} itemId itemId
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RatingEndpointApi
-     */
-    getRatingsForItemUsingPUT3(itemId: string, ratingType?: string, options?: any): Promise<import("axios").AxiosResponse<RatingSummaryWrapper>>;
-    /**
-     *
-     * @summary submitReviewForItem
-     * @param {string} itemId itemId
-     * @param {ReviewDetailWrapper} reviewDetailWrapper reviewDetailWrapper
-     * @param {string} [ratingType] ratingType
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RatingEndpointApi
-     */
-    submitReviewForItemUsingPOST3(itemId: string, reviewDetailWrapper: ReviewDetailWrapper, ratingType?: string, options?: any): Promise<import("axios").AxiosResponse<RatingSummaryWrapper>>;
 }
 /**
  * RelatedProductsEndpointApi - axios parameter creator
@@ -8133,7 +8861,7 @@ export declare const RelatedProductsEndpointApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelatedProductsUsingGET3: (productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
+    getRelatedProductsUsingGET1: (productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
 };
 /**
  * RelatedProductsEndpointApi - functional programming interface
@@ -8154,7 +8882,7 @@ export declare const RelatedProductsEndpointApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelatedProductsUsingGET3(productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWrapper>>>;
+    getRelatedProductsUsingGET1(productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWrapper>>>;
 };
 /**
  * RelatedProductsEndpointApi - factory interface
@@ -8175,7 +8903,7 @@ export declare const RelatedProductsEndpointApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelatedProductsUsingGET3(productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<Array<ProductWrapper>>;
+    getRelatedProductsUsingGET1(productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<Array<ProductWrapper>>;
 };
 /**
  * RelatedProductsEndpointApi - object-oriented interface
@@ -8199,236 +8927,166 @@ export declare class RelatedProductsEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RelatedProductsEndpointApi
      */
-    getRelatedProductsUsingGET3(productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<ProductWrapper[]>>;
+    getRelatedProductsUsingGET1(productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<ProductWrapper[]>>;
 }
 /**
- * SwaggerDocsReloadEndpointApi - axios parameter creator
+ * SystemEndpointApi - axios parameter creator
  * @export
  */
-export declare const SwaggerDocsReloadEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+export declare const SystemEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary invalidateCache
+     * @param {'catalog' | 'cms' | 'order' | 'customer' | 'system'} region region to be invalidated
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reloadUsingDELETE3: (options?: any) => Promise<RequestArgs>;
+    invalidateCacheUsingPATCH1: (region: 'catalog' | 'cms' | 'order' | 'customer' | 'system', options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary reindex
+     * @param {'catalog' | 'customer' | 'order' | 'fulfillment_order'} collection collection to be reindexed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reloadUsingGET3: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingHEAD3: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingOPTIONS3: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPATCH3: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPOST3: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPUT3: (options?: any) => Promise<RequestArgs>;
+    reindexUsingPATCH1: (collection: 'catalog' | 'customer' | 'order' | 'fulfillment_order', options?: any) => Promise<RequestArgs>;
 };
 /**
- * SwaggerDocsReloadEndpointApi - functional programming interface
+ * SystemEndpointApi - functional programming interface
  * @export
  */
-export declare const SwaggerDocsReloadEndpointApiFp: (configuration?: Configuration) => {
+export declare const SystemEndpointApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary invalidateCache
+     * @param {'catalog' | 'cms' | 'order' | 'customer' | 'system'} region region to be invalidated
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reloadUsingDELETE3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    invalidateCacheUsingPATCH1(region: 'catalog' | 'cms' | 'order' | 'customer' | 'system', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary reindex
+     * @param {'catalog' | 'customer' | 'order' | 'fulfillment_order'} collection collection to be reindexed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reloadUsingGET3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingHEAD3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingOPTIONS3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPATCH3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPOST3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPUT3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    reindexUsingPATCH1(collection: 'catalog' | 'customer' | 'order' | 'fulfillment_order', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
 };
 /**
- * SwaggerDocsReloadEndpointApi - factory interface
+ * SystemEndpointApi - factory interface
  * @export
  */
-export declare const SwaggerDocsReloadEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+export declare const SystemEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary invalidateCache
+     * @param {'catalog' | 'cms' | 'order' | 'customer' | 'system'} region region to be invalidated
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reloadUsingDELETE3(options?: any): AxiosPromise<string>;
+    invalidateCacheUsingPATCH1(region: 'catalog' | 'cms' | 'order' | 'customer' | 'system', options?: any): AxiosPromise<string>;
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary reindex
+     * @param {'catalog' | 'customer' | 'order' | 'fulfillment_order'} collection collection to be reindexed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reloadUsingGET3(options?: any): AxiosPromise<string>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingHEAD3(options?: any): AxiosPromise<string>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingOPTIONS3(options?: any): AxiosPromise<string>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPATCH3(options?: any): AxiosPromise<string>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPOST3(options?: any): AxiosPromise<string>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    reloadUsingPUT3(options?: any): AxiosPromise<string>;
+    reindexUsingPATCH1(collection: 'catalog' | 'customer' | 'order' | 'fulfillment_order', options?: any): AxiosPromise<string>;
 };
 /**
- * SwaggerDocsReloadEndpointApi - object-oriented interface
+ * SystemEndpointApi - object-oriented interface
  * @export
- * @class SwaggerDocsReloadEndpointApi
+ * @class SystemEndpointApi
  * @extends {BaseAPI}
  */
-export declare class SwaggerDocsReloadEndpointApi extends BaseAPI {
+export declare class SystemEndpointApi extends BaseAPI {
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary invalidateCache
+     * @param {'catalog' | 'cms' | 'order' | 'customer' | 'system'} region region to be invalidated
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SwaggerDocsReloadEndpointApi
+     * @memberof SystemEndpointApi
      */
-    reloadUsingDELETE3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    invalidateCacheUsingPATCH1(region: 'catalog' | 'cms' | 'order' | 'customer' | 'system', options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary reindex
+     * @param {'catalog' | 'customer' | 'order' | 'fulfillment_order'} collection collection to be reindexed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SwaggerDocsReloadEndpointApi
+     * @memberof SystemEndpointApi
      */
-    reloadUsingGET3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    reindexUsingPATCH1(collection: 'catalog' | 'customer' | 'order' | 'fulfillment_order', options?: any): Promise<import("axios").AxiosResponse<string>>;
+}
+/**
+ * WebMvcLinksHandlerApi - axios parameter creator
+ * @export
+ */
+export declare const WebMvcLinksHandlerApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary links
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SwaggerDocsReloadEndpointApi
      */
-    reloadUsingHEAD3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    linksUsingGET1: (options?: any) => Promise<RequestArgs>;
+};
+/**
+ * WebMvcLinksHandlerApi - functional programming interface
+ * @export
+ */
+export declare const WebMvcLinksHandlerApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary links
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SwaggerDocsReloadEndpointApi
      */
-    reloadUsingOPTIONS3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    linksUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: {
+            [key: string]: Link;
+        };
+    }>>;
+};
+/**
+ * WebMvcLinksHandlerApi - factory interface
+ * @export
+ */
+export declare const WebMvcLinksHandlerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary links
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SwaggerDocsReloadEndpointApi
      */
-    reloadUsingPATCH3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    linksUsingGET1(options?: any): AxiosPromise<{
+        [key: string]: {
+            [key: string]: Link;
+        };
+    }>;
+};
+/**
+ * WebMvcLinksHandlerApi - object-oriented interface
+ * @export
+ * @class WebMvcLinksHandlerApi
+ * @extends {BaseAPI}
+ */
+export declare class WebMvcLinksHandlerApi extends BaseAPI {
     /**
      *
-     * @summary Hot-reloads the Swagger documentation in the running context
+     * @summary links
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SwaggerDocsReloadEndpointApi
+     * @memberof WebMvcLinksHandlerApi
      */
-    reloadUsingPOST3(options?: any): Promise<import("axios").AxiosResponse<string>>;
-    /**
-     *
-     * @summary Hot-reloads the Swagger documentation in the running context
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SwaggerDocsReloadEndpointApi
-     */
-    reloadUsingPUT3(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    linksUsingGET1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: {
+            [key: string]: Link;
+        };
+    }>>;
 }
 /**
  * WishlistEndpointApi - axios parameter creator
@@ -8443,7 +9101,7 @@ export declare const WishlistEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addConfigureItemToWishlistUsingPOST3: (wishlistName: string, orderItemWrapper: ConfigurableOrderItemWrapper, options?: any) => Promise<RequestArgs>;
+    addConfigureItemToWishlistUsingPOST1: (wishlistName: string, orderItemWrapper: ConfigurableOrderItemWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary addItemToWishlist
@@ -8452,7 +9110,7 @@ export declare const WishlistEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToWishlistUsingPOST3: (wishlistName: string, orderItemWrapper: OrderItemWrapper, options?: any) => Promise<RequestArgs>;
+    addItemToWishlistUsingPOST1: (wishlistName: string, orderItemWrapper: OrderItemWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary getWishlist
@@ -8460,7 +9118,7 @@ export declare const WishlistEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWishlistUsingGET3: (wishlistName: string, options?: any) => Promise<RequestArgs>;
+    getWishlistUsingGET1: (wishlistName: string, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary moveItemToCart
@@ -8469,7 +9127,7 @@ export declare const WishlistEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    moveItemToCartUsingPOST3: (wishlistName: string, itemId: string, options?: any) => Promise<RequestArgs>;
+    moveItemToCartUsingPOST1: (wishlistName: string, itemId: string, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary moveListToCart
@@ -8477,7 +9135,7 @@ export declare const WishlistEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    moveListToCartUsingPOST3: (wishlistName: string, options?: any) => Promise<RequestArgs>;
+    moveListToCartUsingPOST1: (wishlistName: string, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeItemFromWishlist
@@ -8486,7 +9144,7 @@ export declare const WishlistEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeItemFromWishlistUsingDELETE3: (wishlistName: string, itemId: number, options?: any) => Promise<RequestArgs>;
+    removeItemFromWishlistUsingDELETE1: (wishlistName: string, itemId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateQuantityInWishlist
@@ -8496,7 +9154,7 @@ export declare const WishlistEndpointApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateQuantityInWishlistUsingPUT3: (wishlistName: string, itemId: number, quantity: number, options?: any) => Promise<RequestArgs>;
+    updateQuantityInWishlistUsingPUT1: (wishlistName: string, itemId: number, quantity: number, options?: any) => Promise<RequestArgs>;
 };
 /**
  * WishlistEndpointApi - functional programming interface
@@ -8511,7 +9169,7 @@ export declare const WishlistEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addConfigureItemToWishlistUsingPOST3(wishlistName: string, orderItemWrapper: ConfigurableOrderItemWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    addConfigureItemToWishlistUsingPOST1(wishlistName: string, orderItemWrapper: ConfigurableOrderItemWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary addItemToWishlist
@@ -8520,7 +9178,7 @@ export declare const WishlistEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToWishlistUsingPOST3(wishlistName: string, orderItemWrapper: OrderItemWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    addItemToWishlistUsingPOST1(wishlistName: string, orderItemWrapper: OrderItemWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary getWishlist
@@ -8528,7 +9186,7 @@ export declare const WishlistEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWishlistUsingGET3(wishlistName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    getWishlistUsingGET1(wishlistName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary moveItemToCart
@@ -8537,7 +9195,7 @@ export declare const WishlistEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    moveItemToCartUsingPOST3(wishlistName: string, itemId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    moveItemToCartUsingPOST1(wishlistName: string, itemId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary moveListToCart
@@ -8545,7 +9203,7 @@ export declare const WishlistEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    moveListToCartUsingPOST3(wishlistName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    moveListToCartUsingPOST1(wishlistName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary removeItemFromWishlist
@@ -8554,7 +9212,7 @@ export declare const WishlistEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeItemFromWishlistUsingDELETE3(wishlistName: string, itemId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    removeItemFromWishlistUsingDELETE1(wishlistName: string, itemId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary updateQuantityInWishlist
@@ -8564,7 +9222,7 @@ export declare const WishlistEndpointApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateQuantityInWishlistUsingPUT3(wishlistName: string, itemId: number, quantity: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    updateQuantityInWishlistUsingPUT1(wishlistName: string, itemId: number, quantity: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
 };
 /**
  * WishlistEndpointApi - factory interface
@@ -8579,7 +9237,7 @@ export declare const WishlistEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addConfigureItemToWishlistUsingPOST3(wishlistName: string, orderItemWrapper: ConfigurableOrderItemWrapper, options?: any): AxiosPromise<OrderWrapper>;
+    addConfigureItemToWishlistUsingPOST1(wishlistName: string, orderItemWrapper: ConfigurableOrderItemWrapper, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary addItemToWishlist
@@ -8588,7 +9246,7 @@ export declare const WishlistEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addItemToWishlistUsingPOST3(wishlistName: string, orderItemWrapper: OrderItemWrapper, options?: any): AxiosPromise<OrderWrapper>;
+    addItemToWishlistUsingPOST1(wishlistName: string, orderItemWrapper: OrderItemWrapper, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary getWishlist
@@ -8596,7 +9254,7 @@ export declare const WishlistEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWishlistUsingGET3(wishlistName: string, options?: any): AxiosPromise<OrderWrapper>;
+    getWishlistUsingGET1(wishlistName: string, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary moveItemToCart
@@ -8605,7 +9263,7 @@ export declare const WishlistEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    moveItemToCartUsingPOST3(wishlistName: string, itemId: string, options?: any): AxiosPromise<OrderWrapper>;
+    moveItemToCartUsingPOST1(wishlistName: string, itemId: string, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary moveListToCart
@@ -8613,7 +9271,7 @@ export declare const WishlistEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    moveListToCartUsingPOST3(wishlistName: string, options?: any): AxiosPromise<OrderWrapper>;
+    moveListToCartUsingPOST1(wishlistName: string, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary removeItemFromWishlist
@@ -8622,7 +9280,7 @@ export declare const WishlistEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeItemFromWishlistUsingDELETE3(wishlistName: string, itemId: number, options?: any): AxiosPromise<OrderWrapper>;
+    removeItemFromWishlistUsingDELETE1(wishlistName: string, itemId: number, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary updateQuantityInWishlist
@@ -8632,7 +9290,7 @@ export declare const WishlistEndpointApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateQuantityInWishlistUsingPUT3(wishlistName: string, itemId: number, quantity: number, options?: any): AxiosPromise<OrderWrapper>;
+    updateQuantityInWishlistUsingPUT1(wishlistName: string, itemId: number, quantity: number, options?: any): AxiosPromise<OrderWrapper>;
 };
 /**
  * WishlistEndpointApi - object-oriented interface
@@ -8650,7 +9308,7 @@ export declare class WishlistEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WishlistEndpointApi
      */
-    addConfigureItemToWishlistUsingPOST3(wishlistName: string, orderItemWrapper: ConfigurableOrderItemWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    addConfigureItemToWishlistUsingPOST1(wishlistName: string, orderItemWrapper: ConfigurableOrderItemWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary addItemToWishlist
@@ -8660,7 +9318,7 @@ export declare class WishlistEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WishlistEndpointApi
      */
-    addItemToWishlistUsingPOST3(wishlistName: string, orderItemWrapper: OrderItemWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    addItemToWishlistUsingPOST1(wishlistName: string, orderItemWrapper: OrderItemWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary getWishlist
@@ -8669,7 +9327,7 @@ export declare class WishlistEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WishlistEndpointApi
      */
-    getWishlistUsingGET3(wishlistName: string, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    getWishlistUsingGET1(wishlistName: string, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary moveItemToCart
@@ -8679,7 +9337,7 @@ export declare class WishlistEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WishlistEndpointApi
      */
-    moveItemToCartUsingPOST3(wishlistName: string, itemId: string, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    moveItemToCartUsingPOST1(wishlistName: string, itemId: string, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary moveListToCart
@@ -8688,7 +9346,7 @@ export declare class WishlistEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WishlistEndpointApi
      */
-    moveListToCartUsingPOST3(wishlistName: string, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    moveListToCartUsingPOST1(wishlistName: string, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary removeItemFromWishlist
@@ -8698,7 +9356,7 @@ export declare class WishlistEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WishlistEndpointApi
      */
-    removeItemFromWishlistUsingDELETE3(wishlistName: string, itemId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    removeItemFromWishlistUsingDELETE1(wishlistName: string, itemId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary updateQuantityInWishlist
@@ -8709,5 +9367,5 @@ export declare class WishlistEndpointApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WishlistEndpointApi
      */
-    updateQuantityInWishlistUsingPUT3(wishlistName: string, itemId: number, quantity: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    updateQuantityInWishlistUsingPUT1(wishlistName: string, itemId: number, quantity: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
 }

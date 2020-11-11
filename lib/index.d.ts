@@ -1,6 +1,6 @@
 /**
- * Broadleaf Commerce API
- * The default Broadleaf Commerce APIs
+ * UltraCommerce API
+ * The UltraCommerce API
  *
  * The version of the OpenAPI document: v1
  *
