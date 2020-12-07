@@ -1353,12 +1353,6 @@ export interface FulfillmentOrderWrapper {
     acknowledged?: boolean;
     /**
      *
-     * @type {ApplicationContext}
-     * @memberof FulfillmentOrderWrapper
-     */
-    applicationContext?: ApplicationContext;
-    /**
-     *
      * @type {string}
      * @memberof FulfillmentOrderWrapper
      */
@@ -1506,10 +1500,22 @@ export interface InventoryNotificationWrapper {
 export interface InventoryWrapper {
     /**
      *
-     * @type {boolean}
+     * @type {string}
      * @memberof InventoryWrapper
      */
-    quantityOnHandEnabled?: boolean;
+    inventoryType?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof InventoryWrapper
+     */
+    quantityAvailable?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof InventoryWrapper
+     */
+    skuId?: number;
 }
 /**
  *
@@ -2482,6 +2488,21 @@ export interface ProductAttributeWrapper {
 /**
  *
  * @export
+ * @interface ProductOptionValueMap
+ */
+export interface ProductOptionValueMap {
+    /**
+     *
+     * @type {{ [key: string]: string; }}
+     * @memberof ProductOptionValueMap
+     */
+    optionValueMap?: {
+        [key: string]: string;
+    };
+}
+/**
+ *
+ * @export
  * @interface ProductOptionValueWrapper
  */
 export interface ProductOptionValueWrapper {
@@ -2989,12 +3010,6 @@ export interface ShipmentDetailWrapper {
     actualShipDate?: string;
     /**
      *
-     * @type {ApplicationContext}
-     * @memberof ShipmentDetailWrapper
-     */
-    applicationContext?: ApplicationContext;
-    /**
-     *
      * @type {string}
      * @memberof ShipmentDetailWrapper
      */
@@ -3017,6 +3032,305 @@ export interface ShipmentDetailWrapper {
      * @memberof ShipmentDetailWrapper
      */
     trackingNumber?: string;
+}
+/**
+ *
+ * @export
+ * @interface SimpleDimensionWrapper
+ */
+export interface SimpleDimensionWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleDimensionWrapper
+     */
+    container?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleDimensionWrapper
+     */
+    depth?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleDimensionWrapper
+     */
+    dimensionUnitOfMeasure?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleDimensionWrapper
+     */
+    girth?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleDimensionWrapper
+     */
+    height?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleDimensionWrapper
+     */
+    size?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleDimensionWrapper
+     */
+    width?: number;
+}
+/**
+ *
+ * @export
+ * @interface SimpleProductAttributeWrapper
+ */
+export interface SimpleProductAttributeWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductAttributeWrapper
+     */
+    attributeName?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductAttributeWrapper
+     */
+    attributeValue?: string;
+}
+/**
+ *
+ * @export
+ * @interface SimpleProductWrapper
+ */
+export interface SimpleProductWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    activeEndDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    activeStartDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    archived?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SimpleProductWrapper
+     */
+    canSellWithoutOptions?: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleProductWrapper
+     */
+    defaultCategoryId?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    description?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    displayTemplate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    externalId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    inventoryType?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    longDescription?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    manufacturer?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    name?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    promoMessage?: string;
+    /**
+     *
+     * @type {Money}
+     * @memberof SimpleProductWrapper
+     */
+    retailPrice?: Money;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleProductWrapper
+     */
+    retailPriceAsDouble?: number;
+    /**
+     *
+     * @type {Money}
+     * @memberof SimpleProductWrapper
+     */
+    salePrice?: Money;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleProductWrapper
+     */
+    salePriceAsDouble?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    taxCode?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleProductWrapper
+     */
+    url?: string;
+}
+/**
+ *
+ * @export
+ * @interface SimpleSkuAttributeWrapper
+ */
+export interface SimpleSkuAttributeWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleSkuAttributeWrapper
+     */
+    attributeName?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleSkuAttributeWrapper
+     */
+    attributeValue?: string;
+}
+/**
+ *
+ * @export
+ * @interface SimpleSkuWrapper
+ */
+export interface SimpleSkuWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleSkuWrapper
+     */
+    activeEndDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleSkuWrapper
+     */
+    activeStartDate?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SimpleSkuWrapper
+     */
+    available?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleSkuWrapper
+     */
+    description?: string;
+    /**
+     *
+     * @type {SimpleDimensionWrapper}
+     * @memberof SimpleSkuWrapper
+     */
+    dimension?: SimpleDimensionWrapper;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleSkuWrapper
+     */
+    externalId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleSkuWrapper
+     */
+    inventoryType?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleSkuWrapper
+     */
+    name?: string;
+    /**
+     *
+     * @type {ProductOptionValueMap}
+     * @memberof SimpleSkuWrapper
+     */
+    optionValues?: ProductOptionValueMap;
+    /**
+     *
+     * @type {Money}
+     * @memberof SimpleSkuWrapper
+     */
+    retailPrice?: Money;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleSkuWrapper
+     */
+    retailPriceAsDouble?: number;
+    /**
+     *
+     * @type {Money}
+     * @memberof SimpleSkuWrapper
+     */
+    salePrice?: Money;
+    /**
+     *
+     * @type {number}
+     * @memberof SimpleSkuWrapper
+     */
+    salePriceAsDouble?: number;
+    /**
+     *
+     * @type {WeightWrapper}
+     * @memberof SimpleSkuWrapper
+     */
+    weight?: WeightWrapper;
 }
 /**
  *
@@ -3314,6 +3628,184 @@ export interface TaxDetailWrapper {
 /**
  *
  * @export
+ * @interface UCCatalogWrapper
+ */
+export interface UCCatalogWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCCatalogWrapper
+     */
+    archived?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UCCatalogWrapper
+     */
+    configurationStatus?: string;
+    /**
+     *
+     * @type {Array<UCDerivedFromCatalogWrapper>}
+     * @memberof UCCatalogWrapper
+     */
+    derivedFromCatalogs?: Array<UCDerivedFromCatalogWrapper>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCCatalogWrapper
+     */
+    hideFromCatalogSelection?: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof UCCatalogWrapper
+     */
+    id?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof UCCatalogWrapper
+     */
+    name?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof UCCatalogWrapper
+     */
+    owningSiteId?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCCatalogWrapper
+     */
+    shareWithVendors?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface UCDerivedFromCatalogWrapper
+ */
+export interface UCDerivedFromCatalogWrapper {
+    /**
+     *
+     * @type {string}
+     * @memberof UCDerivedFromCatalogWrapper
+     */
+    deploymentStatus?: string;
+    /**
+     *
+     * @type {UCCatalogWrapper}
+     * @memberof UCDerivedFromCatalogWrapper
+     */
+    derivedFromCatalog?: UCCatalogWrapper;
+    /**
+     *
+     * @type {number}
+     * @memberof UCDerivedFromCatalogWrapper
+     */
+    id?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof UCDerivedFromCatalogWrapper
+     */
+    mutabilityType?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCDerivedFromCatalogWrapper
+     */
+    visible?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface UCInventoryWrapper
+ */
+export interface UCInventoryWrapper {
+    /**
+     *
+     * @type {number}
+     * @memberof UCInventoryWrapper
+     */
+    locationId?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof UCInventoryWrapper
+     */
+    quantityAvailable?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof UCInventoryWrapper
+     */
+    quantityOnHand?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof UCInventoryWrapper
+     */
+    skuId?: number;
+}
+/**
+ *
+ * @export
+ * @interface UCMediaWrapper
+ */
+export interface UCMediaWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCMediaWrapper
+     */
+    allowOverrideUrl?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UCMediaWrapper
+     */
+    altText?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCMediaWrapper
+     */
+    archived?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof UCMediaWrapper
+     */
+    id?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof UCMediaWrapper
+     */
+    key?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCMediaWrapper
+     */
+    tags?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCMediaWrapper
+     */
+    title?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCMediaWrapper
+     */
+    url?: string;
+}
+/**
+ *
+ * @export
  * @interface UCProductIdsWrapper
  */
 export interface UCProductIdsWrapper {
@@ -3354,12 +3846,6 @@ export interface UCProductWrapper {
      * @memberof UCProductWrapper
      */
     additionalSkus?: Array<SkuWrapper>;
-    /**
-     *
-     * @type {ApplicationContext}
-     * @memberof UCProductWrapper
-     */
-    applicationContext?: ApplicationContext;
     /**
      *
      * @type {string}
@@ -3422,10 +3908,22 @@ export interface UCProductWrapper {
     dynamicSkuPrices?: DynamicSkuPricesWrapper;
     /**
      *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    externalId?: string;
+    /**
+     *
      * @type {number}
      * @memberof UCProductWrapper
      */
     id?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof UCProductWrapper
+     */
+    inventoryType?: string;
     /**
      *
      * @type {string}
@@ -3557,6 +4055,115 @@ export interface UCProductsDeleteResponseWrapper {
      * @memberof UCProductsDeleteResponseWrapper
      */
     missingProducts?: Array<number>;
+}
+/**
+ *
+ * @export
+ * @interface UCSkuWrapper
+ */
+export interface UCSkuWrapper {
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCSkuWrapper
+     */
+    active?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UCSkuWrapper
+     */
+    activeEndDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCSkuWrapper
+     */
+    activeStartDate?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UCSkuWrapper
+     */
+    archived?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UCSkuWrapper
+     */
+    available?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UCSkuWrapper
+     */
+    description?: string;
+    /**
+     *
+     * @type {DimensionWrapper}
+     * @memberof UCSkuWrapper
+     */
+    dimension?: DimensionWrapper;
+    /**
+     *
+     * @type {string}
+     * @memberof UCSkuWrapper
+     */
+    externalId?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof UCSkuWrapper
+     */
+    id?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof UCSkuWrapper
+     */
+    inventoryType?: string;
+    /**
+     *
+     * @type {Array<UCMediaWrapper>}
+     * @memberof UCSkuWrapper
+     */
+    media?: Array<UCMediaWrapper>;
+    /**
+     *
+     * @type {string}
+     * @memberof UCSkuWrapper
+     */
+    name?: string;
+    /**
+     *
+     * @type {ProductOptionValueMap}
+     * @memberof UCSkuWrapper
+     */
+    optionValues?: ProductOptionValueMap;
+    /**
+     *
+     * @type {Money}
+     * @memberof UCSkuWrapper
+     */
+    retailPrice?: Money;
+    /**
+     *
+     * @type {Money}
+     * @memberof UCSkuWrapper
+     */
+    salePrice?: Money;
+    /**
+     *
+     * @type {Array<SkuAttributeWrapper>}
+     * @memberof UCSkuWrapper
+     */
+    skuAttributes?: Array<SkuAttributeWrapper>;
+    /**
+     *
+     * @type {WeightWrapper}
+     * @memberof UCSkuWrapper
+     */
+    weight?: WeightWrapper;
 }
 /**
  *
@@ -3700,53 +4307,53 @@ export interface WeightWrapper {
 export declare const BasicErrorControllerApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingDELETE1: (options?: any) => Promise<RequestArgs>;
+    errorHtmlUsingDELETE1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingGET1: (options?: any) => Promise<RequestArgs>;
+    errorHtmlUsingGET1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingHEAD1: (options?: any) => Promise<RequestArgs>;
+    errorHtmlUsingHEAD1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingOPTIONS1: (options?: any) => Promise<RequestArgs>;
+    errorHtmlUsingOPTIONS1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPATCH1: (options?: any) => Promise<RequestArgs>;
+    errorHtmlUsingPATCH1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPOST1: (options?: any) => Promise<RequestArgs>;
+    errorHtmlUsingPOST1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPUT1: (options?: any) => Promise<RequestArgs>;
+    errorHtmlUsingPUT1: (options?: any) => Promise<RequestArgs>;
 };
 /**
  * BasicErrorControllerApi - functional programming interface
@@ -3755,67 +4362,53 @@ export declare const BasicErrorControllerApiAxiosParamCreator: (configuration?: 
 export declare const BasicErrorControllerApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingDELETE1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingDELETE1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingHEAD1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingHEAD1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingOPTIONS1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingOPTIONS1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPATCH1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingPATCH1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPOST1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingPOST1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPUT1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingPUT1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
 };
 /**
  * BasicErrorControllerApi - factory interface
@@ -3824,67 +4417,53 @@ export declare const BasicErrorControllerApiFp: (configuration?: Configuration) 
 export declare const BasicErrorControllerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingDELETE1(options?: any): AxiosPromise<{
-        [key: string]: object;
-    }>;
+    errorHtmlUsingDELETE1(options?: any): AxiosPromise<ModelAndView>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingGET1(options?: any): AxiosPromise<{
-        [key: string]: object;
-    }>;
+    errorHtmlUsingGET1(options?: any): AxiosPromise<ModelAndView>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingHEAD1(options?: any): AxiosPromise<{
-        [key: string]: object;
-    }>;
+    errorHtmlUsingHEAD1(options?: any): AxiosPromise<ModelAndView>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingOPTIONS1(options?: any): AxiosPromise<{
-        [key: string]: object;
-    }>;
+    errorHtmlUsingOPTIONS1(options?: any): AxiosPromise<ModelAndView>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPATCH1(options?: any): AxiosPromise<{
-        [key: string]: object;
-    }>;
+    errorHtmlUsingPATCH1(options?: any): AxiosPromise<ModelAndView>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPOST1(options?: any): AxiosPromise<{
-        [key: string]: object;
-    }>;
+    errorHtmlUsingPOST1(options?: any): AxiosPromise<ModelAndView>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorUsingPUT1(options?: any): AxiosPromise<{
-        [key: string]: object;
-    }>;
+    errorHtmlUsingPUT1(options?: any): AxiosPromise<ModelAndView>;
 };
 /**
  * BasicErrorControllerApi - object-oriented interface
@@ -3895,74 +4474,60 @@ export declare const BasicErrorControllerApiFactory: (configuration?: Configurat
 export declare class BasicErrorControllerApi extends BaseAPI {
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorUsingDELETE1(options?: any): Promise<import("axios").AxiosResponse<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingDELETE1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorUsingGET1(options?: any): Promise<import("axios").AxiosResponse<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingGET1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorUsingHEAD1(options?: any): Promise<import("axios").AxiosResponse<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingHEAD1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorUsingOPTIONS1(options?: any): Promise<import("axios").AxiosResponse<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingOPTIONS1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorUsingPATCH1(options?: any): Promise<import("axios").AxiosResponse<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingPATCH1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorUsingPOST1(options?: any): Promise<import("axios").AxiosResponse<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingPOST1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
     /**
      *
-     * @summary error
+     * @summary errorHtml
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorUsingPUT1(options?: any): Promise<import("axios").AxiosResponse<{
-        [key: string]: object;
-    }>>;
+    errorHtmlUsingPUT1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
 }
 /**
  * CartEndpointApi - axios parameter creator
@@ -4033,11 +4598,10 @@ export declare const CartEndpointApiAxiosParamCreator: (configuration?: Configur
     /**
      *
      * @summary createNewCartForCustomer
-     * @param {number} [customerId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createNewCartForCustomerUsingPOST1: (customerId?: number, options?: any) => Promise<RequestArgs>;
+    createNewCartForCustomerUsingPOST3: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary deleteOrderAttributes
@@ -4248,11 +4812,10 @@ export declare const CartEndpointApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary createNewCartForCustomer
-     * @param {number} [customerId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createNewCartForCustomerUsingPOST1(customerId?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    createNewCartForCustomerUsingPOST3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
      * @summary deleteOrderAttributes
@@ -4463,11 +5026,10 @@ export declare const CartEndpointApiFactory: (configuration?: Configuration, bas
     /**
      *
      * @summary createNewCartForCustomer
-     * @param {number} [customerId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createNewCartForCustomerUsingPOST1(customerId?: number, options?: any): AxiosPromise<OrderWrapper>;
+    createNewCartForCustomerUsingPOST3(options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
      * @summary deleteOrderAttributes
@@ -4686,12 +5248,11 @@ export declare class CartEndpointApi extends BaseAPI {
     /**
      *
      * @summary createNewCartForCustomer
-     * @param {number} [customerId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CartEndpointApi
      */
-    createNewCartForCustomerUsingPOST1(customerId?: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    createNewCartForCustomerUsingPOST3(options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
      * @summary deleteOrderAttributes
@@ -4854,30 +5415,27 @@ export declare class CartEndpointApi extends BaseAPI {
 export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary deleteProductById
-     * @param {number} productId productId
+     * @summary createCatalog
+     * @param {UCCatalogWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductByIdUsingDELETE1: (productId: number, options?: any) => Promise<RequestArgs>;
+    createCatalogUsingPOST1: (wrapper: UCCatalogWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary deleteProductsById
-     * @param {UCProductIdsWrapper} products products
+     * @summary deleteCatalogById
+     * @param {number} catalogId catalogId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductsByIdUsingDELETE1: (products: UCProductIdsWrapper, options?: any) => Promise<RequestArgs>;
+    deleteCatalogByIdUsingDELETE1: (catalogId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary findActiveSubCategories
-     * @param {number} categoryId categoryId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
+     * @summary findAllCatalogs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findActiveSubCategoriesUsingGET1: (categoryId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    findAllCatalogsUsingGET1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findAllCategories
@@ -4890,123 +5448,11 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
     findAllCategoriesUsingGET1: (name?: string, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary findAllProducts
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {boolean} [includePromotionMessages] includePromotionMessages
-     * @param {boolean} [includePriceData] includePriceData
+     * @summary findAllProductOptions
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllProductsUsingGET1: (limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findCategoryAttributesForCategory
-     * @param {number} categoryId categoryId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryAttributesForCategoryUsingGET1: (categoryId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findCategoryByIdOrName
-     * @param {string} searchParameter searchParameter
-     * @param {number} [productLimit] productLimit
-     * @param {number} [productOffset] productOffset
-     * @param {number} [subcategoryLimit] subcategoryLimit
-     * @param {number} [subcategoryOffset] subcategoryOffset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryByIdOrNameUsingGET1: (searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findCategoryById
-     * @param {number} categoryId categoryId
-     * @param {number} [productLimit] productLimit
-     * @param {number} [productOffset] productOffset
-     * @param {number} [subcategoryLimit] subcategoryLimit
-     * @param {number} [subcategoryOffset] subcategoryOffset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryByIdUsingGET1: (categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findCrossSaleProductsByProduct
-     * @param {number} productId productId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCrossSaleProductsByProductUsingGET1: (productId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findDefaultSkuByProductId
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findDefaultSkuByProductIdUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findInventoryForSkus
-     * @param {Array<number>} id id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findInventoryForSkusUsingGET1: (id: Array<number>, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findMediaForCategory
-     * @param {number} id id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForCategoryUsingGET1: (id: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findMediaForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findMediaForSku
-     * @param {number} skuId skuId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findParentCategoriesForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findParentCategoriesForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findProductAttributesForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findProductAttributesForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findProductById
-     * @param {number} id id
-     * @param {boolean} [includePromotionMessages] includePromotionMessages
-     * @param {boolean} [includePriceData] includePriceData
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findProductByIdUsingGET1: (id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
+    findAllProductOptionsUsingGET1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findSearchResultsByCategoryAndQuery
@@ -5034,58 +5480,13 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
     findSearchResultsByQueryUsingGET1: (q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary findSkuAttributesForSku
-     * @param {number} skuId skuId
+     * @summary modifyCatalog
+     * @param {number} catalogId catalogId
+     * @param {UCCatalogWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuAttributesForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findSkuById
-     * @param {number} skuId skuId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSkuByIdUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findSkusByProductById
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSkusByProductByIdUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findSubCategories
-     * @param {number} categoryId categoryId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {boolean} [active] active
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSubCategoriesUsingGET1: (categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary findUpSaleProductsByProduct
-     * @param {number} productId productId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findUpSaleProductsByProductUsingGET1: (productId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary updateProductById
-     * @param {number} productId productId
-     * @param {UCProductWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updateProductByIdUsingPUT1: (productId: number, wrapper: UCProductWrapper, options?: any) => Promise<RequestArgs>;
+    modifyCatalogUsingPATCH1: (catalogId: number, wrapper: UCCatalogWrapper, options?: any) => Promise<RequestArgs>;
 };
 /**
  * CatalogEndpointApi - functional programming interface
@@ -5094,30 +5495,27 @@ export declare const CatalogEndpointApiAxiosParamCreator: (configuration?: Confi
 export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary deleteProductById
-     * @param {number} productId productId
+     * @summary createCatalog
+     * @param {UCCatalogWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductByIdUsingDELETE1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    createCatalogUsingPOST1(wrapper: UCCatalogWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCCatalogWrapper>>;
     /**
      *
-     * @summary deleteProductsById
-     * @param {UCProductIdsWrapper} products products
+     * @summary deleteCatalogById
+     * @param {number} catalogId catalogId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductsDeleteResponseWrapper>>;
+    deleteCatalogByIdUsingDELETE1(catalogId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      *
-     * @summary findActiveSubCategories
-     * @param {number} categoryId categoryId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
+     * @summary findAllCatalogs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
+    findAllCatalogsUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCCatalogWrapper>>>;
     /**
      *
      * @summary findAllCategories
@@ -5130,123 +5528,13 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
     findAllCategoriesUsingGET1(name?: string, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
     /**
      *
-     * @summary findAllProducts
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {boolean} [includePromotionMessages] includePromotionMessages
-     * @param {boolean} [includePriceData] includePriceData
+     * @summary findAllProductOptions
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWrapper>>>;
-    /**
-     *
-     * @summary findCategoryAttributesForCategory
-     * @param {number} categoryId categoryId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CategoryAttributeWrapper>>>;
-    /**
-     *
-     * @summary findCategoryByIdOrName
-     * @param {string} searchParameter searchParameter
-     * @param {number} [productLimit] productLimit
-     * @param {number} [productOffset] productOffset
-     * @param {number} [subcategoryLimit] subcategoryLimit
-     * @param {number} [subcategoryOffset] subcategoryOffset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryByIdOrNameUsingGET1(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<USCategoryWrapper>>;
-    /**
-     *
-     * @summary findCategoryById
-     * @param {number} categoryId categoryId
-     * @param {number} [productLimit] productLimit
-     * @param {number} [productOffset] productOffset
-     * @param {number} [subcategoryLimit] subcategoryLimit
-     * @param {number} [subcategoryOffset] subcategoryOffset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoryWrapper>>;
-    /**
-     *
-     * @summary findCrossSaleProductsByProduct
-     * @param {number} productId productId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCrossSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
-    /**
-     *
-     * @summary findDefaultSkuByProductId
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SkuWrapper>>;
-    /**
-     *
-     * @summary findInventoryForSkus
-     * @param {Array<number>} id id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findInventoryForSkusUsingGET1(id: Array<number>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
-    /**
-     *
-     * @summary findMediaForCategory
-     * @param {number} id id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForCategoryUsingGET1(id: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
-    /**
-     *
-     * @summary findMediaForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
-    /**
-     *
-     * @summary findMediaForSku
-     * @param {number} skuId skuId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
-    /**
-     *
-     * @summary findParentCategoriesForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findParentCategoriesForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
-    /**
-     *
-     * @summary findProductAttributesForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findProductAttributesForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductAttributeWrapper>>>;
-    /**
-     *
-     * @summary findProductById
-     * @param {number} id id
-     * @param {boolean} [includePromotionMessages] includePromotionMessages
-     * @param {boolean} [includePriceData] includePriceData
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductWrapper>>;
+    findAllProductOptionsUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: string[];
+    }>>;
     /**
      *
      * @summary findSearchResultsByCategoryAndQuery
@@ -5274,58 +5562,13 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
     findSearchResultsByQueryUsingGET1(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchResultsWrapper>>;
     /**
      *
-     * @summary findSkuAttributesForSku
-     * @param {number} skuId skuId
+     * @summary modifyCatalog
+     * @param {number} catalogId catalogId
+     * @param {UCCatalogWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuAttributeWrapper>>>;
-    /**
-     *
-     * @summary findSkuById
-     * @param {number} skuId skuId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSkuByIdUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SkuWrapper>>;
-    /**
-     *
-     * @summary findSkusByProductById
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSkusByProductByIdUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuWrapper>>>;
-    /**
-     *
-     * @summary findSubCategories
-     * @param {number} categoryId categoryId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {boolean} [active] active
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
-    /**
-     *
-     * @summary findUpSaleProductsByProduct
-     * @param {number} productId productId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findUpSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
-    /**
-     *
-     * @summary updateProductById
-     * @param {number} productId productId
-     * @param {UCProductWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updateProductByIdUsingPUT1(productId: number, wrapper: UCProductWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductWrapper>>;
+    modifyCatalogUsingPATCH1(catalogId: number, wrapper: UCCatalogWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCCatalogWrapper>>;
 };
 /**
  * CatalogEndpointApi - factory interface
@@ -5334,30 +5577,27 @@ export declare const CatalogEndpointApiFp: (configuration?: Configuration) => {
 export declare const CatalogEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary deleteProductById
-     * @param {number} productId productId
+     * @summary createCatalog
+     * @param {UCCatalogWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductByIdUsingDELETE1(productId: number, options?: any): AxiosPromise<void>;
+    createCatalogUsingPOST1(wrapper: UCCatalogWrapper, options?: any): AxiosPromise<UCCatalogWrapper>;
     /**
      *
-     * @summary deleteProductsById
-     * @param {UCProductIdsWrapper} products products
+     * @summary deleteCatalogById
+     * @param {number} catalogId catalogId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): AxiosPromise<UCProductsDeleteResponseWrapper>;
+    deleteCatalogByIdUsingDELETE1(catalogId: number, options?: any): AxiosPromise<void>;
     /**
      *
-     * @summary findActiveSubCategories
-     * @param {number} categoryId categoryId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
+     * @summary findAllCatalogs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): AxiosPromise<CategoriesWrapper>;
+    findAllCatalogsUsingGET1(options?: any): AxiosPromise<Array<UCCatalogWrapper>>;
     /**
      *
      * @summary findAllCategories
@@ -5370,123 +5610,13 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
     findAllCategoriesUsingGET1(name?: string, limit?: number, offset?: number, options?: any): AxiosPromise<CategoriesWrapper>;
     /**
      *
-     * @summary findAllProducts
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {boolean} [includePromotionMessages] includePromotionMessages
-     * @param {boolean} [includePriceData] includePriceData
+     * @summary findAllProductOptions
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<Array<ProductWrapper>>;
-    /**
-     *
-     * @summary findCategoryAttributesForCategory
-     * @param {number} categoryId categoryId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): AxiosPromise<Array<CategoryAttributeWrapper>>;
-    /**
-     *
-     * @summary findCategoryByIdOrName
-     * @param {string} searchParameter searchParameter
-     * @param {number} [productLimit] productLimit
-     * @param {number} [productOffset] productOffset
-     * @param {number} [subcategoryLimit] subcategoryLimit
-     * @param {number} [subcategoryOffset] subcategoryOffset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryByIdOrNameUsingGET1(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<USCategoryWrapper>;
-    /**
-     *
-     * @summary findCategoryById
-     * @param {number} categoryId categoryId
-     * @param {number} [productLimit] productLimit
-     * @param {number} [productOffset] productOffset
-     * @param {number} [subcategoryLimit] subcategoryLimit
-     * @param {number} [subcategoryOffset] subcategoryOffset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<CategoryWrapper>;
-    /**
-     *
-     * @summary findCrossSaleProductsByProduct
-     * @param {number} productId productId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findCrossSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
-    /**
-     *
-     * @summary findDefaultSkuByProductId
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): AxiosPromise<SkuWrapper>;
-    /**
-     *
-     * @summary findInventoryForSkus
-     * @param {Array<number>} id id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findInventoryForSkusUsingGET1(id: Array<number>, options?: any): AxiosPromise<Array<InventoryWrapper>>;
-    /**
-     *
-     * @summary findMediaForCategory
-     * @param {number} id id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForCategoryUsingGET1(id: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
-    /**
-     *
-     * @summary findMediaForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForProductUsingGET1(productId: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
-    /**
-     *
-     * @summary findMediaForSku
-     * @param {number} skuId skuId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findMediaForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
-    /**
-     *
-     * @summary findParentCategoriesForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findParentCategoriesForProductUsingGET1(productId: number, options?: any): AxiosPromise<CategoriesWrapper>;
-    /**
-     *
-     * @summary findProductAttributesForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findProductAttributesForProductUsingGET1(productId: number, options?: any): AxiosPromise<Array<ProductAttributeWrapper>>;
-    /**
-     *
-     * @summary findProductById
-     * @param {number} id id
-     * @param {boolean} [includePromotionMessages] includePromotionMessages
-     * @param {boolean} [includePriceData] includePriceData
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<UCProductWrapper>;
+    findAllProductOptionsUsingGET1(options?: any): AxiosPromise<{
+        [key: string]: string[];
+    }>;
     /**
      *
      * @summary findSearchResultsByCategoryAndQuery
@@ -5514,58 +5644,13 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
     findSearchResultsByQueryUsingGET1(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<SearchResultsWrapper>;
     /**
      *
-     * @summary findSkuAttributesForSku
-     * @param {number} skuId skuId
+     * @summary modifyCatalog
+     * @param {number} catalogId catalogId
+     * @param {UCCatalogWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<SkuAttributeWrapper>>;
-    /**
-     *
-     * @summary findSkuById
-     * @param {number} skuId skuId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSkuByIdUsingGET1(skuId: number, options?: any): AxiosPromise<SkuWrapper>;
-    /**
-     *
-     * @summary findSkusByProductById
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSkusByProductByIdUsingGET1(productId: number, options?: any): AxiosPromise<Array<SkuWrapper>>;
-    /**
-     *
-     * @summary findSubCategories
-     * @param {number} categoryId categoryId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {boolean} [active] active
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): AxiosPromise<CategoriesWrapper>;
-    /**
-     *
-     * @summary findUpSaleProductsByProduct
-     * @param {number} productId productId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    findUpSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
-    /**
-     *
-     * @summary updateProductById
-     * @param {number} productId productId
-     * @param {UCProductWrapper} wrapper wrapper
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updateProductByIdUsingPUT1(productId: number, wrapper: UCProductWrapper, options?: any): AxiosPromise<UCProductWrapper>;
+    modifyCatalogUsingPATCH1(catalogId: number, wrapper: UCCatalogWrapper, options?: any): AxiosPromise<UCCatalogWrapper>;
 };
 /**
  * CatalogEndpointApi - object-oriented interface
@@ -5576,33 +5661,30 @@ export declare const CatalogEndpointApiFactory: (configuration?: Configuration, 
 export declare class CatalogEndpointApi extends BaseAPI {
     /**
      *
-     * @summary deleteProductById
-     * @param {number} productId productId
+     * @summary createCatalog
+     * @param {UCCatalogWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    deleteProductByIdUsingDELETE1(productId: number, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    createCatalogUsingPOST1(wrapper: UCCatalogWrapper, options?: any): Promise<import("axios").AxiosResponse<UCCatalogWrapper>>;
     /**
      *
-     * @summary deleteProductsById
-     * @param {UCProductIdsWrapper} products products
+     * @summary deleteCatalogById
+     * @param {number} catalogId catalogId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): Promise<import("axios").AxiosResponse<UCProductsDeleteResponseWrapper>>;
+    deleteCatalogByIdUsingDELETE1(catalogId: number, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      *
-     * @summary findActiveSubCategories
-     * @param {number} categoryId categoryId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
+     * @summary findAllCatalogs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    findAllCatalogsUsingGET1(options?: any): Promise<import("axios").AxiosResponse<UCCatalogWrapper[]>>;
     /**
      *
      * @summary findAllCategories
@@ -5616,136 +5698,14 @@ export declare class CatalogEndpointApi extends BaseAPI {
     findAllCategoriesUsingGET1(name?: string, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
     /**
      *
-     * @summary findAllProducts
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {boolean} [includePromotionMessages] includePromotionMessages
-     * @param {boolean} [includePriceData] includePriceData
+     * @summary findAllProductOptions
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<ProductWrapper[]>>;
-    /**
-     *
-     * @summary findCategoryAttributesForCategory
-     * @param {number} categoryId categoryId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): Promise<import("axios").AxiosResponse<CategoryAttributeWrapper[]>>;
-    /**
-     *
-     * @summary findCategoryByIdOrName
-     * @param {string} searchParameter searchParameter
-     * @param {number} [productLimit] productLimit
-     * @param {number} [productOffset] productOffset
-     * @param {number} [subcategoryLimit] subcategoryLimit
-     * @param {number} [subcategoryOffset] subcategoryOffset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findCategoryByIdOrNameUsingGET1(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<USCategoryWrapper>>;
-    /**
-     *
-     * @summary findCategoryById
-     * @param {number} categoryId categoryId
-     * @param {number} [productLimit] productLimit
-     * @param {number} [productOffset] productOffset
-     * @param {number} [subcategoryLimit] subcategoryLimit
-     * @param {number} [subcategoryOffset] subcategoryOffset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoryWrapper>>;
-    /**
-     *
-     * @summary findCrossSaleProductsByProduct
-     * @param {number} productId productId
-     * @param {number} [limit] limit
-     * @param {number} [offset] offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findCrossSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
-    /**
-     *
-     * @summary findDefaultSkuByProductId
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper>>;
-    /**
-     *
-     * @summary findInventoryForSkus
-     * @param {Array<number>} id id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findInventoryForSkusUsingGET1(id: Array<number>, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
-    /**
-     *
-     * @summary findMediaForCategory
-     * @param {number} id id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findMediaForCategoryUsingGET1(id: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
-    /**
-     *
-     * @summary findMediaForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findMediaForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
-    /**
-     *
-     * @summary findMediaForSku
-     * @param {number} skuId skuId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findMediaForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
-    /**
-     *
-     * @summary findParentCategoriesForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findParentCategoriesForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
-    /**
-     *
-     * @summary findProductAttributesForProduct
-     * @param {number} productId productId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findProductAttributesForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<ProductAttributeWrapper[]>>;
-    /**
-     *
-     * @summary findProductById
-     * @param {number} id id
-     * @param {boolean} [includePromotionMessages] includePromotionMessages
-     * @param {boolean} [includePriceData] includePriceData
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
-     */
-    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper>>;
+    findAllProductOptionsUsingGET1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: string[];
+    }>>;
     /**
      *
      * @summary findSearchResultsByCategoryAndQuery
@@ -5775,31 +5735,82 @@ export declare class CatalogEndpointApi extends BaseAPI {
     findSearchResultsByQueryUsingGET1(q: string, pageSize?: number, page?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<SearchResultsWrapper>>;
     /**
      *
-     * @summary findSkuAttributesForSku
-     * @param {number} skuId skuId
+     * @summary modifyCatalog
+     * @param {number} catalogId catalogId
+     * @param {UCCatalogWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CatalogEndpointApi
      */
-    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<SkuAttributeWrapper[]>>;
+    modifyCatalogUsingPATCH1(catalogId: number, wrapper: UCCatalogWrapper, options?: any): Promise<import("axios").AxiosResponse<UCCatalogWrapper>>;
+}
+/**
+ * CategoryEndpointApi - axios parameter creator
+ * @export
+ */
+export declare const CategoryEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary findSkuById
-     * @param {number} skuId skuId
+     * @summary findActiveSubCategories
+     * @param {number} categoryId categoryId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
      */
-    findSkuByIdUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper>>;
+    findActiveSubCategoriesUsingGET1: (categoryId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary findSkusByProductById
-     * @param {number} productId productId
+     * @summary findCategoryAttributesForCategory
+     * @param {number} categoryId categoryId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
      */
-    findSkusByProductByIdUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper[]>>;
+    findCategoryAttributesForCategoryUsingGET1: (categoryId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findCategoryByIdOrName
+     * @param {string} searchParameter searchParameter
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdOrNameUsingGET3: (searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findCategoryByIdOrName
+     * @param {string} searchParameter searchParameter
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdOrNameUsingGET5: (searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findCategoryById
+     * @param {number} categoryId categoryId
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdUsingGET1: (categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findMediaForCategory
+     * @param {number} id id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediaForCategoryUsingGET1: (id: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findSubCategories
@@ -5809,30 +5820,254 @@ export declare class CatalogEndpointApi extends BaseAPI {
      * @param {boolean} [active] active
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
      */
-    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    findSubCategoriesUsingGET1: (categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * CategoryEndpointApi - functional programming interface
+ * @export
+ */
+export declare const CategoryEndpointApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary findUpSaleProductsByProduct
-     * @param {number} productId productId
+     * @summary findActiveSubCategories
+     * @param {number} categoryId categoryId
      * @param {number} [limit] limit
      * @param {number} [offset] offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
      */
-    findUpSaleProductsByProductUsingGET1(productId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
+    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
     /**
      *
-     * @summary updateProductById
-     * @param {number} productId productId
-     * @param {UCProductWrapper} wrapper wrapper
+     * @summary findCategoryAttributesForCategory
+     * @param {number} categoryId categoryId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CatalogEndpointApi
      */
-    updateProductByIdUsingPUT1(productId: number, wrapper: UCProductWrapper, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper>>;
+    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CategoryAttributeWrapper>>>;
+    /**
+     *
+     * @summary findCategoryByIdOrName
+     * @param {string} searchParameter searchParameter
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdOrNameUsingGET3(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<USCategoryWrapper>>;
+    /**
+     *
+     * @summary findCategoryByIdOrName
+     * @param {string} searchParameter searchParameter
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdOrNameUsingGET5(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<USCategoryWrapper>>;
+    /**
+     *
+     * @summary findCategoryById
+     * @param {number} categoryId categoryId
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoryWrapper>>;
+    /**
+     *
+     * @summary findMediaForCategory
+     * @param {number} id id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediaForCategoryUsingGET1(id: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MediaWrapper>>>;
+    /**
+     *
+     * @summary findSubCategories
+     * @param {number} categoryId categoryId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [active] active
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
+};
+/**
+ * CategoryEndpointApi - factory interface
+ * @export
+ */
+export declare const CategoryEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary findActiveSubCategories
+     * @param {number} categoryId categoryId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): AxiosPromise<CategoriesWrapper>;
+    /**
+     *
+     * @summary findCategoryAttributesForCategory
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): AxiosPromise<Array<CategoryAttributeWrapper>>;
+    /**
+     *
+     * @summary findCategoryByIdOrName
+     * @param {string} searchParameter searchParameter
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdOrNameUsingGET3(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<USCategoryWrapper>;
+    /**
+     *
+     * @summary findCategoryByIdOrName
+     * @param {string} searchParameter searchParameter
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdOrNameUsingGET5(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<USCategoryWrapper>;
+    /**
+     *
+     * @summary findCategoryById
+     * @param {number} categoryId categoryId
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): AxiosPromise<CategoryWrapper>;
+    /**
+     *
+     * @summary findMediaForCategory
+     * @param {number} id id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediaForCategoryUsingGET1(id: number, options?: any): AxiosPromise<Array<MediaWrapper>>;
+    /**
+     *
+     * @summary findSubCategories
+     * @param {number} categoryId categoryId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [active] active
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): AxiosPromise<CategoriesWrapper>;
+};
+/**
+ * CategoryEndpointApi - object-oriented interface
+ * @export
+ * @class CategoryEndpointApi
+ * @extends {BaseAPI}
+ */
+export declare class CategoryEndpointApi extends BaseAPI {
+    /**
+     *
+     * @summary findActiveSubCategories
+     * @param {number} categoryId categoryId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryEndpointApi
+     */
+    findActiveSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    /**
+     *
+     * @summary findCategoryAttributesForCategory
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryEndpointApi
+     */
+    findCategoryAttributesForCategoryUsingGET1(categoryId: number, options?: any): Promise<import("axios").AxiosResponse<CategoryAttributeWrapper[]>>;
+    /**
+     *
+     * @summary findCategoryByIdOrName
+     * @param {string} searchParameter searchParameter
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryEndpointApi
+     */
+    findCategoryByIdOrNameUsingGET3(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<USCategoryWrapper>>;
+    /**
+     *
+     * @summary findCategoryByIdOrName
+     * @param {string} searchParameter searchParameter
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryEndpointApi
+     */
+    findCategoryByIdOrNameUsingGET5(searchParameter: string, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<USCategoryWrapper>>;
+    /**
+     *
+     * @summary findCategoryById
+     * @param {number} categoryId categoryId
+     * @param {number} [productLimit] productLimit
+     * @param {number} [productOffset] productOffset
+     * @param {number} [subcategoryLimit] subcategoryLimit
+     * @param {number} [subcategoryOffset] subcategoryOffset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryEndpointApi
+     */
+    findCategoryByIdUsingGET1(categoryId: number, productLimit?: number, productOffset?: number, subcategoryLimit?: number, subcategoryOffset?: number, options?: any): Promise<import("axios").AxiosResponse<CategoryWrapper>>;
+    /**
+     *
+     * @summary findMediaForCategory
+     * @param {number} id id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryEndpointApi
+     */
+    findMediaForCategoryUsingGET1(id: number, options?: any): Promise<import("axios").AxiosResponse<MediaWrapper[]>>;
+    /**
+     *
+     * @summary findSubCategories
+     * @param {number} categoryId categoryId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [active] active
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CategoryEndpointApi
+     */
+    findSubCategoriesUsingGET1(categoryId: number, limit?: number, offset?: number, active?: boolean, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
 }
 /**
  * CustomerEndpointApi - axios parameter creator
@@ -8778,6 +9013,1012 @@ export declare class PreviewTemplateControllerApi extends BaseAPI {
     displayPreviewUsingPUT1(options?: any): Promise<import("axios").AxiosResponse<string>>;
 }
 /**
+ * ProductEndpointApi - axios parameter creator
+ * @export
+ */
+export declare const ProductEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary addCrossSaleProductToProduct
+     * @param {number} productId productId
+     * @param {number} crossSaleProductId crossSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCrossSaleProductToProductUsingPUT1: (productId: number, crossSaleProductId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addMediaToProduct
+     * @param {number} productId productId
+     * @param {number} mediaId mediaId
+     * @param {string} [key] key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addMediaToProductUsingPUT1: (productId: number, mediaId: number, key?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addModifyProductAttributeForProduct
+     * @param {number} productId productId
+     * @param {SimpleProductAttributeWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModifyProductAttributeForProductUsingPUT1: (productId: number, wrapper: SimpleProductAttributeWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addParentCategoryForProduct
+     * @param {number} productId productId
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addParentCategoryForProductUsingPUT1: (productId: number, categoryId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addUpSaleProductToProduct
+     * @param {number} productId productId
+     * @param {number} upSaleProductId upSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addUpSaleProductToProductUsingPUT1: (productId: number, upSaleProductId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary createAndAddSkuToProduct
+     * @param {number} productId productId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAndAddSkuToProductUsingPUT1: (productId: number, wrapper: SimpleSkuWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary createProduct
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createProductUsingPOST1: (wrapper: SimpleProductWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary deleteProductById
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductByIdUsingDELETE1: (productId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findCrossSaleProductsByProduct
+     * @param {number} productId productId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCrossSaleProductsByProductUsingGET3: (productId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findDefaultSkuByProductId
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findDefaultSkuByProductIdUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findMediasForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediasForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findParentCategoriesForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findParentCategoriesForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findProductAttributesForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findProductAttributesForProductUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findProductById
+     * @param {number} id id
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findProductByIdUsingGET1: (id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findSkusForProductId
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkusForProductIdUsingGET1: (productId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findUpSaleProductsByProduct
+     * @param {number} productId productId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findUpSaleProductsByProductUsingGET3: (productId: number, limit?: number, offset?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary modifyProductById
+     * @param {number} productId productId
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    modifyProductByIdUsingPATCH1: (productId: number, wrapper: SimpleProductWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeCrossSaleProductFromProduct
+     * @param {number} productId productId
+     * @param {number} crossSaleProductId crossSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeCrossSaleProductFromProductUsingDELETE1: (productId: number, crossSaleProductId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeMediaFromProduct
+     * @param {number} productId productId
+     * @param {number} mediaId mediaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeMediaFromProductUsingDELETE1: (productId: number, mediaId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeParentCategoryForProduct
+     * @param {number} productId productId
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeParentCategoryForProductUsingDELETE1: (productId: number, categoryId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeProductAttributeFromProduct
+     * @param {number} productId productId
+     * @param {number} attributeId attributeId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeProductAttributeFromProductUsingDELETE1: (productId: number, attributeId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeSkuFromProduct
+     * @param {number} productId productId
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeSkuFromProductUsingDELETE1: (productId: number, skuId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeUpSaleProductFromProduct
+     * @param {number} productId productId
+     * @param {number} upSaleProductId upSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeUpSaleProductFromProductUsingDELETE1: (productId: number, upSaleProductId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary replaceProductById
+     * @param {number} productId productId
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    replaceProductByIdUsingPUT1: (productId: number, wrapper: SimpleProductWrapper, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ProductEndpointApi - functional programming interface
+ * @export
+ */
+export declare const ProductEndpointApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary addCrossSaleProductToProduct
+     * @param {number} productId productId
+     * @param {number} crossSaleProductId crossSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCrossSaleProductToProductUsingPUT1(productId: number, crossSaleProductId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    /**
+     *
+     * @summary addMediaToProduct
+     * @param {number} productId productId
+     * @param {number} mediaId mediaId
+     * @param {string} [key] key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addMediaToProductUsingPUT1(productId: number, mediaId: number, key?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCMediaWrapper>>>;
+    /**
+     *
+     * @summary addModifyProductAttributeForProduct
+     * @param {number} productId productId
+     * @param {SimpleProductAttributeWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModifyProductAttributeForProductUsingPUT1(productId: number, wrapper: SimpleProductAttributeWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductAttributeWrapper>>>;
+    /**
+     *
+     * @summary addParentCategoryForProduct
+     * @param {number} productId productId
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addParentCategoryForProductUsingPUT1(productId: number, categoryId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CategoryWrapper>>>;
+    /**
+     *
+     * @summary addUpSaleProductToProduct
+     * @param {number} productId productId
+     * @param {number} upSaleProductId upSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addUpSaleProductToProductUsingPUT1(productId: number, upSaleProductId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    /**
+     *
+     * @summary createAndAddSkuToProduct
+     * @param {number} productId productId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAndAddSkuToProductUsingPUT1(productId: number, wrapper: SimpleSkuWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuWrapper>>>;
+    /**
+     *
+     * @summary createProduct
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createProductUsingPOST1(wrapper: SimpleProductWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductWrapper>>;
+    /**
+     *
+     * @summary deleteProductById
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductByIdUsingDELETE1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     *
+     * @summary findCrossSaleProductsByProduct
+     * @param {number} productId productId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCrossSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    /**
+     *
+     * @summary findDefaultSkuByProductId
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SkuWrapper>>;
+    /**
+     *
+     * @summary findMediasForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediasForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCMediaWrapper>>>;
+    /**
+     *
+     * @summary findParentCategoriesForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findParentCategoriesForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CategoriesWrapper>>;
+    /**
+     *
+     * @summary findProductAttributesForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findProductAttributesForProductUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductAttributeWrapper>>>;
+    /**
+     *
+     * @summary findProductById
+     * @param {number} id id
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductWrapper>>;
+    /**
+     *
+     * @summary findSkusForProductId
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkusForProductIdUsingGET1(productId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuWrapper>>>;
+    /**
+     *
+     * @summary findUpSaleProductsByProduct
+     * @param {number} productId productId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findUpSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    /**
+     *
+     * @summary modifyProductById
+     * @param {number} productId productId
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    modifyProductByIdUsingPATCH1(productId: number, wrapper: SimpleProductWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductWrapper>>;
+    /**
+     *
+     * @summary removeCrossSaleProductFromProduct
+     * @param {number} productId productId
+     * @param {number} crossSaleProductId crossSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeCrossSaleProductFromProductUsingDELETE1(productId: number, crossSaleProductId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    /**
+     *
+     * @summary removeMediaFromProduct
+     * @param {number} productId productId
+     * @param {number} mediaId mediaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeMediaFromProductUsingDELETE1(productId: number, mediaId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCMediaWrapper>>>;
+    /**
+     *
+     * @summary removeParentCategoryForProduct
+     * @param {number} productId productId
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeParentCategoryForProductUsingDELETE1(productId: number, categoryId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CategoryWrapper>>>;
+    /**
+     *
+     * @summary removeProductAttributeFromProduct
+     * @param {number} productId productId
+     * @param {number} attributeId attributeId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeProductAttributeFromProductUsingDELETE1(productId: number, attributeId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductAttributeWrapper>>>;
+    /**
+     *
+     * @summary removeSkuFromProduct
+     * @param {number} productId productId
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeSkuFromProductUsingDELETE1(productId: number, skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuWrapper>>>;
+    /**
+     *
+     * @summary removeUpSaleProductFromProduct
+     * @param {number} productId productId
+     * @param {number} upSaleProductId upSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeUpSaleProductFromProductUsingDELETE1(productId: number, upSaleProductId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RelatedProductWrapper>>>;
+    /**
+     *
+     * @summary replaceProductById
+     * @param {number} productId productId
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    replaceProductByIdUsingPUT1(productId: number, wrapper: SimpleProductWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductWrapper>>;
+};
+/**
+ * ProductEndpointApi - factory interface
+ * @export
+ */
+export declare const ProductEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary addCrossSaleProductToProduct
+     * @param {number} productId productId
+     * @param {number} crossSaleProductId crossSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCrossSaleProductToProductUsingPUT1(productId: number, crossSaleProductId: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    /**
+     *
+     * @summary addMediaToProduct
+     * @param {number} productId productId
+     * @param {number} mediaId mediaId
+     * @param {string} [key] key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addMediaToProductUsingPUT1(productId: number, mediaId: number, key?: string, options?: any): AxiosPromise<Array<UCMediaWrapper>>;
+    /**
+     *
+     * @summary addModifyProductAttributeForProduct
+     * @param {number} productId productId
+     * @param {SimpleProductAttributeWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModifyProductAttributeForProductUsingPUT1(productId: number, wrapper: SimpleProductAttributeWrapper, options?: any): AxiosPromise<Array<ProductAttributeWrapper>>;
+    /**
+     *
+     * @summary addParentCategoryForProduct
+     * @param {number} productId productId
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addParentCategoryForProductUsingPUT1(productId: number, categoryId: number, options?: any): AxiosPromise<Array<CategoryWrapper>>;
+    /**
+     *
+     * @summary addUpSaleProductToProduct
+     * @param {number} productId productId
+     * @param {number} upSaleProductId upSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addUpSaleProductToProductUsingPUT1(productId: number, upSaleProductId: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    /**
+     *
+     * @summary createAndAddSkuToProduct
+     * @param {number} productId productId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAndAddSkuToProductUsingPUT1(productId: number, wrapper: SimpleSkuWrapper, options?: any): AxiosPromise<Array<SkuWrapper>>;
+    /**
+     *
+     * @summary createProduct
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createProductUsingPOST1(wrapper: SimpleProductWrapper, options?: any): AxiosPromise<UCProductWrapper>;
+    /**
+     *
+     * @summary deleteProductById
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductByIdUsingDELETE1(productId: number, options?: any): AxiosPromise<void>;
+    /**
+     *
+     * @summary findCrossSaleProductsByProduct
+     * @param {number} productId productId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCrossSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    /**
+     *
+     * @summary findDefaultSkuByProductId
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): AxiosPromise<SkuWrapper>;
+    /**
+     *
+     * @summary findMediasForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediasForProductUsingGET1(productId: number, options?: any): AxiosPromise<Array<UCMediaWrapper>>;
+    /**
+     *
+     * @summary findParentCategoriesForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findParentCategoriesForProductUsingGET1(productId: number, options?: any): AxiosPromise<CategoriesWrapper>;
+    /**
+     *
+     * @summary findProductAttributesForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findProductAttributesForProductUsingGET1(productId: number, options?: any): AxiosPromise<Array<ProductAttributeWrapper>>;
+    /**
+     *
+     * @summary findProductById
+     * @param {number} id id
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<UCProductWrapper>;
+    /**
+     *
+     * @summary findSkusForProductId
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkusForProductIdUsingGET1(productId: number, options?: any): AxiosPromise<Array<SkuWrapper>>;
+    /**
+     *
+     * @summary findUpSaleProductsByProduct
+     * @param {number} productId productId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findUpSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    /**
+     *
+     * @summary modifyProductById
+     * @param {number} productId productId
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    modifyProductByIdUsingPATCH1(productId: number, wrapper: SimpleProductWrapper, options?: any): AxiosPromise<UCProductWrapper>;
+    /**
+     *
+     * @summary removeCrossSaleProductFromProduct
+     * @param {number} productId productId
+     * @param {number} crossSaleProductId crossSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeCrossSaleProductFromProductUsingDELETE1(productId: number, crossSaleProductId: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    /**
+     *
+     * @summary removeMediaFromProduct
+     * @param {number} productId productId
+     * @param {number} mediaId mediaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeMediaFromProductUsingDELETE1(productId: number, mediaId: number, options?: any): AxiosPromise<Array<UCMediaWrapper>>;
+    /**
+     *
+     * @summary removeParentCategoryForProduct
+     * @param {number} productId productId
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeParentCategoryForProductUsingDELETE1(productId: number, categoryId: number, options?: any): AxiosPromise<Array<CategoryWrapper>>;
+    /**
+     *
+     * @summary removeProductAttributeFromProduct
+     * @param {number} productId productId
+     * @param {number} attributeId attributeId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeProductAttributeFromProductUsingDELETE1(productId: number, attributeId: number, options?: any): AxiosPromise<Array<ProductAttributeWrapper>>;
+    /**
+     *
+     * @summary removeSkuFromProduct
+     * @param {number} productId productId
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeSkuFromProductUsingDELETE1(productId: number, skuId: number, options?: any): AxiosPromise<Array<SkuWrapper>>;
+    /**
+     *
+     * @summary removeUpSaleProductFromProduct
+     * @param {number} productId productId
+     * @param {number} upSaleProductId upSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeUpSaleProductFromProductUsingDELETE1(productId: number, upSaleProductId: number, options?: any): AxiosPromise<Array<RelatedProductWrapper>>;
+    /**
+     *
+     * @summary replaceProductById
+     * @param {number} productId productId
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    replaceProductByIdUsingPUT1(productId: number, wrapper: SimpleProductWrapper, options?: any): AxiosPromise<UCProductWrapper>;
+};
+/**
+ * ProductEndpointApi - object-oriented interface
+ * @export
+ * @class ProductEndpointApi
+ * @extends {BaseAPI}
+ */
+export declare class ProductEndpointApi extends BaseAPI {
+    /**
+     *
+     * @summary addCrossSaleProductToProduct
+     * @param {number} productId productId
+     * @param {number} crossSaleProductId crossSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    addCrossSaleProductToProductUsingPUT1(productId: number, crossSaleProductId: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
+    /**
+     *
+     * @summary addMediaToProduct
+     * @param {number} productId productId
+     * @param {number} mediaId mediaId
+     * @param {string} [key] key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    addMediaToProductUsingPUT1(productId: number, mediaId: number, key?: string, options?: any): Promise<import("axios").AxiosResponse<UCMediaWrapper[]>>;
+    /**
+     *
+     * @summary addModifyProductAttributeForProduct
+     * @param {number} productId productId
+     * @param {SimpleProductAttributeWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    addModifyProductAttributeForProductUsingPUT1(productId: number, wrapper: SimpleProductAttributeWrapper, options?: any): Promise<import("axios").AxiosResponse<ProductAttributeWrapper[]>>;
+    /**
+     *
+     * @summary addParentCategoryForProduct
+     * @param {number} productId productId
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    addParentCategoryForProductUsingPUT1(productId: number, categoryId: number, options?: any): Promise<import("axios").AxiosResponse<CategoryWrapper[]>>;
+    /**
+     *
+     * @summary addUpSaleProductToProduct
+     * @param {number} productId productId
+     * @param {number} upSaleProductId upSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    addUpSaleProductToProductUsingPUT1(productId: number, upSaleProductId: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
+    /**
+     *
+     * @summary createAndAddSkuToProduct
+     * @param {number} productId productId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    createAndAddSkuToProductUsingPUT1(productId: number, wrapper: SimpleSkuWrapper, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper[]>>;
+    /**
+     *
+     * @summary createProduct
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    createProductUsingPOST1(wrapper: SimpleProductWrapper, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper>>;
+    /**
+     *
+     * @summary deleteProductById
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    deleteProductByIdUsingDELETE1(productId: number, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     *
+     * @summary findCrossSaleProductsByProduct
+     * @param {number} productId productId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    findCrossSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
+    /**
+     *
+     * @summary findDefaultSkuByProductId
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    findDefaultSkuByProductIdUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper>>;
+    /**
+     *
+     * @summary findMediasForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    findMediasForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<UCMediaWrapper[]>>;
+    /**
+     *
+     * @summary findParentCategoriesForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    findParentCategoriesForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<CategoriesWrapper>>;
+    /**
+     *
+     * @summary findProductAttributesForProduct
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    findProductAttributesForProductUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<ProductAttributeWrapper[]>>;
+    /**
+     *
+     * @summary findProductById
+     * @param {number} id id
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    findProductByIdUsingGET1(id: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper>>;
+    /**
+     *
+     * @summary findSkusForProductId
+     * @param {number} productId productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    findSkusForProductIdUsingGET1(productId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper[]>>;
+    /**
+     *
+     * @summary findUpSaleProductsByProduct
+     * @param {number} productId productId
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    findUpSaleProductsByProductUsingGET3(productId: number, limit?: number, offset?: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
+    /**
+     *
+     * @summary modifyProductById
+     * @param {number} productId productId
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    modifyProductByIdUsingPATCH1(productId: number, wrapper: SimpleProductWrapper, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper>>;
+    /**
+     *
+     * @summary removeCrossSaleProductFromProduct
+     * @param {number} productId productId
+     * @param {number} crossSaleProductId crossSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    removeCrossSaleProductFromProductUsingDELETE1(productId: number, crossSaleProductId: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
+    /**
+     *
+     * @summary removeMediaFromProduct
+     * @param {number} productId productId
+     * @param {number} mediaId mediaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    removeMediaFromProductUsingDELETE1(productId: number, mediaId: number, options?: any): Promise<import("axios").AxiosResponse<UCMediaWrapper[]>>;
+    /**
+     *
+     * @summary removeParentCategoryForProduct
+     * @param {number} productId productId
+     * @param {number} categoryId categoryId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    removeParentCategoryForProductUsingDELETE1(productId: number, categoryId: number, options?: any): Promise<import("axios").AxiosResponse<CategoryWrapper[]>>;
+    /**
+     *
+     * @summary removeProductAttributeFromProduct
+     * @param {number} productId productId
+     * @param {number} attributeId attributeId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    removeProductAttributeFromProductUsingDELETE1(productId: number, attributeId: number, options?: any): Promise<import("axios").AxiosResponse<ProductAttributeWrapper[]>>;
+    /**
+     *
+     * @summary removeSkuFromProduct
+     * @param {number} productId productId
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    removeSkuFromProductUsingDELETE1(productId: number, skuId: number, options?: any): Promise<import("axios").AxiosResponse<SkuWrapper[]>>;
+    /**
+     *
+     * @summary removeUpSaleProductFromProduct
+     * @param {number} productId productId
+     * @param {number} upSaleProductId upSaleProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    removeUpSaleProductFromProductUsingDELETE1(productId: number, upSaleProductId: number, options?: any): Promise<import("axios").AxiosResponse<RelatedProductWrapper[]>>;
+    /**
+     *
+     * @summary replaceProductById
+     * @param {number} productId productId
+     * @param {SimpleProductWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductEndpointApi
+     */
+    replaceProductByIdUsingPUT1(productId: number, wrapper: SimpleProductWrapper, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper>>;
+}
+/**
+ * ProductsEndpointApi - axios parameter creator
+ * @export
+ */
+export declare const ProductsEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary deleteProductsById
+     * @param {UCProductIdsWrapper} products products
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductsByIdUsingDELETE1: (products: UCProductIdsWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAllProducts
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllProductsUsingGET1: (limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ProductsEndpointApi - functional programming interface
+ * @export
+ */
+export declare const ProductsEndpointApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary deleteProductsById
+     * @param {UCProductIdsWrapper} products products
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCProductsDeleteResponseWrapper>>;
+    /**
+     *
+     * @summary findAllProducts
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCProductWrapper>>>;
+};
+/**
+ * ProductsEndpointApi - factory interface
+ * @export
+ */
+export declare const ProductsEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary deleteProductsById
+     * @param {UCProductIdsWrapper} products products
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): AxiosPromise<UCProductsDeleteResponseWrapper>;
+    /**
+     *
+     * @summary findAllProducts
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): AxiosPromise<Array<UCProductWrapper>>;
+};
+/**
+ * ProductsEndpointApi - object-oriented interface
+ * @export
+ * @class ProductsEndpointApi
+ * @extends {BaseAPI}
+ */
+export declare class ProductsEndpointApi extends BaseAPI {
+    /**
+     *
+     * @summary deleteProductsById
+     * @param {UCProductIdsWrapper} products products
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductsEndpointApi
+     */
+    deleteProductsByIdUsingDELETE1(products: UCProductIdsWrapper, options?: any): Promise<import("axios").AxiosResponse<UCProductsDeleteResponseWrapper>>;
+    /**
+     *
+     * @summary findAllProducts
+     * @param {number} [limit] limit
+     * @param {number} [offset] offset
+     * @param {boolean} [includePromotionMessages] includePromotionMessages
+     * @param {boolean} [includePriceData] includePriceData
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductsEndpointApi
+     */
+    findAllProductsUsingGET1(limit?: number, offset?: number, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<UCProductWrapper[]>>;
+}
+/**
  * PromotionMessageEndpointApi - axios parameter creator
  * @export
  */
@@ -8930,96 +10171,503 @@ export declare class RelatedProductsEndpointApi extends BaseAPI {
     getRelatedProductsUsingGET1(productId?: number, productKey?: string, categoryId?: number, categoryKey?: string, quantity?: number, type?: string, includePromotionMessages?: boolean, includePriceData?: boolean, options?: any): Promise<import("axios").AxiosResponse<ProductWrapper[]>>;
 }
 /**
- * SystemEndpointApi - axios parameter creator
+ * SkuEndpointApi - axios parameter creator
  * @export
  */
-export declare const SystemEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+export declare const SkuEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary invalidateCache
-     * @param {'catalog' | 'cms' | 'order' | 'customer' | 'system'} region region to be invalidated
+     * @summary addInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} amount amount
+     * @param {number} [fulfillmentLocationId] fulfillmentLocationId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invalidateCacheUsingPATCH1: (region: 'catalog' | 'cms' | 'order' | 'customer' | 'system', options?: any) => Promise<RequestArgs>;
+    addInventoryForSkuUsingPUT1: (skuId: number, amount: number, fulfillmentLocationId?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary reindex
-     * @param {'catalog' | 'customer' | 'order' | 'fulfillment_order'} collection collection to be reindexed
+     * @summary addMediaToSku
+     * @param {number} skuId skuId
+     * @param {number} mediaId mediaId
+     * @param {string} [key] key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reindexUsingPATCH1: (collection: 'catalog' | 'customer' | 'order' | 'fulfillment_order', options?: any) => Promise<RequestArgs>;
+    addMediaToSkuUsingPUT1: (skuId: number, mediaId: number, key?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addModifySkuAttributeForSku
+     * @param {number} skuId skuId
+     * @param {SimpleSkuAttributeWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModifySkuAttributeForSkuUsingPUT1: (skuId: number, wrapper: SimpleSkuAttributeWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findInventoryForSkuUsingGET3: (skuId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findInventoryForSkus
+     * @param {Array<number>} ids ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findInventoryForSkusUsingGET1: (ids: Array<number>, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findMediasForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediasForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findSkuAttributesForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkuAttributesForSkuUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findSkuById
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkuByIdUsingGET1: (skuId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary modifySkuById
+     * @param {number} skuId skuId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    modifySkuByIdUsingPATCH1: (skuId: number, wrapper: SimpleSkuWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} amount amount
+     * @param {number} [fulfillmentLocationId] fulfillmentLocationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeInventoryForSkuUsingDELETE1: (skuId: number, amount: number, fulfillmentLocationId?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeMediaFromSku
+     * @param {number} skuId skuId
+     * @param {number} mediaId mediaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeMediaFromSkuUsingDELETE1: (skuId: number, mediaId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeSkuAttributeFromSku
+     * @param {number} skuId skuId
+     * @param {number} attributeId attributeId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeSkuAttributeFromSkuUsingDELETE1: (skuId: number, attributeId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary replaceSkuById
+     * @param {number} skuId skuId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    replaceSkuByIdUsingPUT1: (skuId: number, wrapper: SimpleSkuWrapper, options?: any) => Promise<RequestArgs>;
 };
 /**
- * SystemEndpointApi - functional programming interface
+ * SkuEndpointApi - functional programming interface
  * @export
  */
-export declare const SystemEndpointApiFp: (configuration?: Configuration) => {
+export declare const SkuEndpointApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary invalidateCache
-     * @param {'catalog' | 'cms' | 'order' | 'customer' | 'system'} region region to be invalidated
+     * @summary addInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} amount amount
+     * @param {number} [fulfillmentLocationId] fulfillmentLocationId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invalidateCacheUsingPATCH1(region: 'catalog' | 'cms' | 'order' | 'customer' | 'system', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    addInventoryForSkuUsingPUT1(skuId: number, amount: number, fulfillmentLocationId?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCInventoryWrapper>>>;
     /**
      *
-     * @summary reindex
-     * @param {'catalog' | 'customer' | 'order' | 'fulfillment_order'} collection collection to be reindexed
+     * @summary addMediaToSku
+     * @param {number} skuId skuId
+     * @param {number} mediaId mediaId
+     * @param {string} [key] key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reindexUsingPATCH1(collection: 'catalog' | 'customer' | 'order' | 'fulfillment_order', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    addMediaToSkuUsingPUT1(skuId: number, mediaId: number, key?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCMediaWrapper>>>;
+    /**
+     *
+     * @summary addModifySkuAttributeForSku
+     * @param {number} skuId skuId
+     * @param {SimpleSkuAttributeWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModifySkuAttributeForSkuUsingPUT1(skuId: number, wrapper: SimpleSkuAttributeWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuAttributeWrapper>>>;
+    /**
+     *
+     * @summary findInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findInventoryForSkuUsingGET3(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCInventoryWrapper>>>;
+    /**
+     *
+     * @summary findInventoryForSkus
+     * @param {Array<number>} ids ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findInventoryForSkusUsingGET1(ids: Array<number>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InventoryWrapper>>>;
+    /**
+     *
+     * @summary findMediasForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediasForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCMediaWrapper>>>;
+    /**
+     *
+     * @summary findSkuAttributesForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuAttributeWrapper>>>;
+    /**
+     *
+     * @summary findSkuById
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkuByIdUsingGET1(skuId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCSkuWrapper>>;
+    /**
+     *
+     * @summary modifySkuById
+     * @param {number} skuId skuId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    modifySkuByIdUsingPATCH1(skuId: number, wrapper: SimpleSkuWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCSkuWrapper>>;
+    /**
+     *
+     * @summary removeInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} amount amount
+     * @param {number} [fulfillmentLocationId] fulfillmentLocationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeInventoryForSkuUsingDELETE1(skuId: number, amount: number, fulfillmentLocationId?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCInventoryWrapper>>>;
+    /**
+     *
+     * @summary removeMediaFromSku
+     * @param {number} skuId skuId
+     * @param {number} mediaId mediaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeMediaFromSkuUsingDELETE1(skuId: number, mediaId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UCMediaWrapper>>>;
+    /**
+     *
+     * @summary removeSkuAttributeFromSku
+     * @param {number} skuId skuId
+     * @param {number} attributeId attributeId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeSkuAttributeFromSkuUsingDELETE1(skuId: number, attributeId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SkuAttributeWrapper>>>;
+    /**
+     *
+     * @summary replaceSkuById
+     * @param {number} skuId skuId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    replaceSkuByIdUsingPUT1(skuId: number, wrapper: SimpleSkuWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UCSkuWrapper>>;
 };
 /**
- * SystemEndpointApi - factory interface
+ * SkuEndpointApi - factory interface
  * @export
  */
-export declare const SystemEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+export declare const SkuEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary invalidateCache
-     * @param {'catalog' | 'cms' | 'order' | 'customer' | 'system'} region region to be invalidated
+     * @summary addInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} amount amount
+     * @param {number} [fulfillmentLocationId] fulfillmentLocationId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    invalidateCacheUsingPATCH1(region: 'catalog' | 'cms' | 'order' | 'customer' | 'system', options?: any): AxiosPromise<string>;
+    addInventoryForSkuUsingPUT1(skuId: number, amount: number, fulfillmentLocationId?: number, options?: any): AxiosPromise<Array<UCInventoryWrapper>>;
     /**
      *
-     * @summary reindex
-     * @param {'catalog' | 'customer' | 'order' | 'fulfillment_order'} collection collection to be reindexed
+     * @summary addMediaToSku
+     * @param {number} skuId skuId
+     * @param {number} mediaId mediaId
+     * @param {string} [key] key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    reindexUsingPATCH1(collection: 'catalog' | 'customer' | 'order' | 'fulfillment_order', options?: any): AxiosPromise<string>;
+    addMediaToSkuUsingPUT1(skuId: number, mediaId: number, key?: string, options?: any): AxiosPromise<Array<UCMediaWrapper>>;
+    /**
+     *
+     * @summary addModifySkuAttributeForSku
+     * @param {number} skuId skuId
+     * @param {SimpleSkuAttributeWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModifySkuAttributeForSkuUsingPUT1(skuId: number, wrapper: SimpleSkuAttributeWrapper, options?: any): AxiosPromise<Array<SkuAttributeWrapper>>;
+    /**
+     *
+     * @summary findInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findInventoryForSkuUsingGET3(skuId: number, options?: any): AxiosPromise<Array<UCInventoryWrapper>>;
+    /**
+     *
+     * @summary findInventoryForSkus
+     * @param {Array<number>} ids ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findInventoryForSkusUsingGET1(ids: Array<number>, options?: any): AxiosPromise<Array<InventoryWrapper>>;
+    /**
+     *
+     * @summary findMediasForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMediasForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<UCMediaWrapper>>;
+    /**
+     *
+     * @summary findSkuAttributesForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): AxiosPromise<Array<SkuAttributeWrapper>>;
+    /**
+     *
+     * @summary findSkuById
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findSkuByIdUsingGET1(skuId: number, options?: any): AxiosPromise<UCSkuWrapper>;
+    /**
+     *
+     * @summary modifySkuById
+     * @param {number} skuId skuId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    modifySkuByIdUsingPATCH1(skuId: number, wrapper: SimpleSkuWrapper, options?: any): AxiosPromise<UCSkuWrapper>;
+    /**
+     *
+     * @summary removeInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} amount amount
+     * @param {number} [fulfillmentLocationId] fulfillmentLocationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeInventoryForSkuUsingDELETE1(skuId: number, amount: number, fulfillmentLocationId?: number, options?: any): AxiosPromise<Array<UCInventoryWrapper>>;
+    /**
+     *
+     * @summary removeMediaFromSku
+     * @param {number} skuId skuId
+     * @param {number} mediaId mediaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeMediaFromSkuUsingDELETE1(skuId: number, mediaId: number, options?: any): AxiosPromise<Array<UCMediaWrapper>>;
+    /**
+     *
+     * @summary removeSkuAttributeFromSku
+     * @param {number} skuId skuId
+     * @param {number} attributeId attributeId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeSkuAttributeFromSkuUsingDELETE1(skuId: number, attributeId: number, options?: any): AxiosPromise<Array<SkuAttributeWrapper>>;
+    /**
+     *
+     * @summary replaceSkuById
+     * @param {number} skuId skuId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    replaceSkuByIdUsingPUT1(skuId: number, wrapper: SimpleSkuWrapper, options?: any): AxiosPromise<UCSkuWrapper>;
 };
 /**
- * SystemEndpointApi - object-oriented interface
+ * SkuEndpointApi - object-oriented interface
  * @export
- * @class SystemEndpointApi
+ * @class SkuEndpointApi
  * @extends {BaseAPI}
  */
-export declare class SystemEndpointApi extends BaseAPI {
+export declare class SkuEndpointApi extends BaseAPI {
     /**
      *
-     * @summary invalidateCache
-     * @param {'catalog' | 'cms' | 'order' | 'customer' | 'system'} region region to be invalidated
+     * @summary addInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} amount amount
+     * @param {number} [fulfillmentLocationId] fulfillmentLocationId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SystemEndpointApi
+     * @memberof SkuEndpointApi
      */
-    invalidateCacheUsingPATCH1(region: 'catalog' | 'cms' | 'order' | 'customer' | 'system', options?: any): Promise<import("axios").AxiosResponse<string>>;
+    addInventoryForSkuUsingPUT1(skuId: number, amount: number, fulfillmentLocationId?: number, options?: any): Promise<import("axios").AxiosResponse<UCInventoryWrapper[]>>;
     /**
      *
-     * @summary reindex
-     * @param {'catalog' | 'customer' | 'order' | 'fulfillment_order'} collection collection to be reindexed
+     * @summary addMediaToSku
+     * @param {number} skuId skuId
+     * @param {number} mediaId mediaId
+     * @param {string} [key] key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SystemEndpointApi
+     * @memberof SkuEndpointApi
      */
-    reindexUsingPATCH1(collection: 'catalog' | 'customer' | 'order' | 'fulfillment_order', options?: any): Promise<import("axios").AxiosResponse<string>>;
+    addMediaToSkuUsingPUT1(skuId: number, mediaId: number, key?: string, options?: any): Promise<import("axios").AxiosResponse<UCMediaWrapper[]>>;
+    /**
+     *
+     * @summary addModifySkuAttributeForSku
+     * @param {number} skuId skuId
+     * @param {SimpleSkuAttributeWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    addModifySkuAttributeForSkuUsingPUT1(skuId: number, wrapper: SimpleSkuAttributeWrapper, options?: any): Promise<import("axios").AxiosResponse<SkuAttributeWrapper[]>>;
+    /**
+     *
+     * @summary findInventoryForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    findInventoryForSkuUsingGET3(skuId: number, options?: any): Promise<import("axios").AxiosResponse<UCInventoryWrapper[]>>;
+    /**
+     *
+     * @summary findInventoryForSkus
+     * @param {Array<number>} ids ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    findInventoryForSkusUsingGET1(ids: Array<number>, options?: any): Promise<import("axios").AxiosResponse<InventoryWrapper[]>>;
+    /**
+     *
+     * @summary findMediasForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    findMediasForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<UCMediaWrapper[]>>;
+    /**
+     *
+     * @summary findSkuAttributesForSku
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    findSkuAttributesForSkuUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<SkuAttributeWrapper[]>>;
+    /**
+     *
+     * @summary findSkuById
+     * @param {number} skuId skuId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    findSkuByIdUsingGET1(skuId: number, options?: any): Promise<import("axios").AxiosResponse<UCSkuWrapper>>;
+    /**
+     *
+     * @summary modifySkuById
+     * @param {number} skuId skuId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    modifySkuByIdUsingPATCH1(skuId: number, wrapper: SimpleSkuWrapper, options?: any): Promise<import("axios").AxiosResponse<UCSkuWrapper>>;
+    /**
+     *
+     * @summary removeInventoryForSku
+     * @param {number} skuId skuId
+     * @param {number} amount amount
+     * @param {number} [fulfillmentLocationId] fulfillmentLocationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    removeInventoryForSkuUsingDELETE1(skuId: number, amount: number, fulfillmentLocationId?: number, options?: any): Promise<import("axios").AxiosResponse<UCInventoryWrapper[]>>;
+    /**
+     *
+     * @summary removeMediaFromSku
+     * @param {number} skuId skuId
+     * @param {number} mediaId mediaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    removeMediaFromSkuUsingDELETE1(skuId: number, mediaId: number, options?: any): Promise<import("axios").AxiosResponse<UCMediaWrapper[]>>;
+    /**
+     *
+     * @summary removeSkuAttributeFromSku
+     * @param {number} skuId skuId
+     * @param {number} attributeId attributeId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    removeSkuAttributeFromSkuUsingDELETE1(skuId: number, attributeId: number, options?: any): Promise<import("axios").AxiosResponse<SkuAttributeWrapper[]>>;
+    /**
+     *
+     * @summary replaceSkuById
+     * @param {number} skuId skuId
+     * @param {SimpleSkuWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SkuEndpointApi
+     */
+    replaceSkuByIdUsingPUT1(skuId: number, wrapper: SimpleSkuWrapper, options?: any): Promise<import("axios").AxiosResponse<UCSkuWrapper>>;
 }
 /**
  * WebMvcLinksHandlerApi - axios parameter creator
