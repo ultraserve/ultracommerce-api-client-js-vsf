@@ -15,6 +15,25 @@ import { RequestArgs, BaseAPI } from './base';
 /**
  *
  * @export
+ * @interface AccountCredentials
+ */
+export interface AccountCredentials {
+    /**
+     *
+     * @type {string}
+     * @memberof AccountCredentials
+     */
+    password?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AccountCredentials
+     */
+    username?: string;
+}
+/**
+ *
+ * @export
  * @interface AddressWrapper
  */
 export interface AddressWrapper {
@@ -4307,53 +4326,53 @@ export interface WeightWrapper {
 export declare const BasicErrorControllerApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingDELETE1: (options?: any) => Promise<RequestArgs>;
+    errorUsingDELETE1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingGET1: (options?: any) => Promise<RequestArgs>;
+    errorUsingGET1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingHEAD1: (options?: any) => Promise<RequestArgs>;
+    errorUsingHEAD1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingOPTIONS1: (options?: any) => Promise<RequestArgs>;
+    errorUsingOPTIONS1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPATCH1: (options?: any) => Promise<RequestArgs>;
+    errorUsingPATCH1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPOST1: (options?: any) => Promise<RequestArgs>;
+    errorUsingPOST1: (options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPUT1: (options?: any) => Promise<RequestArgs>;
+    errorUsingPUT1: (options?: any) => Promise<RequestArgs>;
 };
 /**
  * BasicErrorControllerApi - functional programming interface
@@ -4362,53 +4381,67 @@ export declare const BasicErrorControllerApiAxiosParamCreator: (configuration?: 
 export declare const BasicErrorControllerApiFp: (configuration?: Configuration) => {
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingDELETE1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingDELETE1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingHEAD1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingHEAD1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingOPTIONS1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingOPTIONS1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPATCH1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingPATCH1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPOST1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingPOST1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPUT1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelAndView>>;
+    errorUsingPUT1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: object;
+    }>>;
 };
 /**
  * BasicErrorControllerApi - factory interface
@@ -4417,53 +4450,67 @@ export declare const BasicErrorControllerApiFp: (configuration?: Configuration) 
 export declare const BasicErrorControllerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingDELETE1(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingDELETE1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingGET1(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingGET1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingHEAD1(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingHEAD1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingOPTIONS1(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingOPTIONS1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPATCH1(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingPATCH1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPOST1(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingPOST1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    errorHtmlUsingPUT1(options?: any): AxiosPromise<ModelAndView>;
+    errorUsingPUT1(options?: any): AxiosPromise<{
+        [key: string]: object;
+    }>;
 };
 /**
  * BasicErrorControllerApi - object-oriented interface
@@ -4474,60 +4521,74 @@ export declare const BasicErrorControllerApiFactory: (configuration?: Configurat
 export declare class BasicErrorControllerApi extends BaseAPI {
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingDELETE1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingDELETE1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingGET1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingGET1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingHEAD1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingHEAD1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingOPTIONS1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingOPTIONS1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingPATCH1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingPATCH1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingPOST1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingPOST1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
     /**
      *
-     * @summary errorHtml
+     * @summary error
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BasicErrorControllerApi
      */
-    errorHtmlUsingPUT1(options?: any): Promise<import("axios").AxiosResponse<ModelAndView>>;
+    errorUsingPUT1(options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: object;
+    }>>;
 }
 /**
  * CartEndpointApi - axios parameter creator
@@ -7755,6 +7816,65 @@ export declare class InventoryEndpointApi extends BaseAPI {
      * @memberof InventoryEndpointApi
      */
     processNotificationUsingPOST1(notificationId: number, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
+}
+/**
+ * LoginEndpointApi - axios parameter creator
+ * @export
+ */
+export declare const LoginEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * This is the login method
+     * @summary login
+     * @param {AccountCredentials} userLogin Login Parameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    loginPost: (userLogin: AccountCredentials, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * LoginEndpointApi - functional programming interface
+ * @export
+ */
+export declare const LoginEndpointApiFp: (configuration?: Configuration) => {
+    /**
+     * This is the login method
+     * @summary login
+     * @param {AccountCredentials} userLogin Login Parameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    loginPost(userLogin: AccountCredentials, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+};
+/**
+ * LoginEndpointApi - factory interface
+ * @export
+ */
+export declare const LoginEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * This is the login method
+     * @summary login
+     * @param {AccountCredentials} userLogin Login Parameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    loginPost(userLogin: AccountCredentials, options?: any): AxiosPromise<void>;
+};
+/**
+ * LoginEndpointApi - object-oriented interface
+ * @export
+ * @class LoginEndpointApi
+ * @extends {BaseAPI}
+ */
+export declare class LoginEndpointApi extends BaseAPI {
+    /**
+     * This is the login method
+     * @summary login
+     * @param {AccountCredentials} userLogin Login Parameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof LoginEndpointApi
+     */
+    loginPost(userLogin: AccountCredentials, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * OperationHandlerApi - axios parameter creator
