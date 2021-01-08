@@ -7830,6 +7830,13 @@ export declare const LoginEndpointApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     loginPost: (userLogin: AccountCredentials, options?: any) => Promise<RequestArgs>;
+    /**
+     * Refresh your authentication token
+     * @summary refreshAuthToken
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    refreshAuthTokenPost: (options?: any) => Promise<RequestArgs>;
 };
 /**
  * LoginEndpointApi - functional programming interface
@@ -7844,6 +7851,13 @@ export declare const LoginEndpointApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     loginPost(userLogin: AccountCredentials, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Refresh your authentication token
+     * @summary refreshAuthToken
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    refreshAuthTokenPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * LoginEndpointApi - factory interface
@@ -7858,6 +7872,13 @@ export declare const LoginEndpointApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     loginPost(userLogin: AccountCredentials, options?: any): AxiosPromise<void>;
+    /**
+     * Refresh your authentication token
+     * @summary refreshAuthToken
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    refreshAuthTokenPost(options?: any): AxiosPromise<void>;
 };
 /**
  * LoginEndpointApi - object-oriented interface
@@ -7875,6 +7896,526 @@ export declare class LoginEndpointApi extends BaseAPI {
      * @memberof LoginEndpointApi
      */
     loginPost(userLogin: AccountCredentials, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Refresh your authentication token
+     * @summary refreshAuthToken
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof LoginEndpointApi
+     */
+    refreshAuthTokenPost(options?: any): Promise<import("axios").AxiosResponse<void>>;
+}
+/**
+ * MeEndpointApi - axios parameter creator
+ * @export
+ */
+export declare const MeEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary addItemToCart
+     * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {boolean} [isUpdateRequest] isUpdateRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addItemToCartUsingPOST1: (orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, isUpdateRequest?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addOfferCode
+     * @param {string} promoCode promoCode
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOfferCodeUsingPOST3: (promoCode: string, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addOrderPaymentTransaction
+     * @param {number} paymentId paymentId
+     * @param {PaymentTransactionWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOrderPaymentTransactionUsingPUT3: (paymentId: number, wrapper: PaymentTransactionWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addPaymentToOrderById
+     * @param {number} amount amount
+     * @param {string} currency currency
+     * @param {number} customerPaymentId customerPaymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderByIdUsingPOST3: (amount: number, currency: string, customerPaymentId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addPaymentToOrder
+     * @param {OrderPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderUsingPOST3: (wrapper: OrderPaymentWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findCart
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCartUsingGET1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findMe
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMeUsingGET1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findPaymentsForOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPaymentsForOrderUsingGET3: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary performCheckout
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    performCheckoutUsingPOST3: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeAllOfferCodes
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAllOfferCodesUsingDELETE3: (priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeItemFromOrder
+     * @param {number} itemId itemId
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeItemFromOrderUsingDELETE3: (itemId: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeOfferCode
+     * @param {string} promoCode promoCode
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeOfferCodeUsingDELETE3: (promoCode: string, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removePaymentFromOrderById
+     * @param {number} paymentId paymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePaymentFromOrderByIdUsingDELETE3: (paymentId: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary updateItemQuantity
+     * @param {number} itemId itemId
+     * @param {number} quantity quantity
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateItemQuantityUsingPUT3: (itemId: number, quantity: number, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * MeEndpointApi - functional programming interface
+ * @export
+ */
+export declare const MeEndpointApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary addItemToCart
+     * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {boolean} [isUpdateRequest] isUpdateRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addItemToCartUsingPOST1(orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, isUpdateRequest?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary addOfferCode
+     * @param {string} promoCode promoCode
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOfferCodeUsingPOST3(promoCode: string, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary addOrderPaymentTransaction
+     * @param {number} paymentId paymentId
+     * @param {PaymentTransactionWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOrderPaymentTransactionUsingPUT3(paymentId: number, wrapper: PaymentTransactionWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary addPaymentToOrderById
+     * @param {number} amount amount
+     * @param {string} currency currency
+     * @param {number} customerPaymentId customerPaymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderByIdUsingPOST3(amount: number, currency: string, customerPaymentId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary addPaymentToOrder
+     * @param {OrderPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderUsingPOST3(wrapper: OrderPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary findCart
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCartUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary findMe
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMeUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    /**
+     *
+     * @summary findPaymentsForOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPaymentsForOrderUsingGET3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrderPaymentWrapper>>>;
+    /**
+     *
+     * @summary performCheckout
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    performCheckoutUsingPOST3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary removeAllOfferCodes
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAllOfferCodesUsingDELETE3(priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary removeItemFromOrder
+     * @param {number} itemId itemId
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeItemFromOrderUsingDELETE3(itemId: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary removeOfferCode
+     * @param {string} promoCode promoCode
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeOfferCodeUsingDELETE3(promoCode: string, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary removePaymentFromOrderById
+     * @param {number} paymentId paymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary updateItemQuantity
+     * @param {number} itemId itemId
+     * @param {number} quantity quantity
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateItemQuantityUsingPUT3(itemId: number, quantity: number, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+};
+/**
+ * MeEndpointApi - factory interface
+ * @export
+ */
+export declare const MeEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary addItemToCart
+     * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {boolean} [isUpdateRequest] isUpdateRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addItemToCartUsingPOST1(orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, isUpdateRequest?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary addOfferCode
+     * @param {string} promoCode promoCode
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOfferCodeUsingPOST3(promoCode: string, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary addOrderPaymentTransaction
+     * @param {number} paymentId paymentId
+     * @param {PaymentTransactionWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addOrderPaymentTransactionUsingPUT3(paymentId: number, wrapper: PaymentTransactionWrapper, options?: any): AxiosPromise<OrderPaymentWrapper>;
+    /**
+     *
+     * @summary addPaymentToOrderById
+     * @param {number} amount amount
+     * @param {string} currency currency
+     * @param {number} customerPaymentId customerPaymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderByIdUsingPOST3(amount: number, currency: string, customerPaymentId: number, options?: any): AxiosPromise<OrderPaymentWrapper>;
+    /**
+     *
+     * @summary addPaymentToOrder
+     * @param {OrderPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addPaymentToOrderUsingPOST3(wrapper: OrderPaymentWrapper, options?: any): AxiosPromise<OrderPaymentWrapper>;
+    /**
+     *
+     * @summary findCart
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCartUsingGET1(options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary findMe
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findMeUsingGET1(options?: any): AxiosPromise<CustomerWrapper>;
+    /**
+     *
+     * @summary findPaymentsForOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findPaymentsForOrderUsingGET3(options?: any): AxiosPromise<Array<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary performCheckout
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    performCheckoutUsingPOST3(options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary removeAllOfferCodes
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAllOfferCodesUsingDELETE3(priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary removeItemFromOrder
+     * @param {number} itemId itemId
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeItemFromOrderUsingDELETE3(itemId: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary removeOfferCode
+     * @param {string} promoCode promoCode
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeOfferCodeUsingDELETE3(promoCode: string, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary removePaymentFromOrderById
+     * @param {number} paymentId paymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary updateItemQuantity
+     * @param {number} itemId itemId
+     * @param {number} quantity quantity
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateItemQuantityUsingPUT3(itemId: number, quantity: number, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
+};
+/**
+ * MeEndpointApi - object-oriented interface
+ * @export
+ * @class MeEndpointApi
+ * @extends {BaseAPI}
+ */
+export declare class MeEndpointApi extends BaseAPI {
+    /**
+     *
+     * @summary addItemToCart
+     * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {boolean} [isUpdateRequest] isUpdateRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    addItemToCartUsingPOST1(orderItemWrapper: OrderItemWrapper, priceOrder?: boolean, isUpdateRequest?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary addOfferCode
+     * @param {string} promoCode promoCode
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    addOfferCodeUsingPOST3(promoCode: string, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary addOrderPaymentTransaction
+     * @param {number} paymentId paymentId
+     * @param {PaymentTransactionWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    addOrderPaymentTransactionUsingPUT3(paymentId: number, wrapper: PaymentTransactionWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary addPaymentToOrderById
+     * @param {number} amount amount
+     * @param {string} currency currency
+     * @param {number} customerPaymentId customerPaymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    addPaymentToOrderByIdUsingPOST3(amount: number, currency: string, customerPaymentId: number, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary addPaymentToOrder
+     * @param {OrderPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    addPaymentToOrderUsingPOST3(wrapper: OrderPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
+    /**
+     *
+     * @summary findCart
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    findCartUsingGET1(options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary findMe
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    findMeUsingGET1(options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    /**
+     *
+     * @summary findPaymentsForOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    findPaymentsForOrderUsingGET3(options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper[]>>;
+    /**
+     *
+     * @summary performCheckout
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    performCheckoutUsingPOST3(options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary removeAllOfferCodes
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    removeAllOfferCodesUsingDELETE3(priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary removeItemFromOrder
+     * @param {number} itemId itemId
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    removeItemFromOrderUsingDELETE3(itemId: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary removeOfferCode
+     * @param {string} promoCode promoCode
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    removeOfferCodeUsingDELETE3(promoCode: string, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary removePaymentFromOrderById
+     * @param {number} paymentId paymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary updateItemQuantity
+     * @param {number} itemId itemId
+     * @param {number} quantity quantity
+     * @param {boolean} [priceOrder] priceOrder
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    updateItemQuantityUsingPUT3(itemId: number, quantity: number, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
 }
 /**
  * OperationHandlerApi - axios parameter creator
