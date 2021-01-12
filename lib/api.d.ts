@@ -7912,6 +7912,22 @@ export declare class LoginEndpointApi extends BaseAPI {
 export declare const MeEndpointApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
+     * @summary addAddress
+     * @param {CustomerAddressWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAddressUsingPUT3: (wrapper: CustomerAddressWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary addCustomerPayment
+     * @param {CustomerPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCustomerPaymentUsingPOST3: (wrapper: CustomerPaymentWrapper, options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary addItemToCart
      * @param {OrderItemWrapper} orderItemWrapper orderItemWrapper
      * @param {boolean} [priceOrder] priceOrder
@@ -7958,11 +7974,49 @@ export declare const MeEndpointApiAxiosParamCreator: (configuration?: Configurat
     addPaymentToOrderUsingPOST3: (wrapper: OrderPaymentWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
+     * @summary changePassword
+     * @param {ChangePasswordForm} changePasswordForm changePasswordForm
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    changePasswordUsingPOST3: (changePasswordForm: ChangePasswordForm, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAddress
+     * @param {string} addressName addressName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAddressUsingGET3: (addressName: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAllAddresses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllAddressesUsingGET3: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findAllCustomerPayments
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllCustomerPaymentsUsingGET3: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary findCart
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     findCartUsingGET1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary findCustomerPayment
+     * @param {number} paymentId paymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCustomerPaymentUsingGET3: (paymentId: number, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary findMe
@@ -7984,6 +8038,21 @@ export declare const MeEndpointApiAxiosParamCreator: (configuration?: Configurat
      * @throws {RequiredError}
      */
     performCheckoutUsingPOST3: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeAddress
+     * @param {string} addressName addressName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAddressUsingDELETE3: (addressName: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary removeAllAddresses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAllAddressesUsingDELETE3: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary removeAllOfferCodes
@@ -8012,12 +8081,13 @@ export declare const MeEndpointApiAxiosParamCreator: (configuration?: Configurat
     removeOfferCodeUsingDELETE3: (promoCode: string, priceOrder?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary removePaymentFromOrderById
-     * @param {number} paymentId paymentId
+     * @summary updateAddress
+     * @param {number} addressId addressId
+     * @param {CustomerAddressWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePaymentFromOrderByIdUsingDELETE3: (paymentId: number, options?: any) => Promise<RequestArgs>;
+    updateAddressUsingPUT3: (addressId: number, wrapper: CustomerAddressWrapper, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary updateItemQuantity
@@ -8034,6 +8104,22 @@ export declare const MeEndpointApiAxiosParamCreator: (configuration?: Configurat
  * @export
  */
 export declare const MeEndpointApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary addAddress
+     * @param {CustomerAddressWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAddressUsingPUT3(wrapper: CustomerAddressWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
+    /**
+     *
+     * @summary addCustomerPayment
+     * @param {CustomerPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCustomerPaymentUsingPOST3(wrapper: CustomerPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPaymentWrapper>>;
     /**
      *
      * @summary addItemToCart
@@ -8082,11 +8168,49 @@ export declare const MeEndpointApiFp: (configuration?: Configuration) => {
     addPaymentToOrderUsingPOST3(wrapper: OrderPaymentWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderPaymentWrapper>>;
     /**
      *
+     * @summary changePassword
+     * @param {ChangePasswordForm} changePasswordForm changePasswordForm
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    changePasswordUsingPOST3(changePasswordForm: ChangePasswordForm, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
+    /**
+     *
+     * @summary findAddress
+     * @param {string} addressName addressName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAddressUsingGET3(addressName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
+    /**
+     *
+     * @summary findAllAddresses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllAddressesUsingGET3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerAddressWrapper>>>;
+    /**
+     *
+     * @summary findAllCustomerPayments
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllCustomerPaymentsUsingGET3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerPaymentWrapper>>>;
+    /**
+     *
      * @summary findCart
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     findCartUsingGET1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary findCustomerPayment
+     * @param {number} paymentId paymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCustomerPaymentUsingGET3(paymentId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPaymentWrapper>>;
     /**
      *
      * @summary findMe
@@ -8108,6 +8232,21 @@ export declare const MeEndpointApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     performCheckoutUsingPOST3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    /**
+     *
+     * @summary removeAddress
+     * @param {string} addressName addressName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAddressUsingDELETE3(addressName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CustomerAddressWrapper>>>;
+    /**
+     *
+     * @summary removeAllAddresses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAllAddressesUsingDELETE3(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerWrapper>>;
     /**
      *
      * @summary removeAllOfferCodes
@@ -8136,12 +8275,13 @@ export declare const MeEndpointApiFp: (configuration?: Configuration) => {
     removeOfferCodeUsingDELETE3(promoCode: string, priceOrder?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
     /**
      *
-     * @summary removePaymentFromOrderById
-     * @param {number} paymentId paymentId
+     * @summary updateAddress
+     * @param {number} addressId addressId
+     * @param {CustomerAddressWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrderWrapper>>;
+    updateAddressUsingPUT3(addressId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerAddressWrapper>>;
     /**
      *
      * @summary updateItemQuantity
@@ -8158,6 +8298,22 @@ export declare const MeEndpointApiFp: (configuration?: Configuration) => {
  * @export
  */
 export declare const MeEndpointApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary addAddress
+     * @param {CustomerAddressWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAddressUsingPUT3(wrapper: CustomerAddressWrapper, options?: any): AxiosPromise<CustomerAddressWrapper>;
+    /**
+     *
+     * @summary addCustomerPayment
+     * @param {CustomerPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCustomerPaymentUsingPOST3(wrapper: CustomerPaymentWrapper, options?: any): AxiosPromise<CustomerPaymentWrapper>;
     /**
      *
      * @summary addItemToCart
@@ -8206,11 +8362,49 @@ export declare const MeEndpointApiFactory: (configuration?: Configuration, baseP
     addPaymentToOrderUsingPOST3(wrapper: OrderPaymentWrapper, options?: any): AxiosPromise<OrderPaymentWrapper>;
     /**
      *
+     * @summary changePassword
+     * @param {ChangePasswordForm} changePasswordForm changePasswordForm
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    changePasswordUsingPOST3(changePasswordForm: ChangePasswordForm, options?: any): AxiosPromise<CustomerWrapper>;
+    /**
+     *
+     * @summary findAddress
+     * @param {string} addressName addressName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAddressUsingGET3(addressName: string, options?: any): AxiosPromise<CustomerAddressWrapper>;
+    /**
+     *
+     * @summary findAllAddresses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllAddressesUsingGET3(options?: any): AxiosPromise<Array<CustomerAddressWrapper>>;
+    /**
+     *
+     * @summary findAllCustomerPayments
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findAllCustomerPaymentsUsingGET3(options?: any): AxiosPromise<Array<CustomerPaymentWrapper>>;
+    /**
+     *
      * @summary findCart
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     findCartUsingGET1(options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary findCustomerPayment
+     * @param {number} paymentId paymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findCustomerPaymentUsingGET3(paymentId: number, options?: any): AxiosPromise<CustomerPaymentWrapper>;
     /**
      *
      * @summary findMe
@@ -8232,6 +8426,21 @@ export declare const MeEndpointApiFactory: (configuration?: Configuration, baseP
      * @throws {RequiredError}
      */
     performCheckoutUsingPOST3(options?: any): AxiosPromise<OrderWrapper>;
+    /**
+     *
+     * @summary removeAddress
+     * @param {string} addressName addressName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAddressUsingDELETE3(addressName: string, options?: any): AxiosPromise<Array<CustomerAddressWrapper>>;
+    /**
+     *
+     * @summary removeAllAddresses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAllAddressesUsingDELETE3(options?: any): AxiosPromise<CustomerWrapper>;
     /**
      *
      * @summary removeAllOfferCodes
@@ -8260,12 +8469,13 @@ export declare const MeEndpointApiFactory: (configuration?: Configuration, baseP
     removeOfferCodeUsingDELETE3(promoCode: string, priceOrder?: boolean, options?: any): AxiosPromise<OrderWrapper>;
     /**
      *
-     * @summary removePaymentFromOrderById
-     * @param {number} paymentId paymentId
+     * @summary updateAddress
+     * @param {number} addressId addressId
+     * @param {CustomerAddressWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, options?: any): AxiosPromise<OrderWrapper>;
+    updateAddressUsingPUT3(addressId: number, wrapper: CustomerAddressWrapper, options?: any): AxiosPromise<CustomerAddressWrapper>;
     /**
      *
      * @summary updateItemQuantity
@@ -8284,6 +8494,24 @@ export declare const MeEndpointApiFactory: (configuration?: Configuration, baseP
  * @extends {BaseAPI}
  */
 export declare class MeEndpointApi extends BaseAPI {
+    /**
+     *
+     * @summary addAddress
+     * @param {CustomerAddressWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    addAddressUsingPUT3(wrapper: CustomerAddressWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
+    /**
+     *
+     * @summary addCustomerPayment
+     * @param {CustomerPaymentWrapper} wrapper wrapper
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    addCustomerPaymentUsingPOST3(wrapper: CustomerPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper>>;
     /**
      *
      * @summary addItemToCart
@@ -8337,12 +8565,55 @@ export declare class MeEndpointApi extends BaseAPI {
     addPaymentToOrderUsingPOST3(wrapper: OrderPaymentWrapper, options?: any): Promise<import("axios").AxiosResponse<OrderPaymentWrapper>>;
     /**
      *
+     * @summary changePassword
+     * @param {ChangePasswordForm} changePasswordForm changePasswordForm
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    changePasswordUsingPOST3(changePasswordForm: ChangePasswordForm, options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
+    /**
+     *
+     * @summary findAddress
+     * @param {string} addressName addressName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    findAddressUsingGET3(addressName: string, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
+    /**
+     *
+     * @summary findAllAddresses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    findAllAddressesUsingGET3(options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper[]>>;
+    /**
+     *
+     * @summary findAllCustomerPayments
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    findAllCustomerPaymentsUsingGET3(options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper[]>>;
+    /**
+     *
      * @summary findCart
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MeEndpointApi
      */
     findCartUsingGET1(options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary findCustomerPayment
+     * @param {number} paymentId paymentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    findCustomerPaymentUsingGET3(paymentId: number, options?: any): Promise<import("axios").AxiosResponse<CustomerPaymentWrapper>>;
     /**
      *
      * @summary findMe
@@ -8367,6 +8638,23 @@ export declare class MeEndpointApi extends BaseAPI {
      * @memberof MeEndpointApi
      */
     performCheckoutUsingPOST3(options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    /**
+     *
+     * @summary removeAddress
+     * @param {string} addressName addressName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    removeAddressUsingDELETE3(addressName: string, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper[]>>;
+    /**
+     *
+     * @summary removeAllAddresses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeEndpointApi
+     */
+    removeAllAddressesUsingDELETE3(options?: any): Promise<import("axios").AxiosResponse<CustomerWrapper>>;
     /**
      *
      * @summary removeAllOfferCodes
@@ -8398,13 +8686,14 @@ export declare class MeEndpointApi extends BaseAPI {
     removeOfferCodeUsingDELETE3(promoCode: string, priceOrder?: boolean, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
     /**
      *
-     * @summary removePaymentFromOrderById
-     * @param {number} paymentId paymentId
+     * @summary updateAddress
+     * @param {number} addressId addressId
+     * @param {CustomerAddressWrapper} wrapper wrapper
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MeEndpointApi
      */
-    removePaymentFromOrderByIdUsingDELETE3(paymentId: number, options?: any): Promise<import("axios").AxiosResponse<OrderWrapper>>;
+    updateAddressUsingPUT3(addressId: number, wrapper: CustomerAddressWrapper, options?: any): Promise<import("axios").AxiosResponse<CustomerAddressWrapper>>;
     /**
      *
      * @summary updateItemQuantity
